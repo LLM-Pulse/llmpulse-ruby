@@ -12,9 +12,11 @@
 | **matching_names** | **Array&lt;String&gt;** |  | [optional] |
 | **industry** | **String** |  | [optional] |
 | **business_model** | **String** |  | [optional] |
-| **primary_products** | **String** |  | [optional] |
+| **business_model_other** | **String** | Set only when business_model is OTHER | [optional] |
+| **primary_products** | **Array&lt;String&gt;** |  | [optional] |
 | **target_audience** | **String** |  | [optional] |
 | **brand_voice** | **String** |  | [optional] |
+| **goals** | **String** |  | [optional] |
 | **country_code** | **String** |  | [optional] |
 | **language_code** | **String** |  | [optional] |
 | **paused** | **Boolean** |  | [optional] |
@@ -37,9 +39,11 @@ instance = LLMPulse::ProjectDetails.new(
   matching_names: null,
   industry: null,
   business_model: null,
+  business_model_other: null,
   primary_products: null,
   target_audience: null,
   brand_voice: null,
+  goals: null,
   country_code: null,
   language_code: null,
   paused: null,

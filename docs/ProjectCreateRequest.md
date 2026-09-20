@@ -11,6 +11,12 @@
 | **brand_name** | **String** |  | [optional] |
 | **description** | **String** |  | [optional] |
 | **industry** | **Array&lt;String&gt;** |  | [optional] |
+| **business_model** | **String** | Business model key (e.g. B2B_SAAS, MARKETPLACE); unknown keys are rejected | [optional] |
+| **business_model_other** | **String** | Free-text business model, only accepted when business_model is OTHER; rejected against any other key | [optional] |
+| **target_audience** | **String** | Who the brand sells to. Context for Recommendations and GEO Writer (Brand Book) | [optional] |
+| **brand_voice** | **String** | Tone of voice guidance for generated content (Brand Book) | [optional] |
+| **goals** | **String** | What the brand wants to achieve. Context for GEO Writer and prompt suggestions | [optional] |
+| **primary_products** | **Array&lt;String&gt;** | Main products or services | [optional] |
 | **matching_names** | **Array&lt;String&gt;** |  | [optional] |
 | **prompts** | **Array&lt;String&gt;** |  | [optional] |
 | **competitors** | [**Array&lt;ProjectCreateRequestCompetitorsInner&gt;**](ProjectCreateRequestCompetitorsInner.md) |  | [optional] |
@@ -33,6 +39,12 @@ instance = LLMPulse::ProjectCreateRequest.new(
   brand_name: null,
   description: null,
   industry: [&quot;SAAS&quot;],
+  business_model: B2B_SAAS,
+  business_model_other: null,
+  target_audience: null,
+  brand_voice: null,
+  goals: null,
+  primary_products: null,
   matching_names: null,
   prompts: null,
   competitors: null,

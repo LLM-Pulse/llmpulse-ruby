@@ -22,6 +22,8 @@
 | **estimated_time** | **String** |  | [optional] |
 | **created_at** | **Time** |  | [optional] |
 | **processed_at** | **Time** |  | [optional] |
+| **manually_edited_at** | **Time** | When the content was last edited by hand; null while the output is as generated | [optional] |
+| **edited_by_user_id** | **Integer** | User behind the last manual edit; null for an unedited task or an edit made from an embedded portal | [optional] |
 | **request_id** | **String** |  | [optional] |
 
 ## Example
@@ -48,6 +50,8 @@ instance = LLMPulse::IntelligenceTask.new(
   estimated_time: null,
   created_at: null,
   processed_at: null,
+  manually_edited_at: null,
+  edited_by_user_id: null,
   request_id: null
 )
 ```
