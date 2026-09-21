@@ -106,7 +106,7 @@ api_instance = LLMPulse::AnswersApi.new
 project_id = 56 # Integer | Project ID
 opts = {
   model: 'chatgpt', # String | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-  collection_id: nil, # GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+  collection_id: '12,34', # String | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   prompt: 56, # Integer | Filter by prompt ID
@@ -153,7 +153,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
 | **model** | **String** | Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**GetTimeseriesCollectionIdParameter**](.md) | One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **String** | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt** | **Integer** | Filter by prompt ID | [optional] |

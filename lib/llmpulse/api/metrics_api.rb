@@ -28,7 +28,7 @@ module LLMPulse
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :breakdown Add per-(prompt, model) rows to the output
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -54,7 +54,7 @@ module LLMPulse
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :breakdown Add per-(prompt, model) rows to the output
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -82,6 +82,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MetricsApi.get_prompt_summary, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"
@@ -177,7 +182,7 @@ module LLMPulse
     # @option opts [String] :granularity 
     # @option opts [String] :competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
     # @option opts [String] :brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -199,7 +204,7 @@ module LLMPulse
     # @option opts [String] :granularity 
     # @option opts [String] :competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
     # @option opts [String] :brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -222,6 +227,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MetricsApi.get_share_of_voice, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"
@@ -298,7 +308,7 @@ module LLMPulse
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
     # @option opts [String] :brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -320,7 +330,7 @@ module LLMPulse
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
     # @option opts [String] :brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -342,6 +352,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MetricsApi.get_summary, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"
@@ -414,7 +429,7 @@ module LLMPulse
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -439,7 +454,7 @@ module LLMPulse
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :competitors Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -464,6 +479,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MetricsApi.get_timeseries, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"
@@ -536,7 +556,7 @@ module LLMPulse
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -561,7 +581,7 @@ module LLMPulse
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -585,6 +605,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MetricsApi.get_top_sources, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"

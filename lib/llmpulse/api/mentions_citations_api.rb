@@ -27,7 +27,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
@@ -46,7 +46,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
@@ -76,6 +76,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MentionsCitationsApi.list_all_citations, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["flat", "csv"]
       if @api_client.config.client_side_validation && opts[:'output'] && !allowable_values.include?(opts[:'output'])
         fail ArgumentError, "invalid value for \"output\", must be one of #{allowable_values}"
@@ -136,7 +141,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
@@ -155,7 +160,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
@@ -185,6 +190,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MentionsCitationsApi.list_all_mentions, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["flat", "csv"]
       if @api_client.config.client_side_validation && opts[:'output'] && !allowable_values.include?(opts[:'output'])
         fail ArgumentError, "invalid value for \"output\", must be one of #{allowable_values}"
@@ -244,7 +254,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -264,7 +274,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -296,6 +306,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MentionsCitationsApi.list_citations, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["flat", "csv"]
       if @api_client.config.client_side_validation && opts[:'output'] && !allowable_values.include?(opts[:'output'])
         fail ArgumentError, "invalid value for \"output\", must be one of #{allowable_values}"
@@ -357,7 +372,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
@@ -376,7 +391,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
@@ -406,6 +421,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MentionsCitationsApi.list_competitor_citations, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["flat", "csv"]
       if @api_client.config.client_side_validation && opts[:'output'] && !allowable_values.include?(opts[:'output'])
         fail ArgumentError, "invalid value for \"output\", must be one of #{allowable_values}"
@@ -465,7 +485,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
@@ -483,7 +503,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [Integer] :prompt Filter by prompt ID
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
@@ -513,6 +533,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MentionsCitationsApi.list_competitor_mentions, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["flat", "csv"]
       if @api_client.config.client_side_validation && opts[:'output'] && !allowable_values.include?(opts[:'output'])
         fail ArgumentError, "invalid value for \"output\", must be one of #{allowable_values}"
@@ -571,7 +596,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -590,7 +615,7 @@ module LLMPulse
     # @option opts [Integer] :page  (default to 1)
     # @option opts [Integer] :per_page  (default to 20)
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -622,6 +647,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling MentionsCitationsApi.list_mentions, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["flat", "csv"]
       if @api_client.config.client_side_validation && opts[:'output'] && !allowable_values.include?(opts[:'output'])
         fail ArgumentError, "invalid value for \"output\", must be one of #{allowable_values}"

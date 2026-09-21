@@ -97,7 +97,7 @@ module LLMPulse
     # @param project_id [Integer] Project ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -121,7 +121,7 @@ module LLMPulse
     # @param project_id [Integer] Project ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -147,6 +147,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling AnswersApi.list_answers, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["mentions_you", "not_mentions_you", "mentions_competitor", "not_mentions_competitor", "you_and_competitor", "competitor_not_you", "you_not_competitor", "no_brands"]
       if @api_client.config.client_side_validation && opts[:'mention_filter'] && !allowable_values.include?(opts[:'mention_filter'])
         fail ArgumentError, "invalid value for \"mention_filter\", must be one of #{allowable_values}"

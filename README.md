@@ -213,7 +213,6 @@ Class | Method | HTTP request | Description
  - [LLMPulse::GetAccount200ResponseLimits](docs/GetAccount200ResponseLimits.md)
  - [LLMPulse::GetAccount200ResponseRateLimits](docs/GetAccount200ResponseRateLimits.md)
  - [LLMPulse::GetAccount200ResponseSubscription](docs/GetAccount200ResponseSubscription.md)
- - [LLMPulse::GetTimeseriesCollectionIdParameter](docs/GetTimeseriesCollectionIdParameter.md)
  - [LLMPulse::IntelligenceTask](docs/IntelligenceTask.md)
  - [LLMPulse::IntelligenceTaskCreateRequest](docs/IntelligenceTaskCreateRequest.md)
  - [LLMPulse::IntelligenceTaskUpdateRequest](docs/IntelligenceTaskUpdateRequest.md)

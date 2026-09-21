@@ -30,7 +30,7 @@ module LLMPulse
     # @option opts [String] :store provider&#x3D;mobile_apps only (default to 'google_play')
     # @option opts [Boolean] :owned Return only rows belonging to the account&#39;s own connected profile
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -55,7 +55,7 @@ module LLMPulse
     # @option opts [String] :store provider&#x3D;mobile_apps only (default to 'google_play')
     # @option opts [Boolean] :owned Return only rows belonging to the account&#39;s own connected profile
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -105,6 +105,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling OwnedMediaCommunitiesApi.list_owned_media, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"
@@ -184,7 +189,7 @@ module LLMPulse
     # @option opts [String] :order Sort field; the allowed set depends on view
     # @option opts [String] :direction  (default to 'desc')
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -213,7 +218,7 @@ module LLMPulse
     # @option opts [String] :order Sort field; the allowed set depends on view
     # @option opts [String] :direction  (default to 'desc')
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :brand_kind Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -262,6 +267,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling OwnedMediaCommunitiesApi.list_reddit_citations, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"

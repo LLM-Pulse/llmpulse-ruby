@@ -95,7 +95,7 @@ module LLMPulse
     # @option opts [Boolean] :brand_only 
     # @option opts [String] :analysis One sentiment level or a comma-separated list: very_positive, positive, neutral, negative, very_negative
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Time] :from 
@@ -115,7 +115,7 @@ module LLMPulse
     # @option opts [Boolean] :brand_only 
     # @option opts [String] :analysis One sentiment level or a comma-separated list: very_positive, positive, neutral, negative, very_negative
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Time] :from 
@@ -135,6 +135,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling SentimentsApi.list_sentiment_records, must conform to the pattern #{pattern}."
+      end
+
       if @api_client.config.client_side_validation && !opts[:'page'].nil? && opts[:'page'] < 1
         fail ArgumentError, 'invalid value for "opts[:"page"]" when calling SentimentsApi.list_sentiment_records, must be greater than or equal to 1.'
       end

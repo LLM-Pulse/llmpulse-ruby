@@ -35,7 +35,7 @@ opts = {
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   granularity: 'day', # String | 
-  collection_id: nil, # GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+  collection_id: '12,34', # String | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   prompt_type: 'prompt_type_example', # String | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -78,7 +78,7 @@ end
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **granularity** | **String** |  | [optional] |
-| **collection_id** | [**GetTimeseriesCollectionIdParameter**](.md) | One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **String** | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt_type** | **String** | One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
@@ -123,7 +123,7 @@ opts = {
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   granularity: 'day', # String | 
-  collection_id: nil, # GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+  collection_id: '12,34', # String | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   prompt_type: 'prompt_type_example', # String | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -168,7 +168,7 @@ end
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **granularity** | **String** |  | [optional] |
-| **collection_id** | [**GetTimeseriesCollectionIdParameter**](.md) | One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **String** | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt_type** | **String** | One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
@@ -215,7 +215,7 @@ opts = {
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   granularity: 'day', # String | 
-  collection_id: nil, # GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+  collection_id: '12,34', # String | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   prompt_type: 'prompt_type_example', # String | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -259,7 +259,7 @@ end
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **granularity** | **String** |  | [optional] |
-| **collection_id** | [**GetTimeseriesCollectionIdParameter**](.md) | One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **String** | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt_type** | **String** | One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |

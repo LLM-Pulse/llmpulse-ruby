@@ -31,7 +31,7 @@ module LLMPulse
     # @option opts [String] :direction Sort direction for view&#x3D;advertisers. Defaults to desc, except avg_position and domain which default to asc.
     # @option opts [String] :query Case-insensitive substring filter on the ad title, domain or snippet
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -59,7 +59,7 @@ module LLMPulse
     # @option opts [String] :direction Sort direction for view&#x3D;advertisers. Defaults to desc, except avg_position and domain which default to asc.
     # @option opts [String] :query Case-insensitive substring filter on the ad title, domain or snippet
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -106,6 +106,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling ShoppingAdsApi.list_ads, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"
@@ -185,7 +190,7 @@ module LLMPulse
     # @option opts [String] :direction  (default to 'desc')
     # @option opts [String] :query Case-insensitive substring filter on the product title
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -213,7 +218,7 @@ module LLMPulse
     # @option opts [String] :direction  (default to 'desc')
     # @option opts [String] :query Case-insensitive substring filter on the product title
     # @option opts [String] :model Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped.
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [Integer] :prompt Filter by prompt ID
@@ -260,6 +265,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'model'] && !allowable_values.include?(opts[:'model'])
         fail ArgumentError, "invalid value for \"model\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling ShoppingAdsApi.list_shopping, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"

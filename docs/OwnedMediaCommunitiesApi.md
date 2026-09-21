@@ -37,7 +37,7 @@ opts = {
   store: 'google_play', # String | provider=mobile_apps only
   owned: true, # Boolean | Return only rows belonging to the account's own connected profile
   model: 'chatgpt', # String | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-  collection_id: nil, # GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+  collection_id: '12,34', # String | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   brand_kind: 'brand', # String | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -85,7 +85,7 @@ end
 | **store** | **String** | provider&#x3D;mobile_apps only | [optional][default to &#39;google_play&#39;] |
 | **owned** | **Boolean** | Return only rows belonging to the account&#39;s own connected profile | [optional] |
 | **model** | **String** | Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**GetTimeseriesCollectionIdParameter**](.md) | One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **String** | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **brand_kind** | **String** | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
@@ -141,7 +141,7 @@ opts = {
   order: 'citations', # String | Sort field; the allowed set depends on view
   direction: 'asc', # String | 
   model: 'chatgpt', # String | Filter by AI model. Models the API key's user has not enabled are silently dropped.
-  collection_id: nil, # GetTimeseriesCollectionIdParameter | One collection/tag ID or a comma-separated list of IDs
+  collection_id: '12,34', # String | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   brand_kind: 'brand', # String | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
@@ -193,7 +193,7 @@ end
 | **order** | **String** | Sort field; the allowed set depends on view | [optional] |
 | **direction** | **String** |  | [optional][default to &#39;desc&#39;] |
 | **model** | **String** | Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
-| **collection_id** | [**GetTimeseriesCollectionIdParameter**](.md) | One collection/tag ID or a comma-separated list of IDs | [optional] |
+| **collection_id** | **String** | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **brand_kind** | **String** | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |

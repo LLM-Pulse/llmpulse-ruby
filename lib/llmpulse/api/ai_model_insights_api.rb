@@ -27,7 +27,7 @@ module LLMPulse
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :granularity 
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -47,7 +47,7 @@ module LLMPulse
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :granularity 
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -66,6 +66,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'granularity'] && !allowable_values.include?(opts[:'granularity'])
         fail ArgumentError, "invalid value for \"granularity\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling AIModelInsightsApi.get_ai_model_insights_summary, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"
@@ -126,7 +131,7 @@ module LLMPulse
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :granularity 
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -147,7 +152,7 @@ module LLMPulse
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :granularity 
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -168,6 +173,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'granularity'] && !allowable_values.include?(opts[:'granularity'])
         fail ArgumentError, "invalid value for \"granularity\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling AIModelInsightsApi.get_ai_model_position_distribution, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"
@@ -234,7 +244,7 @@ module LLMPulse
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :granularity 
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -254,7 +264,7 @@ module LLMPulse
     # @option opts [Time] :from 
     # @option opts [Time] :to End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
     # @option opts [String] :granularity 
-    # @option opts [GetTimeseriesCollectionIdParameter] :collection_id One collection/tag ID or a comma-separated list of IDs
+    # @option opts [String] :collection_id One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
     # @option opts [String] :country_code One ISO country code or a comma-separated list (e.g. US,GB,DE)
     # @option opts [String] :language_code One ISO language code or a comma-separated list (e.g. en,es,de)
     # @option opts [String] :prompt_type One prompt type or a comma-separated list: informational, navigational, commercial, transactional
@@ -274,6 +284,11 @@ module LLMPulse
       if @api_client.config.client_side_validation && opts[:'granularity'] && !allowable_values.include?(opts[:'granularity'])
         fail ArgumentError, "invalid value for \"granularity\", must be one of #{allowable_values}"
       end
+      pattern = Regexp.new(/^\d+(,\d+)*$/)
+      if @api_client.config.client_side_validation && !opts[:'collection_id'].nil? && opts[:'collection_id'] !~ pattern
+        fail ArgumentError, "invalid value for 'opts[:\"collection_id\"]' when calling AIModelInsightsApi.get_ai_overview_results, must conform to the pattern #{pattern}."
+      end
+
       allowable_values = ["brand", "brand_other", "non_brand"]
       if @api_client.config.client_side_validation && opts[:'brand_kind'] && !allowable_values.include?(opts[:'brand_kind'])
         fail ArgumentError, "invalid value for \"brand_kind\", must be one of #{allowable_values}"
