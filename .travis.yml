@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build llmpulse.gemspec
-  - gem install ./llmpulse-1.46.0.gem
+  - gem install ./llmpulse-1.47.0.gem
