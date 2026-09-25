@@ -15,3 +15,7 @@ jobs:
           ruby-version: "3.3"
       - run: find lib -name '*.rb' -print0 | xargs -0 -n1 ruby -c
       - run: gem build llmpulse.gemspec
+      # A syntax pass never loads the code: every release up to 1.47.0 passed
+      # it while `require "llmpulse"` raised TypeError on a class name clash.
+      - run: gem install --no-document ./llmpulse-*.gem
+      - run: ruby -e 'require "llmpulse"'

@@ -1,4 +1,4 @@
-# LLMPulse::ApiError
+# LLMPulse::ErrorResponse
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'llmpulse'
 
-instance = LLMPulse::ApiError.new(
+instance = LLMPulse::ErrorResponse.new(
   error: null,
   request_id: null
 )

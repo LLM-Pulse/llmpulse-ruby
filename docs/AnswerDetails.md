@@ -24,6 +24,7 @@
 | **brand_entities** | **Array&lt;Object&gt;** |  | [optional] |
 | **local_businesses** | **Array&lt;Object&gt;** |  | [optional] |
 | **locale** | [**AnswerDetailsLocale**](AnswerDetailsLocale.md) |  | [optional] |
+| **app_url** | **String** | Opens this answer in the app. The link names its project, so it opens there for any user with access to that project | [optional] |
 
 ## Example
 
@@ -50,7 +51,8 @@ instance = LLMPulse::AnswerDetails.new(
   shopping_products: null,
   brand_entities: null,
   local_businesses: null,
-  locale: null
+  locale: null,
+  app_url: null
 )
 ```
 

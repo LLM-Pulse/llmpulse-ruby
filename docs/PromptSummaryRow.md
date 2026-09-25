@@ -15,6 +15,7 @@
 | **citation_rate** | **Float** |  | [optional] |
 | **avg_mention_position** | **Float** |  | [optional] |
 | **avg_position** | **Float** |  | [optional] |
+| **app_url** | **String** | Opens this prompt in the app. The link names its project, so it opens there for any user with access to that project | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = LLMPulse::PromptSummaryRow.new(
   mention_rate: null,
   citation_rate: null,
   avg_mention_position: null,
-  avg_position: null
+  avg_position: null,
+  app_url: null
 )
 ```
 

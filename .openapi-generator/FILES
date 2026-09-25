@@ -20,7 +20,6 @@ docs/AnnotationsApi.md
 docs/AnswerDetails.md
 docs/AnswerDetailsLocale.md
 docs/AnswersApi.md
-docs/ApiError.md
 docs/ApiErrorError.md
 docs/AssignPromptTagsRequest.md
 docs/CollectionsTagsApi.md
@@ -35,6 +34,7 @@ docs/CreateTechnicalGeoReportsRequest.md
 docs/CreateWebhook201Response.md
 docs/CreateWebhookRequest.md
 docs/DeleteWebhook200Response.md
+docs/ErrorResponse.md
 docs/FinalizeProjectDraftRequest.md
 docs/GEOWriterApi.md
 docs/GetAccount200Response.md
@@ -138,7 +138,6 @@ lib/llmpulse/models/agent_bots_response.rb
 lib/llmpulse/models/agent_traffic_response.rb
 lib/llmpulse/models/answer_details.rb
 lib/llmpulse/models/answer_details_locale.rb
-lib/llmpulse/models/api_error.rb
 lib/llmpulse/models/api_error_error.rb
 lib/llmpulse/models/assign_prompt_tags_request.rb
 lib/llmpulse/models/competitor.rb
@@ -151,6 +150,7 @@ lib/llmpulse/models/create_technical_geo_reports_request.rb
 lib/llmpulse/models/create_webhook201_response.rb
 lib/llmpulse/models/create_webhook_request.rb
 lib/llmpulse/models/delete_webhook200_response.rb
+lib/llmpulse/models/error_response.rb
 lib/llmpulse/models/finalize_project_draft_request.rb
 lib/llmpulse/models/get_account200_response.rb
 lib/llmpulse/models/get_account200_response_limits.rb
