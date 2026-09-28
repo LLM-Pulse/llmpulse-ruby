@@ -11,8 +11,8 @@
 | **response** | **String** |  | [optional] |
 | **response_truncated** | **Boolean** |  | [optional] |
 | **executed_at** | **Time** |  | [optional] |
-| **duration_ms** | **Integer** |  | [optional] |
-| **success** | **Boolean** |  | [optional] |
+| **duration_ms** | **Float** | Milliseconds, rounded to one decimal place | [optional] |
+| **success** | **Boolean** | Null while the answer is still pending | [optional] |
 | **fan_out_queries** | **Array&lt;String&gt;** |  | [optional] |
 | **mentions** | **Array&lt;Object&gt;** |  | [optional] |
 | **citations** | **Array&lt;Object&gt;** |  | [optional] |

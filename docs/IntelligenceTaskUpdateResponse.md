@@ -17,7 +17,7 @@
 | **user_instructions** | **String** |  | [optional] |
 | **output_language_code** | **String** |  | [optional] |
 | **word_count** | **Integer** |  | [optional] |
-| **result_data** | **Object** | Only present when status&#x3D;&#39;completed&#39; | [optional] |
+| **result_data** | **Object** | The generated content once status is completed; null before that | [optional] |
 | **error_message** | **String** |  | [optional] |
 | **estimated_time** | **String** |  | [optional] |
 | **created_at** | **Time** |  | [optional] |

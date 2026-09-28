@@ -8,7 +8,7 @@
 | **id** | **Integer** |  | [optional] |
 | **competitor_id** | **Integer** |  | [optional] |
 | **name** | **String** |  | [optional] |
-| **domain** | **String** | Bare (scheme-less) domain | [optional] |
+| **domain** | **String** | Bare (scheme-less) domain. Null for the project actor when the project has no URL. | [optional] |
 
 ## Example
 

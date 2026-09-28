@@ -4,17 +4,17 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**list_sentiment_categories**](SentimentsApi.md#list_sentiment_categories) | **GET** /dimensions/sentiments | List sentiment categories |
-| [**list_sentiment_records**](SentimentsApi.md#list_sentiment_records) | **GET** /sentiments | List sentiment records |
+| [**list_sentiment_categories**](SentimentsApi.md#list_sentiment_categories) | **GET** /dimensions/sentiments | List sentiment categories (Growth plan or above) |
+| [**list_sentiment_records**](SentimentsApi.md#list_sentiment_records) | **GET** /sentiments | List sentiment records (Growth plan or above) |
 
 
 ## list_sentiment_categories
 
 > list_sentiment_categories(project_id, opts)
 
-List sentiment categories
+List sentiment categories (Growth plan or above)
 
-Sentiment metric keys + labels + colors. For records, use /sentiments.
+Sentiment metric keys + labels + colors. For records, use /sentiments. Requires the Growth plan; lower tiers receive ERR_PLAN_REQUIRED.
 
 ### Examples
 
@@ -34,7 +34,7 @@ opts = {
 }
 
 begin
-  # List sentiment categories
+  # List sentiment categories (Growth plan or above)
   api_instance.list_sentiment_categories(project_id, opts)
 rescue LLMPulse::ApiError => e
   puts "Error when calling SentimentsApi->list_sentiment_categories: #{e}"
@@ -49,7 +49,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # List sentiment categories
+  # List sentiment categories (Growth plan or above)
   data, status_code, headers = api_instance.list_sentiment_categories_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -77,14 +77,16 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## list_sentiment_records
 
 > list_sentiment_records(project_id, opts)
 
-List sentiment records
+List sentiment records (Growth plan or above)
+
+Requires the Growth plan; lower tiers receive ERR_PLAN_REQUIRED.
 
 ### Examples
 
@@ -114,7 +116,7 @@ opts = {
 }
 
 begin
-  # List sentiment records
+  # List sentiment records (Growth plan or above)
   api_instance.list_sentiment_records(project_id, opts)
 rescue LLMPulse::ApiError => e
   puts "Error when calling SentimentsApi->list_sentiment_records: #{e}"
@@ -129,7 +131,7 @@ This returns an Array which contains the response data (`nil` in this case), sta
 
 ```ruby
 begin
-  # List sentiment records
+  # List sentiment records (Growth plan or above)
   data, status_code, headers = api_instance.list_sentiment_records_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
