@@ -5,12 +5,12 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **website_url** | **String** | Public HTTP(S) URL with a DNS hostname or public IP address. Credentials, private and special IP addresses, localhost and internal hostnames are rejected. |  |
-| **name** | **String** |  |  |
+| **name** | **String** | Project name, as plain text. It can be changed later with PATCH /projects/{id} |  |
 | **main_country** | **String** |  |  |
 | **main_language** | **String** |  |  |
 | **brand_name** | **String** |  | [optional] |
 | **description** | **String** |  | [optional] |
-| **industry** | **Array&lt;String&gt;** |  | [optional] |
+| **industry** | **Array&lt;String&gt;** | Industry keys, case-insensitive; a single key string is also accepted. An unknown key returns ERR_INVALID_PARAM listing the valid keys (the same list as the in-app industry picker, e.g. TECHNOLOGY, SAAS, ECOMMERCE) | [optional] |
 | **business_model** | **String** | Business model key (e.g. B2B_SAAS, MARKETPLACE); unknown keys are rejected | [optional] |
 | **business_model_other** | **String** | Free-text business model, only accepted when business_model is OTHER; rejected against any other key | [optional] |
 | **target_audience** | **String** | Who the brand sells to. Context for Recommendations and GEO Writer (Brand Book) | [optional] |
@@ -19,6 +19,7 @@
 | **primary_products** | **Array&lt;String&gt;** | Main products or services | [optional] |
 | **matching_names** | **Array&lt;String&gt;** |  | [optional] |
 | **prompts** | **Array&lt;String&gt;** |  | [optional] |
+| **collections** | [**Array&lt;ProjectCreateRequestCollectionsInner&gt;**](ProjectCreateRequestCollectionsInner.md) | Collections (prompt tags) created with the project, each tagging prompts of this request by their exact text, so no separate tagging calls are needed. A text that is not in prompts returns ERR_INVALID_PARAM. A team member also needs Tags: Create permission. | [optional] |
 | **competitors** | [**Array&lt;ProjectCreateRequestCompetitorsInner&gt;**](ProjectCreateRequestCompetitorsInner.md) |  | [optional] |
 | **owned_media** | [**ProjectCreateRequestOwnedMedia**](ProjectCreateRequestOwnedMedia.md) |  | [optional] |
 | **use_subdomain** | **Boolean** |  | [optional][default to false] |
@@ -47,6 +48,7 @@ instance = LLMPulse::ProjectCreateRequest.new(
   primary_products: null,
   matching_names: null,
   prompts: null,
+  collections: null,
   competitors: null,
   owned_media: null,
   use_subdomain: null,

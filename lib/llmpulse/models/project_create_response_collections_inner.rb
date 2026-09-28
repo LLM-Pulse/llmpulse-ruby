@@ -14,22 +14,19 @@ require 'date'
 require 'time'
 
 module LLMPulse
-  class SovResponseBreakdownInner < ApiModelBase
-    attr_accessor :rank
+  class ProjectCreateResponseCollectionsInner < ApiModelBase
+    attr_accessor :id
 
-    attr_accessor :actor
+    attr_accessor :name
 
-    attr_accessor :share
-
-    attr_accessor :others
+    attr_accessor :prompts_attached
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'rank' => :'rank',
-        :'actor' => :'actor',
-        :'share' => :'share',
-        :'others' => :'others'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'prompts_attached' => :'prompts_attached'
       }
     end
 
@@ -46,10 +43,9 @@ module LLMPulse
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'rank' => :'Integer',
-        :'actor' => :'Actor',
-        :'share' => :'Float',
-        :'others' => :'Boolean'
+        :'id' => :'Integer',
+        :'name' => :'String',
+        :'prompts_attached' => :'Integer'
       }
     end
 
@@ -63,32 +59,28 @@ module LLMPulse
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `LLMPulse::SovResponseBreakdownInner` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `LLMPulse::ProjectCreateResponseCollectionsInner` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `LLMPulse::SovResponseBreakdownInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `LLMPulse::ProjectCreateResponseCollectionsInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'rank')
-        self.rank = attributes[:'rank']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'actor')
-        self.actor = attributes[:'actor']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'share')
-        self.share = attributes[:'share']
-      end
-
-      if attributes.key?(:'others')
-        self.others = attributes[:'others']
+      if attributes.key?(:'prompts_attached')
+        self.prompts_attached = attributes[:'prompts_attached']
       end
     end
 
@@ -112,10 +104,9 @@ module LLMPulse
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          rank == o.rank &&
-          actor == o.actor &&
-          share == o.share &&
-          others == o.others
+          id == o.id &&
+          name == o.name &&
+          prompts_attached == o.prompts_attached
     end
 
     # @see the `==` method
@@ -127,7 +118,7 @@ module LLMPulse
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [rank, actor, share, others].hash
+      [id, name, prompts_attached].hash
     end
 
     # Builds the object from hash
