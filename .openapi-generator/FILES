@@ -51,6 +51,8 @@ docs/ListCompetitors200Response.md
 docs/ListProjects200Response.md
 docs/ListWebhooks200Response.md
 docs/ListWebhooks200ResponseDataInner.md
+docs/LlmsTxtTechnicalGeoReport.md
+docs/LlmsTxtTechnicalGeoReportResultData.md
 docs/MentionsCitationsApi.md
 docs/MetricsApi.md
 docs/OwnedMediaCommunitiesApi.md
@@ -95,6 +97,10 @@ docs/SummaryResponse.md
 docs/SummaryResponseAllOfPositionDistribution.md
 docs/SummaryResponseAllOfSummaryValueInner.md
 docs/TechnicalGEOReportsApi.md
+docs/TechnicalGeoReportContentRevertRequest.md
+docs/TechnicalGeoReportContentUpdateRequest.md
+docs/TechnicalGeoReportContentUpdateRequestEdits.md
+docs/TechnicalGeoReportContentUpdateResponse.md
 docs/TimeseriesPoint.md
 docs/TimeseriesResponse.md
 docs/TimeseriesSeries.md
@@ -169,6 +175,8 @@ lib/llmpulse/models/list_competitors200_response.rb
 lib/llmpulse/models/list_projects200_response.rb
 lib/llmpulse/models/list_webhooks200_response.rb
 lib/llmpulse/models/list_webhooks200_response_data_inner.rb
+lib/llmpulse/models/llms_txt_technical_geo_report.rb
+lib/llmpulse/models/llms_txt_technical_geo_report_result_data.rb
 lib/llmpulse/models/ping200_response.rb
 lib/llmpulse/models/project.rb
 lib/llmpulse/models/project_create_request.rb
@@ -201,6 +209,10 @@ lib/llmpulse/models/sov_response_sample.rb
 lib/llmpulse/models/summary_response.rb
 lib/llmpulse/models/summary_response_all_of_position_distribution.rb
 lib/llmpulse/models/summary_response_all_of_summary_value_inner.rb
+lib/llmpulse/models/technical_geo_report_content_revert_request.rb
+lib/llmpulse/models/technical_geo_report_content_update_request.rb
+lib/llmpulse/models/technical_geo_report_content_update_request_edits.rb
+lib/llmpulse/models/technical_geo_report_content_update_response.rb
 lib/llmpulse/models/timeseries_point.rb
 lib/llmpulse/models/timeseries_response.rb
 lib/llmpulse/models/timeseries_series.rb
