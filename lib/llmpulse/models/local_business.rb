@@ -14,37 +14,54 @@ require 'date'
 require 'time'
 
 module LLMPulse
-  class CompetitorDetails < ApiModelBase
-    attr_accessor :id
+  class LocalBusiness < ApiModelBase
+    # Stable grouping key: the lowercased name and address
+    attr_accessor :business_key
 
-    attr_accessor :project_id
+    attr_accessor :title
 
-    attr_accessor :brand_name
+    attr_accessor :address
 
     attr_accessor :domain
 
-    attr_accessor :matching_names
+    attr_accessor :url
 
-    attr_accessor :google_play_id
+    attr_accessor :phone
 
-    attr_accessor :app_store_id
+    attr_accessor :avg_rating
 
-    attr_accessor :color
+    attr_accessor :reviews
 
-    attr_accessor :created_at
+    # Average rank of the business in the answer's list (1 = first)
+    attr_accessor :avg_position
+
+    attr_accessor :prompts
+
+    attr_accessor :appearances
+
+    attr_accessor :is_client
+
+    attr_accessor :competitor_id
+
+    attr_accessor :competitor_name
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'project_id' => :'project_id',
-        :'brand_name' => :'brand_name',
+        :'business_key' => :'business_key',
+        :'title' => :'title',
+        :'address' => :'address',
         :'domain' => :'domain',
-        :'matching_names' => :'matching_names',
-        :'google_play_id' => :'google_play_id',
-        :'app_store_id' => :'app_store_id',
-        :'color' => :'color',
-        :'created_at' => :'created_at'
+        :'url' => :'url',
+        :'phone' => :'phone',
+        :'avg_rating' => :'avg_rating',
+        :'reviews' => :'reviews',
+        :'avg_position' => :'avg_position',
+        :'prompts' => :'prompts',
+        :'appearances' => :'appearances',
+        :'is_client' => :'is_client',
+        :'competitor_id' => :'competitor_id',
+        :'competitor_name' => :'competitor_name'
       }
     end
 
@@ -61,25 +78,35 @@ module LLMPulse
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Integer',
-        :'project_id' => :'Integer',
-        :'brand_name' => :'String',
+        :'business_key' => :'String',
+        :'title' => :'String',
+        :'address' => :'String',
         :'domain' => :'String',
-        :'matching_names' => :'Array<String>',
-        :'google_play_id' => :'String',
-        :'app_store_id' => :'String',
-        :'color' => :'String',
-        :'created_at' => :'Time'
+        :'url' => :'String',
+        :'phone' => :'String',
+        :'avg_rating' => :'Float',
+        :'reviews' => :'Integer',
+        :'avg_position' => :'Float',
+        :'prompts' => :'Integer',
+        :'appearances' => :'Integer',
+        :'is_client' => :'Boolean',
+        :'competitor_id' => :'Integer',
+        :'competitor_name' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'matching_names',
-        :'google_play_id',
-        :'app_store_id',
-        :'color',
+        :'address',
+        :'domain',
+        :'url',
+        :'phone',
+        :'avg_rating',
+        :'reviews',
+        :'avg_position',
+        :'competitor_id',
+        :'competitor_name'
       ])
     end
 
@@ -87,54 +114,72 @@ module LLMPulse
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `LLMPulse::CompetitorDetails` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `LLMPulse::LocalBusiness` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `LLMPulse::CompetitorDetails`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `LLMPulse::LocalBusiness`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'business_key')
+        self.business_key = attributes[:'business_key']
       end
 
-      if attributes.key?(:'project_id')
-        self.project_id = attributes[:'project_id']
+      if attributes.key?(:'title')
+        self.title = attributes[:'title']
       end
 
-      if attributes.key?(:'brand_name')
-        self.brand_name = attributes[:'brand_name']
+      if attributes.key?(:'address')
+        self.address = attributes[:'address']
       end
 
       if attributes.key?(:'domain')
         self.domain = attributes[:'domain']
       end
 
-      if attributes.key?(:'matching_names')
-        if (value = attributes[:'matching_names']).is_a?(Array)
-          self.matching_names = value
-        end
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
 
-      if attributes.key?(:'google_play_id')
-        self.google_play_id = attributes[:'google_play_id']
+      if attributes.key?(:'phone')
+        self.phone = attributes[:'phone']
       end
 
-      if attributes.key?(:'app_store_id')
-        self.app_store_id = attributes[:'app_store_id']
+      if attributes.key?(:'avg_rating')
+        self.avg_rating = attributes[:'avg_rating']
       end
 
-      if attributes.key?(:'color')
-        self.color = attributes[:'color']
+      if attributes.key?(:'reviews')
+        self.reviews = attributes[:'reviews']
       end
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
+      if attributes.key?(:'avg_position')
+        self.avg_position = attributes[:'avg_position']
+      end
+
+      if attributes.key?(:'prompts')
+        self.prompts = attributes[:'prompts']
+      end
+
+      if attributes.key?(:'appearances')
+        self.appearances = attributes[:'appearances']
+      end
+
+      if attributes.key?(:'is_client')
+        self.is_client = attributes[:'is_client']
+      end
+
+      if attributes.key?(:'competitor_id')
+        self.competitor_id = attributes[:'competitor_id']
+      end
+
+      if attributes.key?(:'competitor_name')
+        self.competitor_name = attributes[:'competitor_name']
       end
     end
 
@@ -158,15 +203,20 @@ module LLMPulse
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          project_id == o.project_id &&
-          brand_name == o.brand_name &&
+          business_key == o.business_key &&
+          title == o.title &&
+          address == o.address &&
           domain == o.domain &&
-          matching_names == o.matching_names &&
-          google_play_id == o.google_play_id &&
-          app_store_id == o.app_store_id &&
-          color == o.color &&
-          created_at == o.created_at
+          url == o.url &&
+          phone == o.phone &&
+          avg_rating == o.avg_rating &&
+          reviews == o.reviews &&
+          avg_position == o.avg_position &&
+          prompts == o.prompts &&
+          appearances == o.appearances &&
+          is_client == o.is_client &&
+          competitor_id == o.competitor_id &&
+          competitor_name == o.competitor_name
     end
 
     # @see the `==` method
@@ -178,7 +228,7 @@ module LLMPulse
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, project_id, brand_name, domain, matching_names, google_play_id, app_store_id, color, created_at].hash
+      [business_key, title, address, domain, url, phone, avg_rating, reviews, avg_position, prompts, appearances, is_client, competitor_id, competitor_name].hash
     end
 
     # Builds the object from hash

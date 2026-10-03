@@ -14,41 +14,31 @@ require 'date'
 require 'time'
 
 module LLMPulse
-  class PromptsCreateResponseDataInner < ApiModelBase
-    attr_accessor :id
+  class LocalBusinessesResponse < ApiModelBase
+    attr_accessor :project_id
 
-    attr_accessor :raw_input
+    attr_accessor :page
 
-    attr_accessor :status
+    attr_accessor :per_page
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+    attr_accessor :total
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
+    attr_accessor :totals
 
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :data
+
+    attr_accessor :request_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'raw_input' => :'raw_input',
-        :'status' => :'status'
+        :'project_id' => :'project_id',
+        :'page' => :'page',
+        :'per_page' => :'per_page',
+        :'total' => :'total',
+        :'totals' => :'totals',
+        :'data' => :'data',
+        :'request_id' => :'request_id'
       }
     end
 
@@ -65,9 +55,13 @@ module LLMPulse
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'Integer',
-        :'raw_input' => :'String',
-        :'status' => :'String'
+        :'project_id' => :'Integer',
+        :'page' => :'Integer',
+        :'per_page' => :'Integer',
+        :'total' => :'Integer',
+        :'totals' => :'LocalBusinessesTotals',
+        :'data' => :'Array<LocalBusiness>',
+        :'request_id' => :'String'
       }
     end
 
@@ -81,28 +75,46 @@ module LLMPulse
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `LLMPulse::PromptsCreateResponseDataInner` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `LLMPulse::LocalBusinessesResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       acceptable_attribute_map = self.class.acceptable_attribute_map
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!acceptable_attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `LLMPulse::PromptsCreateResponseDataInner`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `LLMPulse::LocalBusinessesResponse`. Please check the name to make sure it's valid. List of attributes: " + acceptable_attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'project_id')
+        self.project_id = attributes[:'project_id']
       end
 
-      if attributes.key?(:'raw_input')
-        self.raw_input = attributes[:'raw_input']
+      if attributes.key?(:'page')
+        self.page = attributes[:'page']
       end
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'per_page')
+        self.per_page = attributes[:'per_page']
+      end
+
+      if attributes.key?(:'total')
+        self.total = attributes[:'total']
+      end
+
+      if attributes.key?(:'totals')
+        self.totals = attributes[:'totals']
+      end
+
+      if attributes.key?(:'data')
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
+      end
+
+      if attributes.key?(:'request_id')
+        self.request_id = attributes[:'request_id']
       end
     end
 
@@ -118,19 +130,7 @@ module LLMPulse
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      status_validator = EnumAttributeValidator.new('String', ["created", "exists"])
-      return false unless status_validator.valid?(@status)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] status Object to be assigned
-    def status=(status)
-      validator = EnumAttributeValidator.new('String', ["created", "exists"])
-      unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
-      end
-      @status = status
     end
 
     # Checks equality by comparing each attribute.
@@ -138,9 +138,13 @@ module LLMPulse
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          raw_input == o.raw_input &&
-          status == o.status
+          project_id == o.project_id &&
+          page == o.page &&
+          per_page == o.per_page &&
+          total == o.total &&
+          totals == o.totals &&
+          data == o.data &&
+          request_id == o.request_id
     end
 
     # @see the `==` method
@@ -152,7 +156,7 @@ module LLMPulse
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, raw_input, status].hash
+      [project_id, page, per_page, total, totals, data, request_id].hash
     end
 
     # Builds the object from hash
