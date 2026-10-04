@@ -17,7 +17,7 @@
 | **user_instructions** | **String** |  | [optional] |
 | **output_language_code** | **String** |  | [optional] |
 | **word_count** | **Integer** |  | [optional] |
-| **result_data** | **Object** | The generated content once status is completed; null before that | [optional] |
+| **result_data** | **Object** | The generated content once status is completed; null before that. A product_listing task returns title, summary, description_html (p, ul, ol, li, strong, em, h3 and br only), faq (question and answer pairs), seo_title, seo_description, image_alts (image_id and alt), changes (field and reason) and labels | [optional] |
 | **error_message** | **String** |  | [optional] |
 | **estimated_time** | **String** |  | [optional] |
 | **created_at** | **Time** |  | [optional] |
