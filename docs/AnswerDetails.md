@@ -13,6 +13,7 @@
 | **executed_at** | **Time** |  | [optional] |
 | **duration_ms** | **Float** | Milliseconds, rounded to one decimal place | [optional] |
 | **success** | **Boolean** | Null while the answer is still pending | [optional] |
+| **no_result** | **Boolean** | True for a sentinel non-answer (the provider returned nothing after retries); excluded from platform metrics | [optional] |
 | **fan_out_queries** | **Array&lt;String&gt;** |  | [optional] |
 | **mentions** | **Array&lt;Object&gt;** |  | [optional] |
 | **citations** | **Array&lt;Object&gt;** |  | [optional] |
@@ -25,6 +26,7 @@
 | **local_businesses** | **Array&lt;Object&gt;** |  | [optional] |
 | **locale** | [**AnswerDetailsLocale**](AnswerDetailsLocale.md) |  | [optional] |
 | **app_url** | **String** | Opens this answer in the app. The link names its project, so it opens there for any user with access to that project | [optional] |
+| **request_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -41,6 +43,7 @@ instance = LLMPulse::AnswerDetails.new(
   executed_at: null,
   duration_ms: null,
   success: null,
+  no_result: null,
   fan_out_queries: null,
   mentions: null,
   citations: null,
@@ -52,7 +55,8 @@ instance = LLMPulse::AnswerDetails.new(
   brand_entities: null,
   local_businesses: null,
   locale: null,
-  app_url: null
+  app_url: null,
+  request_id: null
 )
 ```
 

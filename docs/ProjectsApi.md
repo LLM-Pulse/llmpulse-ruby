@@ -366,7 +366,7 @@ nil (empty response body)
 
 ## list_locales
 
-> list_locales(project_id)
+> <LocalesResponse> list_locales(project_id)
 
 List locales with data
 
@@ -386,7 +386,8 @@ project_id = 56 # Integer | Project ID
 
 begin
   # List locales with data
-  api_instance.list_locales(project_id)
+  result = api_instance.list_locales(project_id)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->list_locales: #{e}"
 end
@@ -394,9 +395,9 @@ end
 
 #### Using the list_locales_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_locales_with_http_info(project_id)
+> <Array(<LocalesResponse>, Integer, Hash)> list_locales_with_http_info(project_id)
 
 ```ruby
 begin
@@ -404,7 +405,7 @@ begin
   data, status_code, headers = api_instance.list_locales_with_http_info(project_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <LocalesResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->list_locales_with_http_info: #{e}"
 end
@@ -418,7 +419,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**LocalesResponse**](LocalesResponse.md)
 
 ### Authorization
 
@@ -427,12 +428,12 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## list_models
 
-> list_models(project_id)
+> <ModelsResponse> list_models(project_id)
 
 List models with data
 
@@ -452,7 +453,8 @@ project_id = 56 # Integer | Project ID
 
 begin
   # List models with data
-  api_instance.list_models(project_id)
+  result = api_instance.list_models(project_id)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->list_models: #{e}"
 end
@@ -460,9 +462,9 @@ end
 
 #### Using the list_models_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_models_with_http_info(project_id)
+> <Array(<ModelsResponse>, Integer, Hash)> list_models_with_http_info(project_id)
 
 ```ruby
 begin
@@ -470,7 +472,7 @@ begin
   data, status_code, headers = api_instance.list_models_with_http_info(project_id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ModelsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->list_models_with_http_info: #{e}"
 end
@@ -484,7 +486,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ModelsResponse**](ModelsResponse.md)
 
 ### Authorization
 
@@ -493,7 +495,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## list_projects

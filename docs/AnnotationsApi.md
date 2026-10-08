@@ -12,7 +12,7 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 
 ## create_annotation
 
-> create_annotation(create_annotation_request)
+> <AnnotationCreateResponse> create_annotation(create_annotation_request)
 
 Create a timeline annotation
 
@@ -34,7 +34,8 @@ create_annotation_request = LLMPulse::CreateAnnotationRequest.new({project_id: 3
 
 begin
   # Create a timeline annotation
-  api_instance.create_annotation(create_annotation_request)
+  result = api_instance.create_annotation(create_annotation_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnnotationsApi->create_annotation: #{e}"
 end
@@ -42,9 +43,9 @@ end
 
 #### Using the create_annotation_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> create_annotation_with_http_info(create_annotation_request)
+> <Array(<AnnotationCreateResponse>, Integer, Hash)> create_annotation_with_http_info(create_annotation_request)
 
 ```ruby
 begin
@@ -52,7 +53,7 @@ begin
   data, status_code, headers = api_instance.create_annotation_with_http_info(create_annotation_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AnnotationCreateResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnnotationsApi->create_annotation_with_http_info: #{e}"
 end
@@ -66,7 +67,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AnnotationCreateResponse**](AnnotationCreateResponse.md)
 
 ### Authorization
 

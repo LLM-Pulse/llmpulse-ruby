@@ -82,7 +82,7 @@ nil (empty response body)
 
 ## list_sentiment_records
 
-> list_sentiment_records(project_id, opts)
+> <SentimentsResponse> list_sentiment_records(project_id, opts)
 
 List sentiment records (Growth plan or above)
 
@@ -117,7 +117,8 @@ opts = {
 
 begin
   # List sentiment records (Growth plan or above)
-  api_instance.list_sentiment_records(project_id, opts)
+  result = api_instance.list_sentiment_records(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling SentimentsApi->list_sentiment_records: #{e}"
 end
@@ -125,9 +126,9 @@ end
 
 #### Using the list_sentiment_records_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_sentiment_records_with_http_info(project_id, opts)
+> <Array(<SentimentsResponse>, Integer, Hash)> list_sentiment_records_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -135,7 +136,7 @@ begin
   data, status_code, headers = api_instance.list_sentiment_records_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <SentimentsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling SentimentsApi->list_sentiment_records_with_http_info: #{e}"
 end
@@ -160,7 +161,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**SentimentsResponse**](SentimentsResponse.md)
 
 ### Authorization
 

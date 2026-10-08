@@ -24,6 +24,8 @@
 | **app_store_id** | **String** |  | [optional] |
 | **created_at** | **Time** |  | [optional] |
 | **stats** | [**ProjectDetailsAllOfStats**](ProjectDetailsAllOfStats.md) |  | [optional] |
+| **data_coverage** | [**ProjectDetailsAllOfDataCoverage**](ProjectDetailsAllOfDataCoverage.md) |  | [optional] |
+| **request_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -50,7 +52,9 @@ instance = LLMPulse::ProjectDetails.new(
   google_play_id: null,
   app_store_id: null,
   created_at: null,
-  stats: null
+  stats: null,
+  data_coverage: null,
+  request_id: null
 )
 ```
 

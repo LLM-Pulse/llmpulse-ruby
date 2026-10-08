@@ -14,7 +14,7 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 
 ## assign_prompt_tags
 
-> assign_prompt_tags(assign_prompt_tags_request)
+> <PromptTagsAssignResponse> assign_prompt_tags(assign_prompt_tags_request)
 
 Bulk-attach tags to prompts
 
@@ -36,7 +36,8 @@ assign_prompt_tags_request = LLMPulse::AssignPromptTagsRequest.new({project_id: 
 
 begin
   # Bulk-attach tags to prompts
-  api_instance.assign_prompt_tags(assign_prompt_tags_request)
+  result = api_instance.assign_prompt_tags(assign_prompt_tags_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->assign_prompt_tags: #{e}"
 end
@@ -44,9 +45,9 @@ end
 
 #### Using the assign_prompt_tags_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> assign_prompt_tags_with_http_info(assign_prompt_tags_request)
+> <Array(<PromptTagsAssignResponse>, Integer, Hash)> assign_prompt_tags_with_http_info(assign_prompt_tags_request)
 
 ```ruby
 begin
@@ -54,7 +55,7 @@ begin
   data, status_code, headers = api_instance.assign_prompt_tags_with_http_info(assign_prompt_tags_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <PromptTagsAssignResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->assign_prompt_tags_with_http_info: #{e}"
 end
@@ -68,7 +69,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**PromptTagsAssignResponse**](PromptTagsAssignResponse.md)
 
 ### Authorization
 
@@ -82,7 +83,7 @@ nil (empty response body)
 
 ## create_collection
 
-> create_collection(create_collection_request)
+> <CollectionCreateResponse> create_collection(create_collection_request)
 
 Create a tag
 
@@ -104,7 +105,8 @@ create_collection_request = LLMPulse::CreateCollectionRequest.new({project_id: 3
 
 begin
   # Create a tag
-  api_instance.create_collection(create_collection_request)
+  result = api_instance.create_collection(create_collection_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->create_collection: #{e}"
 end
@@ -112,9 +114,9 @@ end
 
 #### Using the create_collection_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> create_collection_with_http_info(create_collection_request)
+> <Array(<CollectionCreateResponse>, Integer, Hash)> create_collection_with_http_info(create_collection_request)
 
 ```ruby
 begin
@@ -122,7 +124,7 @@ begin
   data, status_code, headers = api_instance.create_collection_with_http_info(create_collection_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CollectionCreateResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->create_collection_with_http_info: #{e}"
 end
@@ -136,7 +138,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CollectionCreateResponse**](CollectionCreateResponse.md)
 
 ### Authorization
 
@@ -220,7 +222,7 @@ nil (empty response body)
 
 ## list_collections
 
-> list_collections(project_id, opts)
+> <CollectionsResponse> list_collections(project_id, opts)
 
 List tags/collections
 
@@ -243,7 +245,8 @@ opts = {
 
 begin
   # List tags/collections
-  api_instance.list_collections(project_id, opts)
+  result = api_instance.list_collections(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->list_collections: #{e}"
 end
@@ -251,9 +254,9 @@ end
 
 #### Using the list_collections_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_collections_with_http_info(project_id, opts)
+> <Array(<CollectionsResponse>, Integer, Hash)> list_collections_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -261,7 +264,7 @@ begin
   data, status_code, headers = api_instance.list_collections_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CollectionsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->list_collections_with_http_info: #{e}"
 end
@@ -276,7 +279,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CollectionsResponse**](CollectionsResponse.md)
 
 ### Authorization
 
@@ -285,12 +288,12 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## list_tags
 
-> list_tags(project_id, opts)
+> <CollectionsResponse> list_tags(project_id, opts)
 
 List tags (alias for /collections)
 
@@ -313,7 +316,8 @@ opts = {
 
 begin
   # List tags (alias for /collections)
-  api_instance.list_tags(project_id, opts)
+  result = api_instance.list_tags(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->list_tags: #{e}"
 end
@@ -321,9 +325,9 @@ end
 
 #### Using the list_tags_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_tags_with_http_info(project_id, opts)
+> <Array(<CollectionsResponse>, Integer, Hash)> list_tags_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -331,7 +335,7 @@ begin
   data, status_code, headers = api_instance.list_tags_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CollectionsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->list_tags_with_http_info: #{e}"
 end
@@ -346,7 +350,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CollectionsResponse**](CollectionsResponse.md)
 
 ### Authorization
 
@@ -355,7 +359,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## update_collection

@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** |  | [optional] |
 | **competitors** | [**Array&lt;Competitor&gt;**](Competitor.md) |  | [optional] |
+| **request_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'llmpulse'
 
 instance = LLMPulse::ListCompetitors200Response.new(
   project_id: null,
-  competitors: null
+  competitors: null,
+  request_id: null
 )
 ```
 

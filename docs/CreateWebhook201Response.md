@@ -13,6 +13,7 @@
 | **last_delivered_at** | **Time** |  | [optional] |
 | **created_at** | **Time** |  | [optional] |
 | **secret** | **String** | HMAC signing secret (whsec_...). Only returned on create. | [optional] |
+| **request_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = LLMPulse::CreateWebhook201Response.new(
   failure_count: null,
   last_delivered_at: null,
   created_at: null,
-  secret: null
+  secret: null,
+  request_id: null
 )
 ```
 

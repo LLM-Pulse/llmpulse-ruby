@@ -7,7 +7,7 @@
 | **project_id** | **Integer** |  | [optional] |
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** |  | [optional] |
-| **filters** | **Object** |  | [optional] |
+| **filters** | [**MetricsFiltersEcho**](MetricsFiltersEcho.md) |  | [optional] |
 | **breakdown** | **String** |  | [optional] |
 | **sort** | **String** |  | [optional] |
 | **sort_dir** | **String** |  | [optional] |

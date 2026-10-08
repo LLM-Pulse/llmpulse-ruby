@@ -152,7 +152,7 @@ nil (empty response body)
 
 ## list_prompt_executions
 
-> list_prompt_executions(project_id, opts)
+> <PromptExecutionsResponse> list_prompt_executions(project_id, opts)
 
 List prompt executions
 
@@ -187,7 +187,8 @@ opts = {
 
 begin
   # List prompt executions
-  api_instance.list_prompt_executions(project_id, opts)
+  result = api_instance.list_prompt_executions(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling PromptsApi->list_prompt_executions: #{e}"
 end
@@ -195,9 +196,9 @@ end
 
 #### Using the list_prompt_executions_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_prompt_executions_with_http_info(project_id, opts)
+> <Array(<PromptExecutionsResponse>, Integer, Hash)> list_prompt_executions_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -205,7 +206,7 @@ begin
   data, status_code, headers = api_instance.list_prompt_executions_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <PromptExecutionsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling PromptsApi->list_prompt_executions_with_http_info: #{e}"
 end
@@ -232,7 +233,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**PromptExecutionsResponse**](PromptExecutionsResponse.md)
 
 ### Authorization
 
@@ -241,12 +242,12 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## list_prompts
 
-> list_prompts(project_id, opts)
+> <PromptsResponse> list_prompts(project_id, opts)
 
 List prompts
 
@@ -279,7 +280,8 @@ opts = {
 
 begin
   # List prompts
-  api_instance.list_prompts(project_id, opts)
+  result = api_instance.list_prompts(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling PromptsApi->list_prompts: #{e}"
 end
@@ -287,9 +289,9 @@ end
 
 #### Using the list_prompts_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_prompts_with_http_info(project_id, opts)
+> <Array(<PromptsResponse>, Integer, Hash)> list_prompts_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -297,7 +299,7 @@ begin
   data, status_code, headers = api_instance.list_prompts_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <PromptsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling PromptsApi->list_prompts_with_http_info: #{e}"
 end
@@ -322,7 +324,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**PromptsResponse**](PromptsResponse.md)
 
 ### Authorization
 
@@ -331,7 +333,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## list_query_fan_outs

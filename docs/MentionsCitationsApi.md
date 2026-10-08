@@ -190,7 +190,7 @@ nil (empty response body)
 
 ## list_citations
 
-> list_citations(project_id, opts)
+> <CitationsResponse> list_citations(project_id, opts)
 
 List brand citations
 
@@ -224,7 +224,8 @@ opts = {
 
 begin
   # List brand citations
-  api_instance.list_citations(project_id, opts)
+  result = api_instance.list_citations(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling MentionsCitationsApi->list_citations: #{e}"
 end
@@ -232,9 +233,9 @@ end
 
 #### Using the list_citations_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_citations_with_http_info(project_id, opts)
+> <Array(<CitationsResponse>, Integer, Hash)> list_citations_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -242,7 +243,7 @@ begin
   data, status_code, headers = api_instance.list_citations_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CitationsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling MentionsCitationsApi->list_citations_with_http_info: #{e}"
 end
@@ -266,7 +267,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CitationsResponse**](CitationsResponse.md)
 
 ### Authorization
 
@@ -275,7 +276,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## list_competitor_citations
@@ -368,7 +369,7 @@ nil (empty response body)
 
 ## list_competitor_mentions
 
-> list_competitor_mentions(project_id, opts)
+> <CompetitorMentionsResponse> list_competitor_mentions(project_id, opts)
 
 List competitor mentions
 
@@ -399,7 +400,8 @@ opts = {
 
 begin
   # List competitor mentions
-  api_instance.list_competitor_mentions(project_id, opts)
+  result = api_instance.list_competitor_mentions(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling MentionsCitationsApi->list_competitor_mentions: #{e}"
 end
@@ -407,9 +409,9 @@ end
 
 #### Using the list_competitor_mentions_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_competitor_mentions_with_http_info(project_id, opts)
+> <Array(<CompetitorMentionsResponse>, Integer, Hash)> list_competitor_mentions_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -417,7 +419,7 @@ begin
   data, status_code, headers = api_instance.list_competitor_mentions_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CompetitorMentionsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling MentionsCitationsApi->list_competitor_mentions_with_http_info: #{e}"
 end
@@ -440,7 +442,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CompetitorMentionsResponse**](CompetitorMentionsResponse.md)
 
 ### Authorization
 
@@ -449,12 +451,12 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## list_mentions
 
-> list_mentions(project_id, opts)
+> <MentionsResponse> list_mentions(project_id, opts)
 
 List brand mentions
 
@@ -486,7 +488,8 @@ opts = {
 
 begin
   # List brand mentions
-  api_instance.list_mentions(project_id, opts)
+  result = api_instance.list_mentions(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling MentionsCitationsApi->list_mentions: #{e}"
 end
@@ -494,9 +497,9 @@ end
 
 #### Using the list_mentions_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_mentions_with_http_info(project_id, opts)
+> <Array(<MentionsResponse>, Integer, Hash)> list_mentions_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -504,7 +507,7 @@ begin
   data, status_code, headers = api_instance.list_mentions_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <MentionsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling MentionsCitationsApi->list_mentions_with_http_info: #{e}"
 end
@@ -528,7 +531,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**MentionsResponse**](MentionsResponse.md)
 
 ### Authorization
 
@@ -537,5 +540,5 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 

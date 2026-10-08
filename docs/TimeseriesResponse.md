@@ -7,8 +7,8 @@
 | **project_id** | **Integer** |  | [optional] |
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** |  | [optional] |
-| **granularity** | **String** |  | [optional] |
-| **filters** | **Object** |  | [optional] |
+| **granularity** | **String** | day, week or month | [optional] |
+| **filters** | [**MetricsFiltersEcho**](MetricsFiltersEcho.md) |  | [optional] |
 | **series** | **Hash&lt;String, Array&lt;TimeseriesSeries&gt;&gt;** |  | [optional] |
 | **request_id** | **String** |  | [optional] |
 
