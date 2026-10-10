@@ -152,6 +152,7 @@ docs/PromptsCreateRequest.md
 docs/PromptsCreateResponse.md
 docs/PromptsCreateResponseDataInner.md
 docs/PromptsResponse.md
+docs/QueryWebAnalyticsRequest.md
 docs/RecommendationSummary.md
 docs/RecommendationSummarySummary.md
 docs/RecommendationsApi.md
@@ -197,6 +198,9 @@ docs/UpdateCollectionRequest.md
 docs/UpdateCompetitorRequest.md
 docs/UpdateProjectDraftRequest.md
 docs/UpdateProjectRequest.md
+docs/WebAnalyticsQueryResponse.md
+docs/WebAnalyticsQueryResponseColumnsInner.md
+docs/WebAnalyticsSchemaResponse.md
 docs/WebhooksApi.md
 git_push.sh
 lib/llmpulse.rb
@@ -358,6 +362,7 @@ lib/llmpulse/models/prompts_create_request.rb
 lib/llmpulse/models/prompts_create_response.rb
 lib/llmpulse/models/prompts_create_response_data_inner.rb
 lib/llmpulse/models/prompts_response.rb
+lib/llmpulse/models/query_web_analytics_request.rb
 lib/llmpulse/models/recommendation_summary.rb
 lib/llmpulse/models/recommendation_summary_summary.rb
 lib/llmpulse/models/recommendations_response.rb
@@ -395,6 +400,9 @@ lib/llmpulse/models/update_collection_request.rb
 lib/llmpulse/models/update_competitor_request.rb
 lib/llmpulse/models/update_project_draft_request.rb
 lib/llmpulse/models/update_project_request.rb
+lib/llmpulse/models/web_analytics_query_response.rb
+lib/llmpulse/models/web_analytics_query_response_columns_inner.rb
+lib/llmpulse/models/web_analytics_schema_response.rb
 lib/llmpulse/version.rb
 llmpulse.gemspec
 spec/spec_helper.rb
