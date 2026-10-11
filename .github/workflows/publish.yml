@@ -1,0 +1,32 @@
+# Publishes this SDK when its release tag is pushed. Switched off until the
+# registry's trusted publisher is configured: set the repository variable
+# REGISTRY_PUBLISH=true then. A version already on the registry is skipped.
+name: Publish
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  rubygems:
+    if: vars.REGISTRY_PUBLISH == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+      - uses: rubygems/configure-rubygems-credentials@v2.1.0
+      - run: |
+          gem build llmpulse.gemspec
+          version="$(ruby -Ilib -e 'require "llmpulse/version"; print LLMPulse::VERSION')"
+          if gem list --remote --exact --all llmpulse | grep -q "[( ,]${version}[,)]"; then
+            echo "llmpulse ${version} is already published"
+          else
+            gem push "llmpulse-${version}.gem"
+          fi
