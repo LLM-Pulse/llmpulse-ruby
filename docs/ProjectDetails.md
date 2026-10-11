@@ -25,6 +25,7 @@
 | **created_at** | **Time** |  | [optional] |
 | **stats** | [**ProjectDetailsAllOfStats**](ProjectDetailsAllOfStats.md) |  | [optional] |
 | **data_coverage** | [**ProjectDetailsAllOfDataCoverage**](ProjectDetailsAllOfDataCoverage.md) |  | [optional] |
+| **search_console** | [**ProjectDetailsAllOfSearchConsole**](ProjectDetailsAllOfSearchConsole.md) |  | [optional] |
 | **request_id** | **String** |  | [optional] |
 
 ## Example
@@ -54,6 +55,7 @@ instance = LLMPulse::ProjectDetails.new(
   created_at: null,
   stats: null,
   data_coverage: null,
+  search_console: null,
   request_id: null
 )
 ```
