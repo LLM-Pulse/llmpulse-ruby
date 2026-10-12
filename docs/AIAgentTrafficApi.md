@@ -265,7 +265,7 @@ LLMPulse.configure do |config|
 end
 
 api_instance = LLMPulse::AIAgentTrafficApi.new
-project_id = 56 # Integer | Project ID
+project_id = 56 # Integer | Accepted for compatibility and ignored. The catalog is the same for every project, so any value returns the same list and the project is not checked.
 opts = {
   output: 'flat' # String | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 }
@@ -301,7 +301,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **project_id** | **Integer** | Project ID |  |
+| **project_id** | **Integer** | Accepted for compatibility and ignored. The catalog is the same for every project, so any value returns the same list and the project is not checked. |  |
 | **output** | **String** | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
 
 ### Return type

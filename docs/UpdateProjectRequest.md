@@ -15,6 +15,7 @@
 | **goals** | **String** | What the brand wants to achieve. Context for GEO Writer and prompt suggestions | [optional] |
 | **primary_products** | **Array&lt;String&gt;** | Full replacement list of the main products or services | [optional] |
 | **matching_names** | **Array&lt;String&gt;** | FULL replacement list of the brand-name variants used to detect mentions; send every variant to keep | [optional] |
+| **additional_owned_domains** | **Array&lt;String&gt;** | FULL replacement list (at most 10) of other domains the brand owns, such as a blog or a country site; [] clears it. Citations from them count as owned, like the project website. Each entry is a website&#39;s own domain and covers its subdomains; a pasted URL is stored as its domain (https://www.acme.co.uk/x becomes acme.co.uk). A list the domain editor would refuse (a subdomain such as blog.acme.com, a platform many companies share such as youtube.com, amazon.com or wordpress.com, the project website, a tracked competitor domain, a duplicate or an entry that is not a domain) is rejected with ERR_INVALID_PARAM and the reason. Order does not matter, and an unchanged list starts nothing. Account owner only, on every plan | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = LLMPulse::UpdateProjectRequest.new(
   brand_voice: null,
   goals: null,
   primary_products: null,
-  matching_names: null
+  matching_names: null,
+  additional_owned_domains: null
 )
 ```
 

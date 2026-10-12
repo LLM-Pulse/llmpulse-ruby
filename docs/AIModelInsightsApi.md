@@ -128,7 +128,7 @@ opts = {
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   prompt_type: 'prompt_type_example', # String | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
   brand_kind: 'brand', # String | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
-  model: 'chatgpt', # String | Filter by AI model. Models the API key's user has not enabled are silently dropped.
+  model: 'chatgpt', # String | Restrict the comparison to one AI model: chatgpt, ai_mode, ai_overview, perplexity, gemini, naver_ai or baidu_ai, whether or not that model is enabled for the API key's user. Any other value returns 422 ERR_INVALID_PARAM (invalid model).
   brand1: 56, # Integer | Competitor ID for the first comparison brand (omit to compare project brand)
   brand2: 56 # Integer | 
 }
@@ -173,7 +173,7 @@ end
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt_type** | **String** | One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
 | **brand_kind** | **String** | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
-| **model** | **String** | Filter by AI model. Models the API key&#39;s user has not enabled are silently dropped. | [optional] |
+| **model** | **String** | Restrict the comparison to one AI model: chatgpt, ai_mode, ai_overview, perplexity, gemini, naver_ai or baidu_ai, whether or not that model is enabled for the API key&#39;s user. Any other value returns 422 ERR_INVALID_PARAM (invalid model). | [optional] |
 | **brand1** | **Integer** | Competitor ID for the first comparison brand (omit to compare project brand) | [optional] |
 | **brand2** | **Integer** |  | [optional] |
 

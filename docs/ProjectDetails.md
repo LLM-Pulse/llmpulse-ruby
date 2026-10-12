@@ -10,6 +10,7 @@
 | **url** | **String** |  | [optional] |
 | **description** | **String** |  | [optional] |
 | **matching_names** | **Array&lt;String&gt;** |  | [optional] |
+| **additional_owned_domains** | **Array&lt;String&gt;** | Other domains the brand owns (at most 10, each a website&#39;s own domain covering its subdomains), whose citations count as owned like the project website. Empty when none | [optional] |
 | **industry** | **Object** | Industry as stored: one key as a string (e.g. SAAS), or an array of key strings when the project was created with a list or the in-app multi-select. Deliberately untyped so generated clients decode either shape | [optional] |
 | **business_model** | **String** |  | [optional] |
 | **business_model_other** | **String** | Set only when business_model is OTHER | [optional] |
@@ -40,6 +41,7 @@ instance = LLMPulse::ProjectDetails.new(
   url: null,
   description: null,
   matching_names: null,
+  additional_owned_domains: null,
   industry: null,
   business_model: null,
   business_model_other: null,

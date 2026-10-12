@@ -145,6 +145,8 @@ docs/ProjectDetailsAllOfDataCoverage.md
 docs/ProjectDetailsAllOfSearchConsole.md
 docs/ProjectDetailsAllOfStats.md
 docs/ProjectDetailsAllOfStatsPromptsByBrandKind.md
+docs/ProjectProfile.md
+docs/ProjectUpdateResponse.md
 docs/ProjectsApi.md
 docs/PromptExecutionRecord.md
 docs/PromptExecutionsResponse.md
@@ -379,6 +381,8 @@ lib/llmpulse/models/project_details_all_of_data_coverage.rb
 lib/llmpulse/models/project_details_all_of_search_console.rb
 lib/llmpulse/models/project_details_all_of_stats.rb
 lib/llmpulse/models/project_details_all_of_stats_prompts_by_brand_kind.rb
+lib/llmpulse/models/project_profile.rb
+lib/llmpulse/models/project_update_response.rb
 lib/llmpulse/models/prompt_execution_record.rb
 lib/llmpulse/models/prompt_executions_response.rb
 lib/llmpulse/models/prompt_record.rb
