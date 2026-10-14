@@ -13,7 +13,7 @@
 | **executed_at** | **Time** |  | [optional] |
 | **duration_ms** | **Float** | Milliseconds, rounded to one decimal place | [optional] |
 | **success** | **Boolean** | Null while the answer is still pending | [optional] |
-| **no_result** | **Boolean** | True for a sentinel non-answer (the provider returned nothing after retries); excluded from platform metrics | [optional] |
+| **no_result** | **Boolean** | True for a sentinel non-answer (the provider returned nothing after all retries, or the model declined to answer, today only Gemini); excluded from platform metrics | [optional] |
 | **fan_out_queries** | **Array&lt;String&gt;** |  | [optional] |
 | **mentions** | **Array&lt;Object&gt;** |  | [optional] |
 | **citations** | **Array&lt;Object&gt;** |  | [optional] |
