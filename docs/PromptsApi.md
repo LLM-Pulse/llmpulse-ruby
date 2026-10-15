@@ -4,11 +4,156 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**accept_suggested_prompts**](PromptsApi.md#accept_suggested_prompts) | **POST** /suggested_prompts/accept | Accept suggested prompts |
+| [**create_prompt_generation**](PromptsApi.md#create_prompt_generation) | **POST** /prompt_generations | Generate prompt suggestions |
 | [**create_prompts**](PromptsApi.md#create_prompts) | **POST** /prompts | Bulk-create prompts |
 | [**delete_prompt**](PromptsApi.md#delete_prompt) | **DELETE** /prompts/{id} | Delete a prompt |
+| [**get_prompt_generation**](PromptsApi.md#get_prompt_generation) | **GET** /prompt_generations/{id} | Get a prompt generation run |
+| [**import_prompts**](PromptsApi.md#import_prompts) | **POST** /prompts/import | Import prompts |
 | [**list_prompt_executions**](PromptsApi.md#list_prompt_executions) | **GET** /dimensions/prompt_executions | List prompt executions |
 | [**list_prompts**](PromptsApi.md#list_prompts) | **GET** /dimensions/prompts | List prompts |
 | [**list_query_fan_outs**](PromptsApi.md#list_query_fan_outs) | **GET** /dimensions/query_fan_outs | List query fan-out |
+| [**list_suggested_prompts**](PromptsApi.md#list_suggested_prompts) | **GET** /suggested_prompts | List suggested prompts |
+| [**reject_suggested_prompts**](PromptsApi.md#reject_suggested_prompts) | **POST** /suggested_prompts/reject | Reject suggested prompts |
+| [**update_prompt**](PromptsApi.md#update_prompt) | **PATCH** /prompts/{id} | Edit a prompt&#39;s categorization |
+
+
+## accept_suggested_prompts
+
+> <SuggestedPromptsAcceptResponse> accept_suggested_prompts(suggested_prompts_accept_request)
+
+Accept suggested prompts
+
+Starts tracking up to 100 pending suggestions: each becomes a prompt in its own country and language, optionally put in one tag (tag_ids or tag_names; create_missing creates a missing name when the team member may create tags). Suggestions that are no longer pending come back in skipped. When the new prompts would exceed the plan the call returns ERR_LIMIT_REACHED and accepts nothing. Requires a `read_write` scope API key and, for team members, create access to Prompts.
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::PromptsApi.new
+suggested_prompts_accept_request = LLMPulse::SuggestedPromptsAcceptRequest.new({project_id: 37, ids: [37]}) # SuggestedPromptsAcceptRequest | 
+
+begin
+  # Accept suggested prompts
+  result = api_instance.accept_suggested_prompts(suggested_prompts_accept_request)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->accept_suggested_prompts: #{e}"
+end
+```
+
+#### Using the accept_suggested_prompts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SuggestedPromptsAcceptResponse>, Integer, Hash)> accept_suggested_prompts_with_http_info(suggested_prompts_accept_request)
+
+```ruby
+begin
+  # Accept suggested prompts
+  data, status_code, headers = api_instance.accept_suggested_prompts_with_http_info(suggested_prompts_accept_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SuggestedPromptsAcceptResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->accept_suggested_prompts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **suggested_prompts_accept_request** | [**SuggestedPromptsAcceptRequest**](SuggestedPromptsAcceptRequest.md) |  |  |
+
+### Return type
+
+[**SuggestedPromptsAcceptResponse**](SuggestedPromptsAcceptResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_prompt_generation
+
+> <PromptGenerationResponse> create_prompt_generation(prompt_generation_request)
+
+Generate prompt suggestions
+
+Starts a suggestion run with one of the generators behind the app's Add prompts wizards and answers 202 with the run. website writes suggestions from the scraped website (80% non-brand, 20% brand), keyword from a keyword or the project profile (optionally around a competitor), topic from a topic, reddit from Reddit discussions of a topic or brand, paa from Google People Also Ask (up to 5 keywords, counted against the account's 24-hour lookup allowance), reputational from brand reputation questions, translate from the project's prompts of another locale, search_console from the connected property's top queries of the last 28 days (Growth plan or above, ERR_PLAN_REQUIRED). The suggestions land in the Suggested prompts queue; poll GET /prompt_generations/{id}, then accept the ones you want with POST /suggested_prompts/accept. Nothing is tracked until accepted. The request is validated before the run starts, and refused with ERR_LIMIT_REACHED when the plan has no prompt slot left. Requires a `read_write` scope API key and, for team members, create access to Prompts.
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::PromptsApi.new
+prompt_generation_request = LLMPulse::PromptGenerationRequest.new({project_id: 37, source: 'website'}) # PromptGenerationRequest | 
+
+begin
+  # Generate prompt suggestions
+  result = api_instance.create_prompt_generation(prompt_generation_request)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->create_prompt_generation: #{e}"
+end
+```
+
+#### Using the create_prompt_generation_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PromptGenerationResponse>, Integer, Hash)> create_prompt_generation_with_http_info(prompt_generation_request)
+
+```ruby
+begin
+  # Generate prompt suggestions
+  data, status_code, headers = api_instance.create_prompt_generation_with_http_info(prompt_generation_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PromptGenerationResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->create_prompt_generation_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **prompt_generation_request** | [**PromptGenerationRequest**](PromptGenerationRequest.md) |  |  |
+
+### Return type
+
+[**PromptGenerationResponse**](PromptGenerationResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## create_prompts
@@ -147,6 +292,146 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_prompt_generation
+
+> <PromptGenerationResponse> get_prompt_generation(project_id, id)
+
+Get a prompt generation run
+
+Returns a run started with POST /prompt_generations: processing while the generator works, then completed with the suggestions it saved to the Suggested prompts queue, or failed with an error code and message. Poll every few seconds; most runs finish within a minute. Runs are kept for 24 hours, their suggestions stay in the queue.
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::PromptsApi.new
+project_id = 56 # Integer | Project ID
+id = '38400000-8cf0-11bd-b23e-10b96e4ef00d' # String | 
+
+begin
+  # Get a prompt generation run
+  result = api_instance.get_prompt_generation(project_id, id)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->get_prompt_generation: #{e}"
+end
+```
+
+#### Using the get_prompt_generation_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PromptGenerationResponse>, Integer, Hash)> get_prompt_generation_with_http_info(project_id, id)
+
+```ruby
+begin
+  # Get a prompt generation run
+  data, status_code, headers = api_instance.get_prompt_generation_with_http_info(project_id, id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PromptGenerationResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->get_prompt_generation_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **project_id** | **Integer** | Project ID |  |
+| **id** | **String** |  |  |
+
+### Return type
+
+[**PromptGenerationResponse**](PromptGenerationResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## import_prompts
+
+> <PromptsImportResponse> import_prompts(prompts_import_request)
+
+Import prompts
+
+The app's CSV import as JSON: up to 500 rows, each with its own prompt, country_code, language_code (codes or names; both default to the project's) and tags, created when missing. Duplicates are skipped and existing prompts still get the row's tags. The prompt limits are checked before anything is written: when the new prompts would exceed the plan the call returns ERR_LIMIT_REACHED and imports nothing. Rows with an unknown country or language come back in row_errors. Responds 201 when it created prompts, 200 otherwise. Requires a `read_write` scope API key and, for team members, create access to Prompts.
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::PromptsApi.new
+prompts_import_request = LLMPulse::PromptsImportRequest.new({project_id: 37, rows: [LLMPulse::PromptsImportRequestRowsInner.new({prompt: 'prompt_example'})]}) # PromptsImportRequest | 
+
+begin
+  # Import prompts
+  result = api_instance.import_prompts(prompts_import_request)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->import_prompts: #{e}"
+end
+```
+
+#### Using the import_prompts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PromptsImportResponse>, Integer, Hash)> import_prompts_with_http_info(prompts_import_request)
+
+```ruby
+begin
+  # Import prompts
+  data, status_code, headers = api_instance.import_prompts_with_http_info(prompts_import_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PromptsImportResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->import_prompts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **prompts_import_request** | [**PromptsImportRequest**](PromptsImportRequest.md) |  |  |
+
+### Return type
+
+[**PromptsImportResponse**](PromptsImportResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -439,5 +724,224 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_suggested_prompts
+
+> <SuggestedPromptsResponse> list_suggested_prompts(project_id, opts)
+
+List suggested prompts
+
+Lists the project's Suggested prompts queue, the same list the app's Suggested Prompts tab shows, oldest first. It holds the suggestions of every generator (website, magic for keyword runs, topic, reddit, paa, reputational, translate, gsc for Search Console, catalog). Pending suggestions by default; status=all also returns accepted (with the prompt they became) and rejected ones. Team members need create access to Prompts, like the app's tab.
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::PromptsApi.new
+project_id = 56 # Integer | Project ID
+opts = {
+  source: 'website', # String | Only suggestions from this generator
+  status: 'pending', # String | Only suggestions in this status
+  page: 56, # Integer | 
+  per_page: 56 # Integer | 
+}
+
+begin
+  # List suggested prompts
+  result = api_instance.list_suggested_prompts(project_id, opts)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->list_suggested_prompts: #{e}"
+end
+```
+
+#### Using the list_suggested_prompts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SuggestedPromptsResponse>, Integer, Hash)> list_suggested_prompts_with_http_info(project_id, opts)
+
+```ruby
+begin
+  # List suggested prompts
+  data, status_code, headers = api_instance.list_suggested_prompts_with_http_info(project_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SuggestedPromptsResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->list_suggested_prompts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **project_id** | **Integer** | Project ID |  |
+| **source** | **String** | Only suggestions from this generator | [optional] |
+| **status** | **String** | Only suggestions in this status | [optional][default to &#39;pending&#39;] |
+| **page** | **Integer** |  | [optional][default to 1] |
+| **per_page** | **Integer** |  | [optional][default to 50] |
+
+### Return type
+
+[**SuggestedPromptsResponse**](SuggestedPromptsResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## reject_suggested_prompts
+
+> <SuggestedPromptsRejectResponse> reject_suggested_prompts(suggested_prompt_ids_request)
+
+Reject suggested prompts
+
+Marks up to 100 pending suggestions as rejected, so they leave the pending list; suggestions that are no longer pending stay as they are. Tracks and deletes nothing. Requires a `read_write` scope API key and, for team members, create access to Prompts.
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::PromptsApi.new
+suggested_prompt_ids_request = LLMPulse::SuggestedPromptIdsRequest.new({project_id: 37, ids: [37]}) # SuggestedPromptIdsRequest | 
+
+begin
+  # Reject suggested prompts
+  result = api_instance.reject_suggested_prompts(suggested_prompt_ids_request)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->reject_suggested_prompts: #{e}"
+end
+```
+
+#### Using the reject_suggested_prompts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SuggestedPromptsRejectResponse>, Integer, Hash)> reject_suggested_prompts_with_http_info(suggested_prompt_ids_request)
+
+```ruby
+begin
+  # Reject suggested prompts
+  data, status_code, headers = api_instance.reject_suggested_prompts_with_http_info(suggested_prompt_ids_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SuggestedPromptsRejectResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->reject_suggested_prompts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **suggested_prompt_ids_request** | [**SuggestedPromptIdsRequest**](SuggestedPromptIdsRequest.md) |  |  |
+
+### Return type
+
+[**SuggestedPromptsRejectResponse**](SuggestedPromptsRejectResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## update_prompt
+
+> <PromptCategorizationResponse> update_prompt(id, update_prompt_request)
+
+Edit a prompt's categorization
+
+Manual categorization, exactly like editing the intent and brand badges on the prompt page: send `prompt_type`, `brand_kind` or both. The prompt is marked as manually categorized (`categorization_source` becomes `manual`), so automatic categorization no longer changes it; the prompt page can revert it to automatic. Any other field returns ERR_INVALID_PARAM. Not available from a white-label portal (ERR_INTEGRATION_UNAVAILABLE), where the page hides the editor. Requires a `read_write` scope API key and, for team members, update permission on Prompts.
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::PromptsApi.new
+id = 56 # Integer | 
+update_prompt_request = LLMPulse::UpdatePromptRequest.new({project_id: 37}) # UpdatePromptRequest | 
+
+begin
+  # Edit a prompt's categorization
+  result = api_instance.update_prompt(id, update_prompt_request)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->update_prompt: #{e}"
+end
+```
+
+#### Using the update_prompt_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PromptCategorizationResponse>, Integer, Hash)> update_prompt_with_http_info(id, update_prompt_request)
+
+```ruby
+begin
+  # Edit a prompt's categorization
+  data, status_code, headers = api_instance.update_prompt_with_http_info(id, update_prompt_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PromptCategorizationResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling PromptsApi->update_prompt_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  |  |
+| **update_prompt_request** | [**UpdatePromptRequest**](UpdatePromptRequest.md) |  |  |
+
+### Return type
+
+[**PromptCategorizationResponse**](PromptCategorizationResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

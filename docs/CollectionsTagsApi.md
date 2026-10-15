@@ -9,6 +9,7 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 | [**delete_collection**](CollectionsTagsApi.md#delete_collection) | **DELETE** /collections/{id} | Delete a tag |
 | [**list_collections**](CollectionsTagsApi.md#list_collections) | **GET** /dimensions/collections | List tags/collections |
 | [**list_tags**](CollectionsTagsApi.md#list_tags) | **GET** /dimensions/tags | List tags (alias for /collections) |
+| [**remove_prompt_tags**](CollectionsTagsApi.md#remove_prompt_tags) | **POST** /prompts/remove_tags | Bulk-detach tags from prompts |
 | [**update_collection**](CollectionsTagsApi.md#update_collection) | **PATCH** /collections/{id} | Update a tag |
 
 
@@ -359,6 +360,75 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## remove_prompt_tags
+
+> <PromptTagsRemoveResponse> remove_prompt_tags(remove_prompt_tags_request)
+
+Bulk-detach tags from prompts
+
+Idempotent bulk removal of tags (Collections) from existing prompts: up to 500 prompt_ids and 50 tags, resolved by id or by name (case-insensitive). Only the prompt-tag links are removed; tags and prompts stay. Links that did not exist are counted in skipped_not_linked. Requires a `read_write` scope API key and, for team members, update access to Prompts.
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::CollectionsTagsApi.new
+remove_prompt_tags_request = LLMPulse::RemovePromptTagsRequest.new({project_id: 37, prompt_ids: [37]}) # RemovePromptTagsRequest | 
+
+begin
+  # Bulk-detach tags from prompts
+  result = api_instance.remove_prompt_tags(remove_prompt_tags_request)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling CollectionsTagsApi->remove_prompt_tags: #{e}"
+end
+```
+
+#### Using the remove_prompt_tags_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PromptTagsRemoveResponse>, Integer, Hash)> remove_prompt_tags_with_http_info(remove_prompt_tags_request)
+
+```ruby
+begin
+  # Bulk-detach tags from prompts
+  data, status_code, headers = api_instance.remove_prompt_tags_with_http_info(remove_prompt_tags_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PromptTagsRemoveResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling CollectionsTagsApi->remove_prompt_tags_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **remove_prompt_tags_request** | [**RemovePromptTagsRequest**](RemovePromptTagsRequest.md) |  |  |
+
+### Return type
+
+[**PromptTagsRemoveResponse**](PromptTagsRemoveResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

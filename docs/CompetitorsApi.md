@@ -7,6 +7,7 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 | [**create_competitor**](CompetitorsApi.md#create_competitor) | **POST** /competitors | Add a competitor |
 | [**delete_competitor**](CompetitorsApi.md#delete_competitor) | **DELETE** /competitors/{id} | Delete a competitor |
 | [**get_competitor_details**](CompetitorsApi.md#get_competitor_details) | **GET** /dimensions/competitors/{id} | Competitor details |
+| [**list_competitor_suggestions**](CompetitorsApi.md#list_competitor_suggestions) | **GET** /competitors/suggestions | List competitor suggestions |
 | [**list_competitors**](CompetitorsApi.md#list_competitors) | **GET** /dimensions/competitors | List competitors |
 | [**update_competitor**](CompetitorsApi.md#update_competitor) | **PATCH** /competitors/{id} | Update a competitor |
 
@@ -208,6 +209,87 @@ end
 ### Return type
 
 [**CompetitorDetails**](CompetitorDetails.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_competitor_suggestions
+
+> <CompetitorSuggestionsResponse> list_competitor_suggestions(project_id, opts)
+
+List competitor suggestions
+
+The two lists of the Suggested tab of the Competitors page. `basis=brands` (default) returns the competing brands the AI discovery proposed that are not tracked or rejected yet, with the names it would match and, when counted, how many answers name it (`mentions`). `basis=citations` returns the domains AI answers cite most that are not your own or tracked yet, with how many answers cite each (`citations`). `discovery` tells whether a discovery run is still loading. Read-only: it never starts a discovery run, which the page starts from its Discover button. Add a suggestion with POST /competitors.
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::CompetitorsApi.new
+project_id = 56 # Integer | Project ID
+opts = {
+  basis: 'brands', # String | 
+  query: 'query_example', # String | Only suggestions whose brand name or domain contains this text
+  page: 56, # Integer | 
+  per_page: 56, # Integer | 
+  output: 'flat' # String | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
+}
+
+begin
+  # List competitor suggestions
+  result = api_instance.list_competitor_suggestions(project_id, opts)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling CompetitorsApi->list_competitor_suggestions: #{e}"
+end
+```
+
+#### Using the list_competitor_suggestions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CompetitorSuggestionsResponse>, Integer, Hash)> list_competitor_suggestions_with_http_info(project_id, opts)
+
+```ruby
+begin
+  # List competitor suggestions
+  data, status_code, headers = api_instance.list_competitor_suggestions_with_http_info(project_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CompetitorSuggestionsResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling CompetitorsApi->list_competitor_suggestions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **project_id** | **Integer** | Project ID |  |
+| **basis** | **String** |  | [optional][default to &#39;brands&#39;] |
+| **query** | **String** | Only suggestions whose brand name or domain contains this text | [optional] |
+| **page** | **Integer** |  | [optional][default to 1] |
+| **per_page** | **Integer** |  | [optional][default to 20] |
+| **output** | **String** | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
+
+### Return type
+
+[**CompetitorSuggestionsResponse**](CompetitorSuggestionsResponse.md)
 
 ### Authorization
 

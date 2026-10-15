@@ -7,6 +7,7 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 | [**get_recommendation**](RecommendationsApi.md#get_recommendation) | **GET** /recommendations/{id} | Get recommendation run with items |
 | [**launch_recommendations**](RecommendationsApi.md#launch_recommendations) | **POST** /recommendations | Launch a recommendations generation |
 | [**list_recommendations**](RecommendationsApi.md#list_recommendations) | **GET** /recommendations | List recommendation runs |
+| [**update_recommendation_item**](RecommendationsApi.md#update_recommendation_item) | **PATCH** /recommendations/{id}/items/{item_id} | Complete, archive or restore a recommendation item |
 
 
 ## get_recommendation
@@ -225,5 +226,78 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_recommendation_item
+
+> <RecommendationItemUpdateResponse> update_recommendation_item(id, item_id, update_recommendation_item_request)
+
+Complete, archive or restore a recommendation item
+
+Moves one item of a recommendation run between `active`, `completed` and `archived`, exactly like the complete, archive and restore buttons on the Recommendations page, and stamps `status_changed_at`. Returns the item in the shape `GET /recommendations/{id}` lists items. Requires a `read_write` scope API key and, for team members, create permission on Recommendations (the permission the page uses for these buttons).
+
+### Examples
+
+```ruby
+require 'time'
+require 'llmpulse'
+# setup authorization
+LLMPulse.configure do |config|
+  # Configure Bearer authorization: BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = LLMPulse::RecommendationsApi.new
+id = 56 # Integer | Recommendation run id
+item_id = 56 # Integer | Item id, from the items of GET /recommendations/{id}
+update_recommendation_item_request = LLMPulse::UpdateRecommendationItemRequest.new({project_id: 37, status: 'active'}) # UpdateRecommendationItemRequest | 
+
+begin
+  # Complete, archive or restore a recommendation item
+  result = api_instance.update_recommendation_item(id, item_id, update_recommendation_item_request)
+  p result
+rescue LLMPulse::ApiError => e
+  puts "Error when calling RecommendationsApi->update_recommendation_item: #{e}"
+end
+```
+
+#### Using the update_recommendation_item_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RecommendationItemUpdateResponse>, Integer, Hash)> update_recommendation_item_with_http_info(id, item_id, update_recommendation_item_request)
+
+```ruby
+begin
+  # Complete, archive or restore a recommendation item
+  data, status_code, headers = api_instance.update_recommendation_item_with_http_info(id, item_id, update_recommendation_item_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RecommendationItemUpdateResponse>
+rescue LLMPulse::ApiError => e
+  puts "Error when calling RecommendationsApi->update_recommendation_item_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **Integer** | Recommendation run id |  |
+| **item_id** | **Integer** | Item id, from the items of GET /recommendations/{id} |  |
+| **update_recommendation_item_request** | [**UpdateRecommendationItemRequest**](UpdateRecommendationItemRequest.md) |  |  |
+
+### Return type
+
+[**RecommendationItemUpdateResponse**](RecommendationItemUpdateResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
