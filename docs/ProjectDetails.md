@@ -24,6 +24,7 @@
 | **google_play_id** | **String** |  | [optional] |
 | **app_store_id** | **String** |  | [optional] |
 | **created_at** | **Time** |  | [optional] |
+| **prompt_limit** | **Integer** | The most prompts this project can hold, set by the account owner or a co-owner (Account Settings &gt; Prompt Limits). Null when the project has no limit of its own; the account&#39;s plan allowance applies either way | [optional] |
 | **stats** | [**ProjectDetailsAllOfStats**](ProjectDetailsAllOfStats.md) |  | [optional] |
 | **data_coverage** | [**ProjectDetailsAllOfDataCoverage**](ProjectDetailsAllOfDataCoverage.md) |  | [optional] |
 | **search_console** | [**ProjectDetailsAllOfSearchConsole**](ProjectDetailsAllOfSearchConsole.md) |  | [optional] |
@@ -55,6 +56,7 @@ instance = LLMPulse::ProjectDetails.new(
   google_play_id: null,
   app_store_id: null,
   created_at: null,
+  prompt_limit: null,
   stats: null,
   data_coverage: null,
   search_console: null,
