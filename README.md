@@ -171,7 +171,7 @@ Class | Method | HTTP request | Description
 *LLMPulse::ProjectsApi* | [**list_locales**](docs/ProjectsApi.md#list_locales) | **GET** /dimensions/locales | List locales with data
 *LLMPulse::ProjectsApi* | [**list_models**](docs/ProjectsApi.md#list_models) | **GET** /dimensions/models | List models with data
 *LLMPulse::ProjectsApi* | [**list_projects**](docs/ProjectsApi.md#list_projects) | **GET** /dimensions/projects | List projects
-*LLMPulse::ProjectsApi* | [**update_project**](docs/ProjectsApi.md#update_project) | **PATCH** /projects/{id} | Update a project profile (Brand Book) or prompt limit
+*LLMPulse::ProjectsApi* | [**update_project**](docs/ProjectsApi.md#update_project) | **PATCH** /projects/{id} | Update a project profile (Brand Book)
 *LLMPulse::ProjectsApi* | [**update_project_draft**](docs/ProjectsApi.md#update_project_draft) | **PATCH** /project_drafts/{id} | Submit a wizard step
 *LLMPulse::PromptsApi* | [**accept_suggested_prompts**](docs/PromptsApi.md#accept_suggested_prompts) | **POST** /suggested_prompts/accept | Accept suggested prompts
 *LLMPulse::PromptsApi* | [**create_prompt_generation**](docs/PromptsApi.md#create_prompt_generation) | **POST** /prompt_generations | Generate prompt suggestions

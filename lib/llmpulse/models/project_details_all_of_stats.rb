@@ -15,11 +15,7 @@ require 'time'
 
 module LLMPulse
   class ProjectDetailsAllOfStats < ApiModelBase
-    # Active prompts in the project
     attr_accessor :prompts_count
-
-    # Prompts that can still be added to this project, the lower of its free slots under prompt_limit and the prompts left in the account quota; null when neither caps it
-    attr_accessor :prompts_available
 
     attr_accessor :prompts_by_brand_kind
 
@@ -27,14 +23,17 @@ module LLMPulse
 
     attr_accessor :collections_count
 
+    # How many prompts can still be added to this project now, the same number the Prompts page offers. The lower of the project's free slots under prompt_limit and the account's remaining prompts; 0 when either is full (a project over its limit keeps its prompts). Null when neither caps it
+    attr_accessor :prompts_available
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'prompts_count' => :'prompts_count',
-        :'prompts_available' => :'prompts_available',
         :'prompts_by_brand_kind' => :'prompts_by_brand_kind',
         :'competitors_count' => :'competitors_count',
-        :'collections_count' => :'collections_count'
+        :'collections_count' => :'collections_count',
+        :'prompts_available' => :'prompts_available'
       }
     end
 
@@ -52,17 +51,17 @@ module LLMPulse
     def self.openapi_types
       {
         :'prompts_count' => :'Integer',
-        :'prompts_available' => :'Integer',
         :'prompts_by_brand_kind' => :'ProjectDetailsAllOfStatsPromptsByBrandKind',
         :'competitors_count' => :'Integer',
-        :'collections_count' => :'Integer'
+        :'collections_count' => :'Integer',
+        :'prompts_available' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'prompts_available',
+        :'prompts_available'
       ])
     end
 
@@ -86,10 +85,6 @@ module LLMPulse
         self.prompts_count = attributes[:'prompts_count']
       end
 
-      if attributes.key?(:'prompts_available')
-        self.prompts_available = attributes[:'prompts_available']
-      end
-
       if attributes.key?(:'prompts_by_brand_kind')
         self.prompts_by_brand_kind = attributes[:'prompts_by_brand_kind']
       end
@@ -100,6 +95,10 @@ module LLMPulse
 
       if attributes.key?(:'collections_count')
         self.collections_count = attributes[:'collections_count']
+      end
+
+      if attributes.key?(:'prompts_available')
+        self.prompts_available = attributes[:'prompts_available']
       end
     end
 
@@ -124,10 +123,10 @@ module LLMPulse
       return true if self.equal?(o)
       self.class == o.class &&
           prompts_count == o.prompts_count &&
-          prompts_available == o.prompts_available &&
           prompts_by_brand_kind == o.prompts_by_brand_kind &&
           competitors_count == o.competitors_count &&
-          collections_count == o.collections_count
+          collections_count == o.collections_count &&
+          prompts_available == o.prompts_available
     end
 
     # @see the `==` method
@@ -139,7 +138,7 @@ module LLMPulse
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [prompts_count, prompts_available, prompts_by_brand_kind, competitors_count, collections_count].hash
+      [prompts_count, prompts_by_brand_kind, competitors_count, collections_count, prompts_available].hash
     end
 
     # Builds the object from hash

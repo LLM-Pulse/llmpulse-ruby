@@ -60,7 +60,7 @@ module LLMPulse
 
     attr_accessor :created_at
 
-    # Maximum number of active prompts this project may hold, set by the account owner or a co-owner in Account Settings > Prompt Limits; null when the project has no limit of its own and only the account quota applies
+    # The most prompts this project can hold, set by the account owner or a co-owner (Account Settings > Prompt Limits). Null when the project has no limit of its own; the account's plan allowance applies either way
     attr_accessor :prompt_limit
 
     attr_accessor :stats
