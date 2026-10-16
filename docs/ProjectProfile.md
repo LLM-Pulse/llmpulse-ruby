@@ -17,6 +17,7 @@
 | **goals** | **String** |  | [optional] |
 | **matching_names** | **Array&lt;String&gt;** |  |  |
 | **additional_owned_domains** | **Array&lt;String&gt;** | Other domains the brand owns (at most 10, each a website&#39;s own domain covering its subdomains), whose citations count as owned like the project website. Empty when none |  |
+| **prompt_limit** | **Integer** | Maximum number of active prompts this project may hold; null when only the account quota applies |  |
 
 ## Example
 
@@ -36,7 +37,8 @@ instance = LLMPulse::ProjectProfile.new(
   brand_voice: null,
   goals: null,
   matching_names: null,
-  additional_owned_domains: null
+  additional_owned_domains: null,
+  prompt_limit: null
 )
 ```
 
