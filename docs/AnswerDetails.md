@@ -19,12 +19,13 @@
 | **citations** | **Array&lt;Object&gt;** |  | [optional] |
 | **competitor_mentions** | **Array&lt;Object&gt;** |  | [optional] |
 | **competitor_citations** | **Array&lt;Object&gt;** |  | [optional] |
-| **sentiments** | **Array&lt;Object&gt;** |  | [optional] |
+| **sentiments** | **Array&lt;Object&gt;** | Needs the Growth plan or above; left out below it and named in plan_required_fields | [optional] |
 | **sources** | **Array&lt;Object&gt;** |  | [optional] |
-| **shopping_products** | **Array&lt;Object&gt;** |  | [optional] |
+| **shopping_products** | **Array&lt;Object&gt;** | Needs the Scale plan or above; left out below it and named in plan_required_fields | [optional] |
 | **brand_entities** | **Array&lt;Object&gt;** |  | [optional] |
 | **local_businesses** | **Array&lt;Object&gt;** |  | [optional] |
 | **locale** | [**AnswerDetailsLocale**](AnswerDetailsLocale.md) |  | [optional] |
+| **plan_required_fields** | **Array&lt;String&gt;** | The fields left out of this answer because the account&#39;s plan does not include them (sentiments below Growth, shopping_products below Scale). Always present, empty when nothing is left out |  |
 | **app_url** | **String** | Opens this answer in the app. The link names its project, so it opens there for any user with access to that project | [optional] |
 | **request_id** | **String** |  | [optional] |
 
@@ -55,6 +56,7 @@ instance = LLMPulse::AnswerDetails.new(
   brand_entities: null,
   local_businesses: null,
   locale: null,
+  plan_required_fields: null,
   app_url: null,
   request_id: null
 )
