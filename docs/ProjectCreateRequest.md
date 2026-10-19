@@ -17,7 +17,7 @@
 | **brand_voice** | **String** | Tone of voice guidance for generated content (Brand Book) | [optional] |
 | **goals** | **String** | What the brand wants to achieve. Context for GEO Writer and prompt suggestions | [optional] |
 | **primary_products** | **Array&lt;String&gt;** | Main products or services | [optional] |
-| **matching_names** | **Array&lt;String&gt;** |  | [optional] |
+| **matching_names** | **Array&lt;String&gt;** | Brand-name variants used to detect mentions. At most 50 names of up to 100 characters each; a longer list or name is refused with ERR_INVALID_PARAM (422) and nothing is created | [optional] |
 | **prompts** | **Array&lt;String&gt;** |  | [optional] |
 | **collections** | [**Array&lt;ProjectCreateRequestCollectionsInner&gt;**](ProjectCreateRequestCollectionsInner.md) | Collections (prompt tags) created with the project, each tagging prompts of this request by their exact text, so no separate tagging calls are needed. A text that is not in prompts returns ERR_INVALID_PARAM. A team member also needs Tags: Create permission. | [optional] |
 | **competitors** | [**Array&lt;ProjectCreateRequestCompetitorsInner&gt;**](ProjectCreateRequestCompetitorsInner.md) |  | [optional] |
