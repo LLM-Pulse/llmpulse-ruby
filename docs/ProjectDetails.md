@@ -28,6 +28,8 @@
 | **stats** | [**ProjectDetailsAllOfStats**](ProjectDetailsAllOfStats.md) |  | [optional] |
 | **data_coverage** | [**ProjectDetailsAllOfDataCoverage**](ProjectDetailsAllOfDataCoverage.md) |  | [optional] |
 | **search_console** | [**ProjectDetailsAllOfSearchConsole**](ProjectDetailsAllOfSearchConsole.md) |  | [optional] |
+| **ai_traffic** | [**ProjectDetailsAllOfAiTraffic**](ProjectDetailsAllOfAiTraffic.md) |  | [optional] |
+| **agent_traffic** | [**ProjectDetailsAllOfAgentTraffic**](ProjectDetailsAllOfAgentTraffic.md) |  | [optional] |
 | **request_id** | **String** |  | [optional] |
 
 ## Example
@@ -60,6 +62,8 @@ instance = LLMPulse::ProjectDetails.new(
   stats: null,
   data_coverage: null,
   search_console: null,
+  ai_traffic: null,
+  agent_traffic: null,
   request_id: null
 )
 ```

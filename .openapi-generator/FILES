@@ -178,6 +178,8 @@ docs/ProjectCreateResponseLimits.md
 docs/ProjectCreateResponsePrompts.md
 docs/ProjectCreateResponseSameDomainProjectsInner.md
 docs/ProjectDetails.md
+docs/ProjectDetailsAllOfAgentTraffic.md
+docs/ProjectDetailsAllOfAiTraffic.md
 docs/ProjectDetailsAllOfDataCoverage.md
 docs/ProjectDetailsAllOfSearchConsole.md
 docs/ProjectDetailsAllOfStats.md
@@ -483,6 +485,8 @@ lib/llmpulse/models/project_create_response_limits.rb
 lib/llmpulse/models/project_create_response_prompts.rb
 lib/llmpulse/models/project_create_response_same_domain_projects_inner.rb
 lib/llmpulse/models/project_details.rb
+lib/llmpulse/models/project_details_all_of_agent_traffic.rb
+lib/llmpulse/models/project_details_all_of_ai_traffic.rb
 lib/llmpulse/models/project_details_all_of_data_coverage.rb
 lib/llmpulse/models/project_details_all_of_search_console.rb
 lib/llmpulse/models/project_details_all_of_stats.rb
