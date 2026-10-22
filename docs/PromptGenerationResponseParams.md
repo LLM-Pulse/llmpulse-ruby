@@ -15,6 +15,7 @@
 | **source_language_code** | **String** |  | [optional] |
 | **min_words** | **Integer** |  | [optional] |
 | **all_countries** | **Boolean** |  | [optional] |
+| **property** | **String** |  | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = LLMPulse::PromptGenerationResponseParams.new(
   source_country_code: null,
   source_language_code: null,
   min_words: null,
-  all_countries: null
+  all_countries: null,
+  property: null
 )
 ```
 

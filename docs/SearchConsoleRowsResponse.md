@@ -8,7 +8,7 @@
 | **property** | [**SearchConsoleProperty**](SearchConsoleProperty.md) |  | [optional] |
 | **from** | **Date** |  | [optional] |
 | **to** | **Date** |  | [optional] |
-| **data_through** | **Date** | Latest date Google has published for the property (it lags 2-3 days). Later days are missing, not zero. | [optional] |
+| **data_through** | **Date** | Latest date Google has published for the property, or for every combined property (it lags 2-3 days). Later days are missing, not zero. | [optional] |
 | **page** | **Integer** |  | [optional] |
 | **per_page** | **Integer** |  | [optional] |
 | **total** | **Integer** | Rows in this window (one Google request, at most 25,000) | [optional] |
@@ -18,6 +18,9 @@
 | **dimensions** | **Array&lt;String&gt;** |  | [optional] |
 | **data** | [**Array&lt;SearchConsoleRowsResponseDataInner&gt;**](SearchConsoleRowsResponseDataInner.md) | One row per combination; only the requested dimensions are present | [optional] |
 | **request_id** | **String** |  | [optional] |
+| **properties** | [**Array&lt;SearchConsoleProperty&gt;**](SearchConsoleProperty.md) | With a list or all in the property parameter, the properties whose data the response holds (instead of property) | [optional] |
+| **excluded_properties** | [**Array&lt;SearchConsoleExcludedProperty&gt;**](SearchConsoleExcludedProperty.md) | With a list or all, selected properties left out because another selected property already counts them | [optional] |
+| **property_errors** | [**Array&lt;SearchConsolePropertyError&gt;**](SearchConsolePropertyError.md) | With a list or all, selected properties Google refused, left out of the figures | [optional] |
 
 ## Example
 
@@ -38,7 +41,10 @@ instance = LLMPulse::SearchConsoleRowsResponse.new(
   truncated: null,
   dimensions: null,
   data: null,
-  request_id: null
+  request_id: null,
+  properties: null,
+  excluded_properties: null,
+  property_errors: null
 )
 ```
 

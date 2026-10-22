@@ -17,6 +17,7 @@
 | **source_language_code** | **String** | translate: language of the prompts to translate | [optional] |
 | **min_words** | **Integer** | search_console: skip queries shorter than this many words | [optional][default to 0] |
 | **all_countries** | **Boolean** | search_console: include queries from every country instead of country_code only | [optional][default to false] |
+| **property** | **String** | search_console: the property id to read queries from (GET /search_console/properties lists them); the primary property when omitted | [optional] |
 
 ## Example
 
@@ -36,7 +37,8 @@ instance = LLMPulse::PromptGenerationRequest.new(
   source_country_code: null,
   source_language_code: null,
   min_words: null,
-  all_countries: null
+  all_countries: null,
+  property: null
 )
 ```
 

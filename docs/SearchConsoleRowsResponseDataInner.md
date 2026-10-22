@@ -14,6 +14,7 @@
 | **clicks** | **Integer** |  | [optional] |
 | **ctr** | **Float** | 0..1 fraction | [optional] |
 | **position** | **Float** | Impression-weighted average position | [optional] |
+| **property** | **String** | Present when grouped by property | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = LLMPulse::SearchConsoleRowsResponseDataInner.new(
   impressions: null,
   clicks: null,
   ctr: null,
-  position: null
+  position: null,
+  property: null
 )
 ```
 
