@@ -170,7 +170,7 @@ api_instance = LLMPulse::GEOWriterApi.new
 project_id = 56 # Integer | Project ID
 opts = {
   task_type: 'brief', # String | 
-  status: 'status_example', # String | 
+  status: 'pending', # String | Keep only the tasks in this status. Discarded tasks are never listed, so discarded returns an empty page.
   page: 56, # Integer | 
   per_page: 56 # Integer | 
 }
@@ -208,7 +208,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
 | **task_type** | **String** |  | [optional] |
-| **status** | **String** |  | [optional] |
+| **status** | **String** | Keep only the tasks in this status. Discarded tasks are never listed, so discarded returns an empty page. | [optional] |
 | **page** | **Integer** |  | [optional][default to 1] |
 | **per_page** | **Integer** |  | [optional][default to 20] |
 
