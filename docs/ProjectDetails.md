@@ -7,6 +7,8 @@
 | **id** | **Integer** |  | [optional] |
 | **name** | **String** | Internal project label (sidebar, settings, admin) | [optional] |
 | **brand_name** | **String** | LLM-facing brand label (used in prompts and customer-facing charts). Null when not set, in which case prompts and charts use &#x60;name&#x60;. | [optional] |
+| **tracked** | **Boolean** | Whether scheduled runs include this project. False when it is paused, or when the plan&#39;s project limit leaves it out (the oldest projects up to the limit run), so its prompts do not run |  |
+| **untracked_reason** | **String** | Why tracked is false: paused or project_limit. Null when tracked |  |
 | **url** | **String** |  | [optional] |
 | **description** | **String** |  | [optional] |
 | **matching_names** | **Array&lt;String&gt;** |  | [optional] |
@@ -41,6 +43,8 @@ instance = LLMPulse::ProjectDetails.new(
   id: null,
   name: null,
   brand_name: null,
+  tracked: null,
+  untracked_reason: null,
   url: null,
   description: null,
   matching_names: null,

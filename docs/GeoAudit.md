@@ -10,7 +10,7 @@
 | **country_code** | **String** |  | [optional] |
 | **cadence** | **String** |  | [optional] |
 | **status** | **String** |  | [optional] |
-| **paused_reason** | **String** | user, or unreachable when three runs in a row could not reach the site | [optional] |
+| **paused_reason** | **String** | Null unless status is paused. user (paused by hand), unreachable (three runs in a row could not reach the site) or quota (the account has more active recurring audits than its plan allows; resume it once there is room) | [optional] |
 | **schedule** | [**GeoAuditSchedule**](GeoAuditSchedule.md) |  | [optional] |
 | **next_run_at** | **Time** |  | [optional] |
 | **email_alerts** | **Boolean** |  | [optional] |

@@ -13,6 +13,9 @@
 | **row_errors** | [**Array&lt;PromptsImportResponseRowErrorsInner&gt;**](PromptsImportResponseRowErrorsInner.md) | Rows that were skipped or whose tags were not added, by their index in rows |  |
 | **length_warning** | **String** | Which tracked AI models will skip new prompts that are too long for them |  |
 | **prompts_available** | **Integer** | Prompt slots left on the plan; null when unlimited |  |
+| **tracked** | **Boolean** | Whether scheduled runs include the project the prompts were imported into. False when it is paused or beyond the plan&#39;s project limit, so the new prompts do not run until that changes |  |
+| **untracked_reason** | **String** | Why tracked is false: paused or project_limit. Null when tracked |  |
+| **warning** | **String** | What to do when tracked is false. Null when tracked |  |
 | **request_id** | **String** |  |  |
 
 ## Example
@@ -30,6 +33,9 @@ instance = LLMPulse::PromptsImportResponse.new(
   row_errors: null,
   length_warning: null,
   prompts_available: null,
+  tracked: null,
+  untracked_reason: null,
+  warning: null,
   request_id: null
 )
 ```
