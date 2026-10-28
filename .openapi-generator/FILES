@@ -9,6 +9,7 @@ README.md
 Rakefile
 docs/AIAgentTrafficApi.md
 docs/AIModelInsightsApi.md
+docs/APIKeysApi.md
 docs/AccountApi.md
 docs/AccountCapacity.md
 docs/AccountQuota.md
@@ -30,6 +31,7 @@ docs/AnswerDetails.md
 docs/AnswerDetailsLocale.md
 docs/AnswersApi.md
 docs/ApiErrorError.md
+docs/ApiKeyInfo.md
 docs/AssignPromptTagsRequest.md
 docs/CatalogProduct.md
 docs/CatalogPromptSuggestion.md
@@ -60,6 +62,8 @@ docs/CompetitorSuggestion.md
 docs/CompetitorSuggestionsResponse.md
 docs/CompetitorsApi.md
 docs/CreateAnnotationRequest.md
+docs/CreateApiKey201Response.md
+docs/CreateApiKeyRequest.md
 docs/CreateCollectionRequest.md
 docs/CreateCompetitorRequest.md
 docs/CreateProjectDraftRequest.md
@@ -121,6 +125,7 @@ docs/IntelligenceTaskUpdateRequest.md
 docs/IntelligenceTaskUpdateResponse.md
 docs/IntelligenceTasksResponse.md
 docs/LaunchRecommendationsRequest.md
+docs/ListApiKeys200Response.md
 docs/ListCompetitors200Response.md
 docs/ListProjects200Response.md
 docs/ListTeamInvitations200Response.md
@@ -219,6 +224,7 @@ docs/RecommendationsResponse.md
 docs/RemovePromptTagsRequest.md
 docs/RemoveTeamMember200Response.md
 docs/ReputationStudiesApi.md
+docs/RevokeApiKey200Response.md
 docs/RevokeTeamInvitation200Response.md
 docs/SampleWebhookPayloads200Response.md
 docs/SampleWebhookPayloads200ResponseDataInner.md
@@ -307,6 +313,7 @@ lib/llmpulse/api/ai_agent_traffic_api.rb
 lib/llmpulse/api/ai_model_insights_api.rb
 lib/llmpulse/api/annotations_api.rb
 lib/llmpulse/api/answers_api.rb
+lib/llmpulse/api/api_keys_api.rb
 lib/llmpulse/api/collections_tags_api.rb
 lib/llmpulse/api/competitors_api.rb
 lib/llmpulse/api/custom_reports_api.rb
@@ -350,6 +357,7 @@ lib/llmpulse/models/annotation_create_response_annotation.rb
 lib/llmpulse/models/answer_details.rb
 lib/llmpulse/models/answer_details_locale.rb
 lib/llmpulse/models/api_error_error.rb
+lib/llmpulse/models/api_key_info.rb
 lib/llmpulse/models/assign_prompt_tags_request.rb
 lib/llmpulse/models/catalog_product.rb
 lib/llmpulse/models/catalog_prompt_suggestion.rb
@@ -378,6 +386,8 @@ lib/llmpulse/models/competitor_mentions_response.rb
 lib/llmpulse/models/competitor_suggestion.rb
 lib/llmpulse/models/competitor_suggestions_response.rb
 lib/llmpulse/models/create_annotation_request.rb
+lib/llmpulse/models/create_api_key201_response.rb
+lib/llmpulse/models/create_api_key_request.rb
 lib/llmpulse/models/create_collection_request.rb
 lib/llmpulse/models/create_competitor_request.rb
 lib/llmpulse/models/create_project_draft_request.rb
@@ -435,6 +445,7 @@ lib/llmpulse/models/intelligence_task_update_request.rb
 lib/llmpulse/models/intelligence_task_update_response.rb
 lib/llmpulse/models/intelligence_tasks_response.rb
 lib/llmpulse/models/launch_recommendations_request.rb
+lib/llmpulse/models/list_api_keys200_response.rb
 lib/llmpulse/models/list_competitors200_response.rb
 lib/llmpulse/models/list_projects200_response.rb
 lib/llmpulse/models/list_team_invitations200_response.rb
@@ -526,6 +537,7 @@ lib/llmpulse/models/recommendation_summary_summary.rb
 lib/llmpulse/models/recommendations_response.rb
 lib/llmpulse/models/remove_prompt_tags_request.rb
 lib/llmpulse/models/remove_team_member200_response.rb
+lib/llmpulse/models/revoke_api_key200_response.rb
 lib/llmpulse/models/revoke_team_invitation200_response.rb
 lib/llmpulse/models/sample_webhook_payloads200_response.rb
 lib/llmpulse/models/sample_webhook_payloads200_response_data_inner.rb
