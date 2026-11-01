@@ -12,6 +12,7 @@ docs/AIModelInsightsApi.md
 docs/APIKeysApi.md
 docs/AccountApi.md
 docs/AccountCapacity.md
+docs/AccountPitchQuota.md
 docs/AccountQuota.md
 docs/Actor.md
 docs/AgentBot.md
@@ -187,6 +188,7 @@ docs/ProjectDetails.md
 docs/ProjectDetailsAllOfAgentTraffic.md
 docs/ProjectDetailsAllOfAiTraffic.md
 docs/ProjectDetailsAllOfDataCoverage.md
+docs/ProjectDetailsAllOfPitchRun.md
 docs/ProjectDetailsAllOfSearchConsole.md
 docs/ProjectDetailsAllOfStats.md
 docs/ProjectDetailsAllOfStatsPromptsByBrandKind.md
@@ -341,6 +343,7 @@ lib/llmpulse/api_error.rb
 lib/llmpulse/api_model_base.rb
 lib/llmpulse/configuration.rb
 lib/llmpulse/models/account_capacity.rb
+lib/llmpulse/models/account_pitch_quota.rb
 lib/llmpulse/models/account_quota.rb
 lib/llmpulse/models/actor.rb
 lib/llmpulse/models/agent_bot.rb
@@ -505,6 +508,7 @@ lib/llmpulse/models/project_details.rb
 lib/llmpulse/models/project_details_all_of_agent_traffic.rb
 lib/llmpulse/models/project_details_all_of_ai_traffic.rb
 lib/llmpulse/models/project_details_all_of_data_coverage.rb
+lib/llmpulse/models/project_details_all_of_pitch_run.rb
 lib/llmpulse/models/project_details_all_of_search_console.rb
 lib/llmpulse/models/project_details_all_of_stats.rb
 lib/llmpulse/models/project_details_all_of_stats_prompts_by_brand_kind.rb

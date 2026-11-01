@@ -11,6 +11,7 @@
 | **team_members** | [**AccountCapacity**](AccountCapacity.md) |  | [optional] |
 | **recurring_geo_audits** | [**AccountQuota**](AccountQuota.md) |  | [optional] |
 | **geo_audit_manual_runs** | [**AccountQuota**](AccountQuota.md) |  | [optional] |
+| **pitch_projects** | [**AccountPitchQuota**](AccountPitchQuota.md) |  | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = LLMPulse::GetAccount200ResponseLimits.new(
   intelligence_tasks: null,
   team_members: null,
   recurring_geo_audits: null,
-  geo_audit_manual_runs: null
+  geo_audit_manual_runs: null,
+  pitch_projects: null
 )
 ```
 

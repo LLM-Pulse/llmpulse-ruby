@@ -26,6 +26,7 @@
 | **weekly_email_subscribed** | **Boolean** |  | [optional][default to false] |
 | **external_identifier** | **String** | Embed-enabled (Enterprise) accounts only; other accounts receive ERR_PLAN_REQUIRED. Idempotency key and embed-session join key, unique per account | [optional] |
 | **execute_prompts_immediately** | **Boolean** |  | [optional][default to true] |
+| **pitch** | **Boolean** | Create a pitch project, a one-off snapshot for a prospect. It runs its prompts once across the account&#39;s AI models right away, takes no project slot and its prompts do not count against the prompt quota, and it is deleted 90 days later unless converted by sending pitch false to PATCH /projects/{id}. It uses one of the month&#39;s pitch projects (GET /account, limits.pitch_projects), needs access approved for the account and a paid subscription on the Scale tier or higher, takes 1 to 100 prompts, and cannot use a domain the account already tracks or pitched in the last 90 days. execute_prompts_immediately must not be false | [optional][default to false] |
 
 ## Example
 
@@ -54,7 +55,8 @@ instance = LLMPulse::ProjectCreateRequest.new(
   use_subdomain: null,
   weekly_email_subscribed: null,
   external_identifier: null,
-  execute_prompts_immediately: null
+  execute_prompts_immediately: null,
+  pitch: null
 )
 ```
 
