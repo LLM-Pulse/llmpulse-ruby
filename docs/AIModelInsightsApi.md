@@ -11,11 +11,11 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 
 ## get_ai_model_insights_summary
 
-> get_ai_model_insights_summary(project_id, opts)
+> <AiModelInsightsSummaryResponse> get_ai_model_insights_summary(project_id, opts)
 
 AI Model Insights summary
 
-Per-model mentions, citations, brand net sentiment with raw counts, weighted visibility totals/shares, plus actor matrices. All actor entries use the standard shape `{ type, id, competitor_id, name, domain }` with bare (scheme-less) domains.
+Per-model mentions, citations, brand net sentiment with raw counts, weighted visibility totals/shares, plus actor matrices. All actor entries use the standard shape `{ type, id, competitor_id, name, domain }` with bare (scheme-less) domains. Rows cover the AI models the account has enabled or that answered in the window. A share, net sentiment or market share value with nothing behind it is null; counts, totals and weighted visibility scores stay 0.
 
 ### Examples
 
@@ -45,7 +45,8 @@ opts = {
 
 begin
   # AI Model Insights summary
-  api_instance.get_ai_model_insights_summary(project_id, opts)
+  result = api_instance.get_ai_model_insights_summary(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling AIModelInsightsApi->get_ai_model_insights_summary: #{e}"
 end
@@ -53,9 +54,9 @@ end
 
 #### Using the get_ai_model_insights_summary_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_ai_model_insights_summary_with_http_info(project_id, opts)
+> <Array(<AiModelInsightsSummaryResponse>, Integer, Hash)> get_ai_model_insights_summary_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -63,7 +64,7 @@ begin
   data, status_code, headers = api_instance.get_ai_model_insights_summary_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AiModelInsightsSummaryResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling AIModelInsightsApi->get_ai_model_insights_summary_with_http_info: #{e}"
 end
@@ -87,7 +88,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AiModelInsightsSummaryResponse**](AiModelInsightsSummaryResponse.md)
 
 ### Authorization
 
@@ -96,7 +97,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## get_ai_model_position_distribution
