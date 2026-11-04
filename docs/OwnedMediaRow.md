@@ -4,6 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **date** | **Date** | The start date of the actual reporting period (view&#x3D;activity) | [optional] |
+| **entity_id** | **String** | Platform entity identifier (view&#x3D;activity) | [optional] |
+| **entity_name** | **String** | Current entity name when known (view&#x3D;activity) | [optional] |
+| **entity_url** | **String** | Current profile, channel or app listing URL when known (view&#x3D;activity) | [optional] |
+| **store** | **String** | Store selected for provider&#x3D;mobile_apps (view&#x3D;activity) | [optional] |
+| **competitor_id** | **Integer** | Competitor identifier when the activity row represents a competitor app | [optional] |
 | **title** | **String** |  | [optional] |
 | **url** | **String** |  | [optional] |
 | **channel_name** | **String** |  | [optional] |
@@ -18,7 +24,7 @@
 | **thumbnail_url** | **String** | The post or video image. Our cached copy where one exists, so the link does not expire | [optional] |
 | **avatar_url** | **String** | The profile or channel image. Our cached copy where one exists | [optional] |
 | **content_type** | **String** | The post format on its platform: reel, post or tv on Instagram, post or pulse on LinkedIn, post elsewhere | [optional] |
-| **citations** | **Integer** |  | [optional] |
+| **citations** | **Integer** | Citations for the row; for view&#x3D;activity, the count in this reporting period | [optional] |
 | **unique_videos** | **Integer** |  | [optional] |
 | **unique_posts** | **Integer** |  | [optional] |
 | **followers** | **Integer** |  | [optional] |
@@ -43,6 +49,12 @@
 require 'llmpulse'
 
 instance = LLMPulse::OwnedMediaRow.new(
+  date: null,
+  entity_id: null,
+  entity_name: null,
+  entity_url: null,
+  store: null,
+  competitor_id: null,
   title: null,
   url: null,
   channel_name: null,
