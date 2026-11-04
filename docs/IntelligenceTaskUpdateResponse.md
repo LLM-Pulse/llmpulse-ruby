@@ -25,6 +25,7 @@
 | **manually_edited_at** | **Time** | When the content was last edited by hand; null while the output is as generated | [optional] |
 | **edited_by_user_id** | **Integer** | User behind the last manual edit; null for an unedited task or an edit made from an embedded portal | [optional] |
 | **result_version** | **String** | Concurrency token for content edits: send it back as result_version on PATCH /intelligence_tasks/{id} so an edit composed before a regeneration is refused with ERR_STALE_CONTENT (409). It is \&quot;0\&quot; until the task first completes, then changes each time a generation or regeneration replaces result_data, never on a manual edit or a revert. Treat it as opaque text | [optional] |
+| **cms_drafts** | [**Array&lt;CmsPublication&gt;**](CmsPublication.md) | Drafts sent from this task to the connected WordPress site, newest first (up to 10). Only GET /intelligence_tasks/{id} returns it, and never on a white-label portal host | [optional] |
 | **request_id** | **String** |  | [optional] |
 | **changed_paths** | **Array&lt;String&gt;** | Paths whose text actually changed; empty when every value matched the stored text | [optional] |
 
@@ -55,6 +56,7 @@ instance = LLMPulse::IntelligenceTaskUpdateResponse.new(
   manually_edited_at: null,
   edited_by_user_id: null,
   result_version: 1775642580,
+  cms_drafts: null,
   request_id: null,
   changed_paths: null
 )

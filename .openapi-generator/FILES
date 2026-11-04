@@ -70,6 +70,13 @@ docs/CatalogPromptSuggestionsResponse.md
 docs/CitationMatchMode.md
 docs/CitationRecord.md
 docs/CitationsResponse.md
+docs/CmsContentItem.md
+docs/CmsContentItemResponse.md
+docs/CmsContentListResponse.md
+docs/CmsContentSummary.md
+docs/CmsPublication.md
+docs/CmsSendResponse.md
+docs/CmsSite.md
 docs/CollectionCreateResponse.md
 docs/CollectionCreateResponseCollection.md
 docs/CollectionsResponse.md
@@ -432,6 +439,13 @@ lib/llmpulse/models/catalog_prompt_suggestions_response.rb
 lib/llmpulse/models/citation_match_mode.rb
 lib/llmpulse/models/citation_record.rb
 lib/llmpulse/models/citations_response.rb
+lib/llmpulse/models/cms_content_item.rb
+lib/llmpulse/models/cms_content_item_response.rb
+lib/llmpulse/models/cms_content_list_response.rb
+lib/llmpulse/models/cms_content_summary.rb
+lib/llmpulse/models/cms_publication.rb
+lib/llmpulse/models/cms_send_response.rb
+lib/llmpulse/models/cms_site.rb
 lib/llmpulse/models/collection_create_response.rb
 lib/llmpulse/models/collection_create_response_collection.rb
 lib/llmpulse/models/collections_response.rb
