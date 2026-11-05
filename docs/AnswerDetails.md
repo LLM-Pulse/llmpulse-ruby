@@ -8,12 +8,13 @@
 | **prompt_id** | **Integer** |  | [optional] |
 | **prompt_text** | **String** |  | [optional] |
 | **model** | **String** |  | [optional] |
-| **response** | **String** |  | [optional] |
+| **response** | **String** | The AI answer. For a declined answer (no_result_reason declined) it is the reply the model gave instead; for no_answer it is a placeholder, not an AI response | [optional] |
 | **response_truncated** | **Boolean** |  | [optional] |
 | **executed_at** | **Time** |  | [optional] |
 | **duration_ms** | **Float** | Milliseconds, rounded to one decimal place | [optional] |
 | **success** | **Boolean** | Null while the answer is still pending | [optional] |
 | **no_result** | **Boolean** | True for a sentinel non-answer (no answer could be collected after all retries, or the model declined to answer, today only Gemini); excluded from platform metrics | [optional] |
+| **no_result_reason** | **String** | Present only when no_result is true. declined &#x3D; the model declined to answer (today only Gemini, shown as Declined in the app) and response holds its reply; no_answer &#x3D; no answer could be collected | [optional] |
 | **fan_out_queries** | **Array&lt;String&gt;** |  | [optional] |
 | **mentions** | **Array&lt;Object&gt;** |  | [optional] |
 | **citations** | **Array&lt;Object&gt;** |  | [optional] |
@@ -45,6 +46,7 @@ instance = LLMPulse::AnswerDetails.new(
   duration_ms: null,
   success: null,
   no_result: null,
+  no_result_reason: null,
   fan_out_queries: null,
   mentions: null,
   citations: null,
