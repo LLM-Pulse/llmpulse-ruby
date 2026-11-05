@@ -97,6 +97,7 @@ docs/CreateApiKeyRequest.md
 docs/CreateCollectionRequest.md
 docs/CreateCompetitorRequest.md
 docs/CreateProjectDraftRequest.md
+docs/CreateReputationReportRequest.md
 docs/CreateTeamInvitation201Response.md
 docs/CreateTeamInvitationRequest.md
 docs/CreateTechnicalGeoReportsRequest.md
@@ -260,6 +261,8 @@ docs/RedditPositionShare.md
 docs/RedditSubredditActivityPeriod.md
 docs/RemovePromptTagsRequest.md
 docs/RemoveTeamMember200Response.md
+docs/ReputationReportCreateResponse.md
+docs/ReputationReportSummary.md
 docs/ReputationStudiesApi.md
 docs/RevokeApiKey200Response.md
 docs/RevokeTeamInvitation200Response.md
@@ -469,6 +472,7 @@ lib/llmpulse/models/create_api_key_request.rb
 lib/llmpulse/models/create_collection_request.rb
 lib/llmpulse/models/create_competitor_request.rb
 lib/llmpulse/models/create_project_draft_request.rb
+lib/llmpulse/models/create_reputation_report_request.rb
 lib/llmpulse/models/create_team_invitation201_response.rb
 lib/llmpulse/models/create_team_invitation_request.rb
 lib/llmpulse/models/create_technical_geo_reports_request.rb
@@ -622,6 +626,8 @@ lib/llmpulse/models/reddit_position_share.rb
 lib/llmpulse/models/reddit_subreddit_activity_period.rb
 lib/llmpulse/models/remove_prompt_tags_request.rb
 lib/llmpulse/models/remove_team_member200_response.rb
+lib/llmpulse/models/reputation_report_create_response.rb
+lib/llmpulse/models/reputation_report_summary.rb
 lib/llmpulse/models/revoke_api_key200_response.rb
 lib/llmpulse/models/revoke_team_invitation200_response.rb
 lib/llmpulse/models/sample_webhook_payloads200_response.rb
