@@ -9,14 +9,23 @@
 | **entity_name** | **String** | Current entity name when known (view&#x3D;activity) | [optional] |
 | **entity_url** | **String** | Current profile, channel or app listing URL when known (view&#x3D;activity) | [optional] |
 | **store** | **String** | Store selected for provider&#x3D;mobile_apps (view&#x3D;activity) | [optional] |
-| **competitor_id** | **Integer** | Competitor identifier when the activity row represents a competitor app | [optional] |
+| **competitor_id** | **Integer** | Competitor identifier when the row represents a competitor&#39;s app or Trustpilot profile | [optional] |
+| **id** | **Integer** | The review&#39;s identifier (provider&#x3D;trustpilot, view&#x3D;reviews) | [optional] |
+| **brand** | **String** | The brand or competitor whose Trustpilot profile carries the review (provider&#x3D;trustpilot, view&#x3D;reviews) | [optional] |
+| **rating** | **Float** | Trustpilot rating out of 5: the profile&#39;s at its last monthly read (views profiles and brands) or the review&#39;s stars (view&#x3D;reviews) | [optional] |
+| **rating_change** | **Float** | Change of the profile&#39;s rating since the previous monthly read (provider&#x3D;trustpilot, view&#x3D;brands); null before a second read | [optional] |
+| **reviews_count** | **Integer** | The profile&#39;s review count on Trustpilot at its last monthly read (provider&#x3D;trustpilot) | [optional] |
+| **status** | **String** | Whether the brand&#39;s Trustpilot profile has been read (found), Trustpilot has no business for its domain (not_found), or it has not been read yet (pending) (provider&#x3D;trustpilot, view&#x3D;brands) | [optional] |
+| **text** | **String** | The review text (provider&#x3D;trustpilot, view&#x3D;reviews) | [optional] |
+| **author** | **String** | The reviewer&#39;s display name (provider&#x3D;trustpilot, view&#x3D;reviews) | [optional] |
+| **replied** | **Boolean** | Whether the business replied to the review (provider&#x3D;trustpilot, view&#x3D;reviews) | [optional] |
 | **title** | **String** |  | [optional] |
 | **url** | **String** |  | [optional] |
 | **channel_name** | **String** |  | [optional] |
 | **channel_handle** | **String** | The video&#39;s channel handle, without the @ | [optional] |
 | **channel_url** | **String** |  | [optional] |
 | **video_id** | **String** |  | [optional] |
-| **key** | **String** | The channel key (handle:..., channel:... or name:...), accepted as profile by /dimensions/owned_media/citing_prompts | [optional] |
+| **key** | **String** | The channel key (handle:..., channel:... or name:...), accepted as profile by /dimensions/owned_media/citing_prompts; on provider&#x3D;trustpilot, the business domain the profile is filed under, null for a brand without a domain | [optional] |
 | **name** | **String** |  | [optional] |
 | **handle** | **String** |  | [optional] |
 | **caption** | **String** |  | [optional] |
@@ -38,7 +47,7 @@
 | **citation_date** | **Time** |  | [optional] |
 | **position** | **Integer** |  | [optional] |
 | **model** | **String** |  | [optional] |
-| **domain** | **String** | The app&#39;s store listing URL (provider&#x3D;mobile_apps) | [optional] |
+| **domain** | **String** | The app&#39;s store listing URL (provider&#x3D;mobile_apps), or the brand&#39;s domain (provider&#x3D;trustpilot, view&#x3D;brands) | [optional] |
 | **total_responses** | **Integer** |  | [optional] |
 | **rank** | **Integer** |  | [optional] |
 | **global_rank** | **Integer** |  | [optional] |
@@ -55,6 +64,15 @@ instance = LLMPulse::OwnedMediaRow.new(
   entity_url: null,
   store: null,
   competitor_id: null,
+  id: null,
+  brand: null,
+  rating: null,
+  rating_change: null,
+  reviews_count: null,
+  status: null,
+  text: null,
+  author: null,
+  replied: null,
   title: null,
   url: null,
   channel_name: null,
