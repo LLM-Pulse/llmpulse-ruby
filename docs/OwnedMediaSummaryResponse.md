@@ -23,6 +23,7 @@
 | **subreddit_activity** | [**Array&lt;RedditSubredditActivityPeriod&gt;**](RedditSubredditActivityPeriod.md) | provider&#x3D;reddit only. One row per subreddit and actual reporting period; the top five subreddits are separate and Others has a null subreddit | [optional] |
 | **positions** | [**Array&lt;RedditPositionShare&gt;**](RedditPositionShare.md) | provider&#x3D;reddit only. Position distribution over the selected date window | [optional] |
 | **brand_share** | [**Array&lt;RedditBrandShare&gt;**](RedditBrandShare.md) | provider&#x3D;reddit only. Citation share among the tracked brand and competitors with cited mentions | [optional] |
+| **replies** | [**TrustpilotReplies**](TrustpilotReplies.md) |  | [optional] |
 | **request_id** | **String** |  | [optional] |
 
 ## Example
@@ -50,6 +51,7 @@ instance = LLMPulse::OwnedMediaSummaryResponse.new(
   subreddit_activity: null,
   positions: null,
   brand_share: null,
+  replies: null,
   request_id: null
 )
 ```
