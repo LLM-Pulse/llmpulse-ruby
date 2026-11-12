@@ -29,6 +29,7 @@
 | **app_store_id** | **String** |  | [optional] |
 | **created_at** | **Time** |  | [optional] |
 | **prompt_limit** | **Integer** | The most prompts this project can hold, set by the account owner or a co-owner (Account Settings &gt; Prompt Limits). Null when the project has no limit of its own; the account&#39;s plan allowance applies either way | [optional] |
+| **project_type** | **String** | The project type it is billed as under the account&#39;s pricing agreement, such as core or lean (its own, else the account&#39;s default type). Null for accounts without per-project types and for pitch projects | [optional] |
 | **stats** | [**ProjectDetailsAllOfStats**](ProjectDetailsAllOfStats.md) |  | [optional] |
 | **pitch_run** | [**ProjectDetailsAllOfPitchRun**](ProjectDetailsAllOfPitchRun.md) |  | [optional] |
 | **data_coverage** | [**ProjectDetailsAllOfDataCoverage**](ProjectDetailsAllOfDataCoverage.md) |  | [optional] |
@@ -68,6 +69,7 @@ instance = LLMPulse::ProjectDetails.new(
   app_store_id: null,
   created_at: null,
   prompt_limit: null,
+  project_type: null,
   stats: null,
   pitch_run: null,
   data_coverage: null,
