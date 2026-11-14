@@ -109,9 +109,9 @@ opts = {
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   brand_kind: 'brand', # String | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
-  range: 56, # Integer | Number of days to look back (alternative to from/to)
-  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
-  to: Time.parse('2013-10-20T19:20:30+01:00') # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
+  range: 56, # Integer | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
+  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM.
+  to: Time.parse('2013-10-20T19:20:30+01:00') # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it.
 }
 
 begin
@@ -152,9 +152,9 @@ end
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **brand_kind** | **String** | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
-| **range** | **Integer** | Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **Time** |  | [optional] |
-| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
+| **range** | **Integer** | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
+| **from** | **Time** | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it. | [optional] |
 
 ### Return type
 
@@ -203,9 +203,9 @@ opts = {
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   brand_kind: 'brand', # String | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
-  range: 56, # Integer | Number of days to look back (alternative to from/to)
-  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
-  to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
+  range: 56, # Integer | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
+  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM.
+  to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it.
   output: 'flat' # String | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 }
 
@@ -252,9 +252,9 @@ end
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **brand_kind** | **String** | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
-| **range** | **Integer** | Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **Time** |  | [optional] |
-| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
+| **range** | **Integer** | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
+| **from** | **Time** | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it. | [optional] |
 | **output** | **String** | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
 
 ### Return type
@@ -303,9 +303,9 @@ opts = {
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   brand_kind: 'brand', # String | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
-  range: 56, # Integer | Number of days to look back (alternative to from/to)
-  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
-  to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
+  range: 56, # Integer | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
+  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM.
+  to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it.
   output: 'flat' # String | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 }
 
@@ -351,9 +351,9 @@ end
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **brand_kind** | **String** | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
-| **range** | **Integer** | Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **Time** |  | [optional] |
-| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
+| **range** | **Integer** | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
+| **from** | **Time** | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it. | [optional] |
 | **output** | **String** | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
 
 ### Return type
@@ -399,7 +399,7 @@ opts = {
   author: 'author_example', # String | Filter to one Reddit author
   status: 'open', # String | view=threads only
   owned: true, # Boolean | Return only subreddits/authors the account has claimed as its own
-  brand: 'brand_example', # String | Filter to citations whose scraped Reddit content mentions a brand: 'brand' for the tracked brand, or a competitor id. Reads the page content, not the AI answer.
+  brand: 'brand_example', # String | Filter to citations whose scraped Reddit content mentions a brand: 'brand' for the tracked brand, or a competitor id. Reads the page content, not the AI answer. Any other value, or an id that names no competitor of the project, returns 422 ERR_INVALID_PARAM.
   order: 'citations', # String | Sort field; the allowed set depends on view, and view=breakdowns accepts none
   direction: 'asc', # String | 
   model: 'chatgpt', # String | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
@@ -407,9 +407,9 @@ opts = {
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   brand_kind: 'brand', # String | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
-  range: 56, # Integer | Number of days to look back (alternative to from/to)
-  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
-  to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
+  range: 56, # Integer | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
+  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM.
+  to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it.
   output: 'flat' # String | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. 'flat' returns the same metadata plus 'columns' and 'rows'; 'csv' returns those rows as text/csv. Errors are always returned as JSON.
 }
 
@@ -451,7 +451,7 @@ end
 | **author** | **String** | Filter to one Reddit author | [optional] |
 | **status** | **String** | view&#x3D;threads only | [optional] |
 | **owned** | **Boolean** | Return only subreddits/authors the account has claimed as its own | [optional] |
-| **brand** | **String** | Filter to citations whose scraped Reddit content mentions a brand: &#39;brand&#39; for the tracked brand, or a competitor id. Reads the page content, not the AI answer. | [optional] |
+| **brand** | **String** | Filter to citations whose scraped Reddit content mentions a brand: &#39;brand&#39; for the tracked brand, or a competitor id. Reads the page content, not the AI answer. Any other value, or an id that names no competitor of the project, returns 422 ERR_INVALID_PARAM. | [optional] |
 | **order** | **String** | Sort field; the allowed set depends on view, and view&#x3D;breakdowns accepts none | [optional] |
 | **direction** | **String** |  | [optional][default to &#39;desc&#39;] |
 | **model** | **String** | Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
@@ -459,9 +459,9 @@ end
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **brand_kind** | **String** | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
-| **range** | **Integer** | Number of days to look back (alternative to from/to) | [optional] |
-| **from** | **Time** |  | [optional] |
-| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
+| **range** | **Integer** | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
+| **from** | **Time** | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it. | [optional] |
 | **output** | **String** | Rectangular output for BI tools (Tableau, Excel, Sheets, ELT). Omit for the default nested JSON. &#39;flat&#39; returns the same metadata plus &#39;columns&#39; and &#39;rows&#39;; &#39;csv&#39; returns those rows as text/csv. Errors are always returned as JSON. | [optional] |
 
 ### Return type

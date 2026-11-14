@@ -31,7 +31,7 @@ end
 api_instance = LLMPulse::AIModelInsightsApi.new
 project_id = 56 # Integer | Project ID
 opts = {
-  range: 56, # Integer | Number of days to look back (alternative to from/to)
+  range: 56, # Integer | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   granularity: 'day', # String | 
@@ -40,7 +40,7 @@ opts = {
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
   prompt_type: 'prompt_type_example', # String | One prompt type or a comma-separated list: informational, navigational, commercial, transactional
   brand_kind: 'brand', # String | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default.
-  competitors: 'competitors_example' # String | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM)
+  competitors: 'competitors_example' # String | Comma-separated competitor IDs (a malformed or unknown ID returns ERR_INVALID_PARAM)
 }
 
 begin
@@ -75,7 +75,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
-| **range** | **Integer** | Number of days to look back (alternative to from/to) | [optional] |
+| **range** | **Integer** | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **granularity** | **String** |  | [optional] |
@@ -84,7 +84,7 @@ end
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
 | **prompt_type** | **String** | One prompt type or a comma-separated list: informational, navigational, commercial, transactional | [optional] |
 | **brand_kind** | **String** | Filter by brand kind: brand (own brand/products), brand_other (competitors/other brands), non_brand (generic, no brand named). For fair 1:1 brand-vs-competitor comparisons (visibility, share of voice), use non_brand: brand-focused prompts skew results toward the brand they name. The in-app Overview page applies non_brand by default. | [optional] |
-| **competitors** | **String** | Comma-separated competitor IDs (unknown IDs return ERR_INVALID_PARAM) | [optional] |
+| **competitors** | **String** | Comma-separated competitor IDs (a malformed or unknown ID returns ERR_INVALID_PARAM) | [optional] |
 
 ### Return type
 
@@ -120,7 +120,7 @@ end
 api_instance = LLMPulse::AIModelInsightsApi.new
 project_id = 56 # Integer | Project ID
 opts = {
-  range: 56, # Integer | Number of days to look back (alternative to from/to)
+  range: 56, # Integer | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   granularity: 'day', # String | 
@@ -165,7 +165,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
-| **range** | **Integer** | Number of days to look back (alternative to from/to) | [optional] |
+| **range** | **Integer** | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **granularity** | **String** |  | [optional] |
@@ -212,7 +212,7 @@ end
 api_instance = LLMPulse::AIModelInsightsApi.new
 project_id = 56 # Integer | Project ID
 opts = {
-  range: 56, # Integer | Number of days to look back (alternative to from/to)
+  range: 56, # Integer | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   granularity: 'day', # String | 
@@ -256,7 +256,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
-| **range** | **Integer** | Number of days to look back (alternative to from/to) | [optional] |
+| **range** | **Integer** | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **granularity** | **String** |  | [optional] |

@@ -169,7 +169,7 @@ end
 
 api_instance = LLMPulse::WebhooksApi.new
 opts = {
-  project_id: 56, # Integer | Optional project filter
+  project_id: 56, # Integer | Optional project filter. An id that is not a plain number, or that names no project of the account, returns ERR_PROJECT_NOT_FOUND.
   page: 56, # Integer | 
   per_page: 56 # Integer | Max 100
 }
@@ -205,7 +205,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **project_id** | **Integer** | Optional project filter | [optional] |
+| **project_id** | **Integer** | Optional project filter. An id that is not a plain number, or that names no project of the account, returns ERR_PROJECT_NOT_FOUND. | [optional] |
 | **page** | **Integer** |  | [optional] |
 | **per_page** | **Integer** | Max 100 | [optional] |
 

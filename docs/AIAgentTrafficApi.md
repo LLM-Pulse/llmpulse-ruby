@@ -33,7 +33,7 @@ end
 api_instance = LLMPulse::AIAgentTrafficApi.new
 project_id = 56 # Integer | Project ID
 opts = {
-  range: 56, # Integer | Number of days to look back (alternative to from/to)
+  range: 56, # Integer | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   bot: 'bot_example', # String | Filter by bot slug (e.g. gptbot, claudebot, perplexitybot)
@@ -74,7 +74,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
-| **range** | **Integer** | Number of days to look back (alternative to from/to) | [optional] |
+| **range** | **Integer** | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **bot** | **String** | Filter by bot slug (e.g. gptbot, claudebot, perplexitybot) | [optional] |
@@ -118,7 +118,7 @@ end
 api_instance = LLMPulse::AIAgentTrafficApi.new
 project_id = 56 # Integer | Project ID
 opts = {
-  range: 56, # Integer | Number of days to look back (alternative to from/to)
+  range: 56, # Integer | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to.
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   source: 'source_example', # String | Filter by a single AI source slug (e.g. chatgpt, perplexity, gemini, claude)
@@ -156,7 +156,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
-| **range** | **Integer** | Number of days to look back (alternative to from/to) | [optional] |
+| **range** | **Integer** | Number of days to look back (alternative to from/to, which win when both are given). A value that is not a plain positive number returns 422 ERR_INVALID_PARAM, even beside from/to. | [optional] |
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **source** | **String** | Filter by a single AI source slug (e.g. chatgpt, perplexity, gemini, claude) | [optional] |

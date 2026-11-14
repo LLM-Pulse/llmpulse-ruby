@@ -173,7 +173,7 @@ project_id = 56 # Integer | Project ID
 opts = {
   from: Date.parse('2013-10-20'), # Date | 
   to: Date.parse('2013-10-20'), # Date | 
-  annotation_category_id: 56, # Integer | 
+  annotation_category_id: 56, # Integer | Keep the annotations filed under this category, one of the project's or a system category. Any other id returns 422 ERR_INVALID_PARAM.
   page: 56, # Integer | 
   per_page: 56 # Integer | 
 }
@@ -211,7 +211,7 @@ end
 | **project_id** | **Integer** | Project ID |  |
 | **from** | **Date** |  | [optional] |
 | **to** | **Date** |  | [optional] |
-| **annotation_category_id** | **Integer** |  | [optional] |
+| **annotation_category_id** | **Integer** | Keep the annotations filed under this category, one of the project&#39;s or a system category. Any other id returns 422 ERR_INVALID_PARAM. | [optional] |
 | **page** | **Integer** |  | [optional][default to 1] |
 | **per_page** | **Integer** |  | [optional][default to 20] |
 

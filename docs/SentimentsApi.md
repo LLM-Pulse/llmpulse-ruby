@@ -32,7 +32,7 @@ end
 api_instance = LLMPulse::SentimentsApi.new
 project_id = 56 # Integer | Project ID
 opts = {
-  range: 56, # Integer | Number of days to look back, today included (default 28, like the Sentiment page). Ignored when from or to is given.
+  range: 56, # Integer | Number of days to look back, today included (default 28, like the Sentiment page). from or to win over it, but a value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside them.
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   model: 'chatgpt', # String | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
@@ -83,7 +83,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
-| **range** | **Integer** | Number of days to look back, today included (default 28, like the Sentiment page). Ignored when from or to is given. | [optional] |
+| **range** | **Integer** | Number of days to look back, today included (default 28, like the Sentiment page). from or to win over it, but a value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside them. | [optional] |
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **model** | **String** | Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
@@ -137,7 +137,7 @@ end
 api_instance = LLMPulse::SentimentsApi.new
 project_id = 56 # Integer | Project ID
 opts = {
-  range: 56, # Integer | Number of days to look back, today included (default 28, like the Sentiment page). Ignored when from or to is given.
+  range: 56, # Integer | Number of days to look back, today included (default 28, like the Sentiment page). from or to win over it, but a value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside them.
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   model: 'chatgpt', # String | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
@@ -188,7 +188,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
-| **range** | **Integer** | Number of days to look back, today included (default 28, like the Sentiment page). Ignored when from or to is given. | [optional] |
+| **range** | **Integer** | Number of days to look back, today included (default 28, like the Sentiment page). from or to win over it, but a value that is not a plain positive number returns 422 ERR_INVALID_PARAM even beside them. | [optional] |
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **model** | **String** | Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
@@ -314,15 +314,15 @@ end
 api_instance = LLMPulse::SentimentsApi.new
 project_id = 56 # Integer | Project ID
 opts = {
-  competitor_id: 56, # Integer | 
-  brand_only: true, # Boolean | 
+  competitor_id: 56, # Integer | Keep the sentiments about this competitor. An id that is not a plain positive number, or that names no competitor of the project, returns 422 ERR_INVALID_PARAM.
+  brand_only: true, # Boolean | true keeps only the sentiments about your own brand.
   analysis: 'analysis_example', # String | One sentiment level or a comma-separated list: very_positive, positive, neutral, negative, very_negative
-  model: 'chatgpt', # String | Filter by one AI model. Here an unknown value, or a model the API key's user has not enabled, is ignored rather than rejected: the request succeeds and returns the records of every enabled model, as if model were omitted.
+  model: 'chatgpt', # String | Filter by one AI model. It must be a model enabled for the API key's user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message.
   collection_id: '12,34', # String | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize.
   country_code: 'country_code_example', # String | One ISO country code or a comma-separated list (e.g. US,GB,DE)
   language_code: 'language_code_example', # String | One ISO language code or a comma-separated list (e.g. en,es,de)
-  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
-  to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
+  from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM.
+  to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it.
   page: 56, # Integer | 
   per_page: 56 # Integer | 
 }
@@ -359,15 +359,15 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **project_id** | **Integer** | Project ID |  |
-| **competitor_id** | **Integer** |  | [optional] |
-| **brand_only** | **Boolean** |  | [optional] |
+| **competitor_id** | **Integer** | Keep the sentiments about this competitor. An id that is not a plain positive number, or that names no competitor of the project, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **brand_only** | **Boolean** | true keeps only the sentiments about your own brand. | [optional] |
 | **analysis** | **String** | One sentiment level or a comma-separated list: very_positive, positive, neutral, negative, very_negative | [optional] |
-| **model** | **String** | Filter by one AI model. Here an unknown value, or a model the API key&#39;s user has not enabled, is ignored rather than rejected: the request succeeds and returns the records of every enabled model, as if model were omitted. | [optional] |
+| **model** | **String** | Filter by one AI model. It must be a model enabled for the API key&#39;s user: an unknown value, or a model the user has not enabled, returns 422 ERR_INVALID_PARAM with the valid values in the message. | [optional] |
 | **collection_id** | **String** | One collection/tag ID or a comma-separated list of IDs. A query value is always a string on the wire, so it is typed as one: the previous integer-or-string union made generators emit a wrapper type they could not serialize. | [optional] |
 | **country_code** | **String** | One ISO country code or a comma-separated list (e.g. US,GB,DE) | [optional] |
 | **language_code** | **String** | One ISO language code or a comma-separated list (e.g. en,es,de) | [optional] |
-| **from** | **Time** |  | [optional] |
-| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
+| **from** | **Time** | Start of the window. Sent alone, the window runs from it to the end of today. A from later than to, or a window longer than 1,500 days, returns 422 ERR_INVALID_PARAM. | [optional] |
+| **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. Sent without from, the window covers the 30 days that end on it. | [optional] |
 | **page** | **Integer** |  | [optional][default to 1] |
 | **per_page** | **Integer** |  | [optional][default to 20] |
 
