@@ -9,7 +9,7 @@
 | **competitor_id** | **Integer** | Null for the project, the competitor id otherwise | [optional] |
 | **name** | **String** |  | [optional] |
 | **domain** | **String** | Bare (scheme-less) domain. Null for the project actor when the project has no URL. | [optional] |
-| **total_weighted_visibility_score** | **Float** | The actor&#39;s AI Visibility Score across the enabled models, its points there divided by the project&#39;s days with answers in them, so actors compare | [optional] |
+| **total_weighted_visibility_score** | **Float** | The actor&#39;s AI Visibility Score across the enabled models, its points there divided by the project&#39;s tracking runs with answers in them, so actors compare | [optional] |
 | **models** | [**Hash&lt;String, AiModelWeightedVisibilityCell&gt;**](AiModelWeightedVisibilityCell.md) | One cell per model, keyed by model | [optional] |
 
 ## Example
