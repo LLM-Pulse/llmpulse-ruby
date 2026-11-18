@@ -20,6 +20,13 @@ docs/AgentBot.md
 docs/AgentBotsResponse.md
 docs/AgentTrafficResponse.md
 docs/AiModelCitationsRow.md
+docs/AiModelDeclineCounts.md
+docs/AiModelDeclinedAnswersResponse.md
+docs/AiModelDeclinedAnswersResponseByPrompt.md
+docs/AiModelDeclinedAnswersResponseByPromptDataInner.md
+docs/AiModelDeclinedAnswersResponseChartInner.md
+docs/AiModelDeclinedAnswersResponseFilters.md
+docs/AiModelDeclinedAnswersResponseSummary.md
 docs/AiModelInsightsFiltersEcho.md
 docs/AiModelInsightsModel.md
 docs/AiModelInsightsSummaryResponse.md
@@ -420,6 +427,13 @@ lib/llmpulse/models/agent_bot.rb
 lib/llmpulse/models/agent_bots_response.rb
 lib/llmpulse/models/agent_traffic_response.rb
 lib/llmpulse/models/ai_model_citations_row.rb
+lib/llmpulse/models/ai_model_decline_counts.rb
+lib/llmpulse/models/ai_model_declined_answers_response.rb
+lib/llmpulse/models/ai_model_declined_answers_response_by_prompt.rb
+lib/llmpulse/models/ai_model_declined_answers_response_by_prompt_data_inner.rb
+lib/llmpulse/models/ai_model_declined_answers_response_chart_inner.rb
+lib/llmpulse/models/ai_model_declined_answers_response_filters.rb
+lib/llmpulse/models/ai_model_declined_answers_response_summary.rb
 lib/llmpulse/models/ai_model_insights_filters_echo.rb
 lib/llmpulse/models/ai_model_insights_model.rb
 lib/llmpulse/models/ai_model_insights_summary_response.rb
