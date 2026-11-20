@@ -332,7 +332,7 @@ opts = {
   from: Time.parse('2013-10-20T19:20:30+01:00'), # Time | 
   to: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier.
   source_type: 'owned', # String | 
-  sentiment: 'negative', # String | 
+  sentiment: 'negative', # String | Keeps the citations of answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED.
   content_gap: 'mentioned', # String | mentioned: the cited page mentions your brand. gap: it mentions a competitor but not your brand. Only pages with usable content whose mention analysis has completed for this project match.
   include_series: true # Boolean | Adds citation_series. Without it the response is unchanged.
 }
@@ -378,7 +378,7 @@ end
 | **from** | **Time** |  | [optional] |
 | **to** | **Time** | End of the window. A date-only value such as 2026-09-01 covers that whole day. Pass a full timestamp to end the window earlier. | [optional] |
 | **source_type** | **String** |  | [optional] |
-| **sentiment** | **String** |  | [optional] |
+| **sentiment** | **String** | Keeps the citations of answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED. | [optional] |
 | **content_gap** | **String** | mentioned: the cited page mentions your brand. gap: it mentions a competitor but not your brand. Only pages with usable content whose mention analysis has completed for this project match. | [optional] |
 | **include_series** | **Boolean** | Adds citation_series. Without it the response is unchanged. | [optional][default to false] |
 
@@ -624,7 +624,7 @@ opts = {
   include_series: true, # Boolean | Requires key, else 422 ERR_INVALID_PARAM. Adds citation_series to the group's row.
   query: 'query_example', # String | 
   source_type: 'owned', # String | 
-  sentiment: 'negative', # String | 
+  sentiment: 'negative', # String | Keeps the citations of answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED.
   content_gap: 'mentioned' # String | mentioned: the cited page mentions your brand. gap: it mentions a competitor but not your brand. Only pages with usable content whose mention analysis has completed for this project match.
 }
 
@@ -676,7 +676,7 @@ end
 | **include_series** | **Boolean** | Requires key, else 422 ERR_INVALID_PARAM. Adds citation_series to the group&#39;s row. | [optional][default to false] |
 | **query** | **String** |  | [optional] |
 | **source_type** | **String** |  | [optional] |
-| **sentiment** | **String** |  | [optional] |
+| **sentiment** | **String** | Keeps the citations of answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED. | [optional] |
 | **content_gap** | **String** | mentioned: the cited page mentions your brand. gap: it mentions a competitor but not your brand. Only pages with usable content whose mention analysis has completed for this project match. | [optional] |
 
 ### Return type
@@ -715,7 +715,8 @@ project_id = 56 # Integer | Project ID
 url_sha256 = 'url_sha256_example' # String | 64-character hex SHA-256 of the cited URL
 opts = {
   page: 56, # Integer | 
-  per_page: 56 # Integer | 
+  per_page: 56, # Integer | 
+  sentiment: 'negative' # String | Keeps the occurrences in answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED.
 }
 
 begin
@@ -752,6 +753,7 @@ end
 | **url_sha256** | **String** | 64-character hex SHA-256 of the cited URL |  |
 | **page** | **Integer** |  | [optional][default to 1] |
 | **per_page** | **Integer** |  | [optional][default to 20] |
+| **sentiment** | **String** | Keeps the occurrences in answers with a negative brand sentiment. Needs the Growth plan or above: below it the filter answers 403 ERR_PLAN_REQUIRED. | [optional] |
 
 ### Return type
 

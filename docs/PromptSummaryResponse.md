@@ -15,6 +15,7 @@
 | **per_page** | **Integer** |  | [optional] |
 | **total** | **Integer** |  | [optional] |
 | **data** | [**Array&lt;PromptSummaryRow&gt;**](PromptSummaryRow.md) |  | [optional] |
+| **plan_required_fields** | **Array&lt;String&gt;** | The row fields left out because they need a higher plan (the sentiment fields below Growth); empty when none is |  |
 | **request_id** | **String** |  | [optional] |
 
 ## Example
@@ -34,6 +35,7 @@ instance = LLMPulse::PromptSummaryResponse.new(
   per_page: null,
   total: null,
   data: null,
+  plan_required_fields: null,
   request_id: null
 )
 ```
