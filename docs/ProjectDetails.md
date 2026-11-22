@@ -34,6 +34,7 @@
 | **pitch_run** | [**ProjectDetailsAllOfPitchRun**](ProjectDetailsAllOfPitchRun.md) |  | [optional] |
 | **data_coverage** | [**ProjectDetailsAllOfDataCoverage**](ProjectDetailsAllOfDataCoverage.md) |  | [optional] |
 | **search_console** | [**ProjectDetailsAllOfSearchConsole**](ProjectDetailsAllOfSearchConsole.md) |  | [optional] |
+| **bing_webmaster** | [**ProjectDetailsAllOfBingWebmaster**](ProjectDetailsAllOfBingWebmaster.md) |  | [optional] |
 | **ai_traffic** | [**ProjectDetailsAllOfAiTraffic**](ProjectDetailsAllOfAiTraffic.md) |  | [optional] |
 | **agent_traffic** | [**ProjectDetailsAllOfAgentTraffic**](ProjectDetailsAllOfAgentTraffic.md) |  | [optional] |
 | **request_id** | **String** |  | [optional] |
@@ -74,6 +75,7 @@ instance = LLMPulse::ProjectDetails.new(
   pitch_run: null,
   data_coverage: null,
   search_console: null,
+  bing_webmaster: null,
   ai_traffic: null,
   agent_traffic: null,
   request_id: null

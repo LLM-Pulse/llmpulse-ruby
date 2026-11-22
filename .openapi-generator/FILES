@@ -63,6 +63,13 @@ docs/AnswersApi.md
 docs/ApiErrorError.md
 docs/ApiKeyInfo.md
 docs/AssignPromptTagsRequest.md
+docs/BingWebmasterListResponse.md
+docs/BingWebmasterListResponseDataInner.md
+docs/BingWebmasterMetrics.md
+docs/BingWebmasterSummaryResponse.md
+docs/BingWebmasterTimeseriesResponse.md
+docs/BingWebmasterTimeseriesResponseDataInner.md
+docs/BingWebmasterToolsApi.md
 docs/CatalogProduct.md
 docs/CatalogPromptSuggestion.md
 docs/CatalogPromptSuggestionIdsRequest.md
@@ -226,6 +233,7 @@ docs/ProjectDeleteResponse.md
 docs/ProjectDetails.md
 docs/ProjectDetailsAllOfAgentTraffic.md
 docs/ProjectDetailsAllOfAiTraffic.md
+docs/ProjectDetailsAllOfBingWebmaster.md
 docs/ProjectDetailsAllOfDataCoverage.md
 docs/ProjectDetailsAllOfPitchRun.md
 docs/ProjectDetailsAllOfSearchConsole.md
@@ -393,6 +401,7 @@ lib/llmpulse/api/ai_model_insights_api.rb
 lib/llmpulse/api/annotations_api.rb
 lib/llmpulse/api/answers_api.rb
 lib/llmpulse/api/api_keys_api.rb
+lib/llmpulse/api/bing_webmaster_tools_api.rb
 lib/llmpulse/api/collections_tags_api.rb
 lib/llmpulse/api/competitors_api.rb
 lib/llmpulse/api/custom_reports_api.rb
@@ -468,6 +477,12 @@ lib/llmpulse/models/answer_details_locale.rb
 lib/llmpulse/models/api_error_error.rb
 lib/llmpulse/models/api_key_info.rb
 lib/llmpulse/models/assign_prompt_tags_request.rb
+lib/llmpulse/models/bing_webmaster_list_response.rb
+lib/llmpulse/models/bing_webmaster_list_response_data_inner.rb
+lib/llmpulse/models/bing_webmaster_metrics.rb
+lib/llmpulse/models/bing_webmaster_summary_response.rb
+lib/llmpulse/models/bing_webmaster_timeseries_response.rb
+lib/llmpulse/models/bing_webmaster_timeseries_response_data_inner.rb
 lib/llmpulse/models/catalog_product.rb
 lib/llmpulse/models/catalog_prompt_suggestion.rb
 lib/llmpulse/models/catalog_prompt_suggestion_ids_request.rb
@@ -622,6 +637,7 @@ lib/llmpulse/models/project_delete_response.rb
 lib/llmpulse/models/project_details.rb
 lib/llmpulse/models/project_details_all_of_agent_traffic.rb
 lib/llmpulse/models/project_details_all_of_ai_traffic.rb
+lib/llmpulse/models/project_details_all_of_bing_webmaster.rb
 lib/llmpulse/models/project_details_all_of_data_coverage.rb
 lib/llmpulse/models/project_details_all_of_pitch_run.rb
 lib/llmpulse/models/project_details_all_of_search_console.rb
