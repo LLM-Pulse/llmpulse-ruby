@@ -12,6 +12,7 @@
 | **unique_subreddits** | **Integer** | Number of cited subreddits (provider&#x3D;reddit; null or omitted for other providers) | [optional] |
 | **unique_authors** | **Integer** | Number of cited Reddit authors (provider&#x3D;reddit; null or omitted for other providers) | [optional] |
 | **positive_pct** | **Float** | Positive sentiment among rated Reddit citations, as a percentage (provider&#x3D;reddit; null or omitted for other providers) | [optional] |
+| **connected_count** | **Integer** | provider&#x3D;overview only. The platforms with a connected profile, channel or app, out of the rows in platforms (the Connected sources card). It describes the current setup, so previous.kpis and changes leave it out | [optional] |
 
 ## Example
 
@@ -26,7 +27,8 @@ instance = LLMPulse::OwnedMediaKpis.new(
   share_pct: null,
   unique_subreddits: null,
   unique_authors: null,
-  positive_pct: null
+  positive_pct: null,
+  connected_count: null
 )
 ```
 

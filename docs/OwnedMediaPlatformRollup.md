@@ -10,7 +10,7 @@
 | **yours** | **Integer** |  | [optional] |
 | **share_pct** | **Float** |  | [optional] |
 | **weekly** | [**Array&lt;OwnedMediaPlatformRollupWeeklyInner&gt;**](OwnedMediaPlatformRollupWeeklyInner.md) |  | [optional] |
-| **activity** | [**Array&lt;OwnedMediaPlatformActivityPeriod&gt;**](OwnedMediaPlatformActivityPeriod.md) | One date/citation row per actual project tracking period with runs | [optional] |
+| **activity** | [**Array&lt;OwnedMediaPlatformActivityPeriod&gt;**](OwnedMediaPlatformActivityPeriod.md) | One date/citation row per project tracking period that holds a run inside the window; a period whose runs all fell before from is left out | [optional] |
 
 ## Example
 
