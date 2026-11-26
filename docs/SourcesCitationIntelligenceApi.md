@@ -232,7 +232,7 @@ end
 
 ## get_cited_url_content
 
-> get_cited_url_content(project_id, url_sha256)
+> <CitedUrlContentResponse> get_cited_url_content(project_id, url_sha256)
 
 Cited URL cached content
 
@@ -255,7 +255,8 @@ url_sha256 = 'url_sha256_example' # String | 64-character hex SHA-256 of the cit
 
 begin
   # Cited URL cached content
-  api_instance.get_cited_url_content(project_id, url_sha256)
+  result = api_instance.get_cited_url_content(project_id, url_sha256)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->get_cited_url_content: #{e}"
 end
@@ -263,9 +264,9 @@ end
 
 #### Using the get_cited_url_content_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_cited_url_content_with_http_info(project_id, url_sha256)
+> <Array(<CitedUrlContentResponse>, Integer, Hash)> get_cited_url_content_with_http_info(project_id, url_sha256)
 
 ```ruby
 begin
@@ -273,7 +274,7 @@ begin
   data, status_code, headers = api_instance.get_cited_url_content_with_http_info(project_id, url_sha256)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CitedUrlContentResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->get_cited_url_content_with_http_info: #{e}"
 end
@@ -288,7 +289,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CitedUrlContentResponse**](CitedUrlContentResponse.md)
 
 ### Authorization
 
@@ -302,7 +303,7 @@ nil (empty response body)
 
 ## get_cited_url_detail
 
-> get_cited_url_detail(project_id, url_sha256, opts)
+> <CitedUrlDetailsResponse> get_cited_url_detail(project_id, url_sha256, opts)
 
 Cited URL detail
 
@@ -339,7 +340,8 @@ opts = {
 
 begin
   # Cited URL detail
-  api_instance.get_cited_url_detail(project_id, url_sha256, opts)
+  result = api_instance.get_cited_url_detail(project_id, url_sha256, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->get_cited_url_detail: #{e}"
 end
@@ -347,9 +349,9 @@ end
 
 #### Using the get_cited_url_detail_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_cited_url_detail_with_http_info(project_id, url_sha256, opts)
+> <Array(<CitedUrlDetailsResponse>, Integer, Hash)> get_cited_url_detail_with_http_info(project_id, url_sha256, opts)
 
 ```ruby
 begin
@@ -357,7 +359,7 @@ begin
   data, status_code, headers = api_instance.get_cited_url_detail_with_http_info(project_id, url_sha256, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CitedUrlDetailsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->get_cited_url_detail_with_http_info: #{e}"
 end
@@ -384,7 +386,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CitedUrlDetailsResponse**](CitedUrlDetailsResponse.md)
 
 ### Authorization
 
@@ -398,7 +400,7 @@ nil (empty response body)
 
 ## get_mentions_by_citing_domain
 
-> get_mentions_by_citing_domain(project_id, domains, opts)
+> <CitingDomainMentionShareResponse> get_mentions_by_citing_domain(project_id, domains, opts)
 
 Mention share by citing domain
 
@@ -431,7 +433,8 @@ opts = {
 
 begin
   # Mention share by citing domain
-  api_instance.get_mentions_by_citing_domain(project_id, domains, opts)
+  result = api_instance.get_mentions_by_citing_domain(project_id, domains, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->get_mentions_by_citing_domain: #{e}"
 end
@@ -439,9 +442,9 @@ end
 
 #### Using the get_mentions_by_citing_domain_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_mentions_by_citing_domain_with_http_info(project_id, domains, opts)
+> <Array(<CitingDomainMentionShareResponse>, Integer, Hash)> get_mentions_by_citing_domain_with_http_info(project_id, domains, opts)
 
 ```ruby
 begin
@@ -449,7 +452,7 @@ begin
   data, status_code, headers = api_instance.get_mentions_by_citing_domain_with_http_info(project_id, domains, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CitingDomainMentionShareResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->get_mentions_by_citing_domain_with_http_info: #{e}"
 end
@@ -472,7 +475,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CitingDomainMentionShareResponse**](CitingDomainMentionShareResponse.md)
 
 ### Authorization
 
@@ -587,7 +590,7 @@ end
 
 ## list_citation_groups
 
-> list_citation_groups(project_id, opts)
+> <CitationGroupsResponse> list_citation_groups(project_id, opts)
 
 Grouped citation intelligence
 
@@ -630,7 +633,8 @@ opts = {
 
 begin
   # Grouped citation intelligence
-  api_instance.list_citation_groups(project_id, opts)
+  result = api_instance.list_citation_groups(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->list_citation_groups: #{e}"
 end
@@ -638,9 +642,9 @@ end
 
 #### Using the list_citation_groups_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_citation_groups_with_http_info(project_id, opts)
+> <Array(<CitationGroupsResponse>, Integer, Hash)> list_citation_groups_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -648,7 +652,7 @@ begin
   data, status_code, headers = api_instance.list_citation_groups_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CitationGroupsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->list_citation_groups_with_http_info: #{e}"
 end
@@ -681,7 +685,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CitationGroupsResponse**](CitationGroupsResponse.md)
 
 ### Authorization
 
@@ -695,7 +699,7 @@ nil (empty response body)
 
 ## list_cited_url_occurrences
 
-> list_cited_url_occurrences(project_id, url_sha256, opts)
+> <CitedUrlOccurrencesResponse> list_cited_url_occurrences(project_id, url_sha256, opts)
 
 Cited URL occurrences
 
@@ -721,7 +725,8 @@ opts = {
 
 begin
   # Cited URL occurrences
-  api_instance.list_cited_url_occurrences(project_id, url_sha256, opts)
+  result = api_instance.list_cited_url_occurrences(project_id, url_sha256, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->list_cited_url_occurrences: #{e}"
 end
@@ -729,9 +734,9 @@ end
 
 #### Using the list_cited_url_occurrences_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_cited_url_occurrences_with_http_info(project_id, url_sha256, opts)
+> <Array(<CitedUrlOccurrencesResponse>, Integer, Hash)> list_cited_url_occurrences_with_http_info(project_id, url_sha256, opts)
 
 ```ruby
 begin
@@ -739,7 +744,7 @@ begin
   data, status_code, headers = api_instance.list_cited_url_occurrences_with_http_info(project_id, url_sha256, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CitedUrlOccurrencesResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->list_cited_url_occurrences_with_http_info: #{e}"
 end
@@ -757,7 +762,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CitedUrlOccurrencesResponse**](CitedUrlOccurrencesResponse.md)
 
 ### Authorization
 
@@ -771,7 +776,7 @@ nil (empty response body)
 
 ## list_sources
 
-> list_sources(project_id, opts)
+> <SourcesResponse> list_sources(project_id, opts)
 
 List source URLs
 
@@ -809,7 +814,8 @@ opts = {
 
 begin
   # List source URLs
-  api_instance.list_sources(project_id, opts)
+  result = api_instance.list_sources(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->list_sources: #{e}"
 end
@@ -817,9 +823,9 @@ end
 
 #### Using the list_sources_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_sources_with_http_info(project_id, opts)
+> <Array(<SourcesResponse>, Integer, Hash)> list_sources_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -827,7 +833,7 @@ begin
   data, status_code, headers = api_instance.list_sources_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <SourcesResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling SourcesCitationIntelligenceApi->list_sources_with_http_info: #{e}"
 end
@@ -857,7 +863,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**SourcesResponse**](SourcesResponse.md)
 
 ### Authorization
 

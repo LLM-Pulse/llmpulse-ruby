@@ -227,7 +227,7 @@ end
 
 ## delete_prompt
 
-> delete_prompt(project_id, id)
+> <PromptDeleteResponse> delete_prompt(project_id, id)
 
 Delete a prompt
 
@@ -250,7 +250,8 @@ id = 56 # Integer |
 
 begin
   # Delete a prompt
-  api_instance.delete_prompt(project_id, id)
+  result = api_instance.delete_prompt(project_id, id)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling PromptsApi->delete_prompt: #{e}"
 end
@@ -258,9 +259,9 @@ end
 
 #### Using the delete_prompt_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> delete_prompt_with_http_info(project_id, id)
+> <Array(<PromptDeleteResponse>, Integer, Hash)> delete_prompt_with_http_info(project_id, id)
 
 ```ruby
 begin
@@ -268,7 +269,7 @@ begin
   data, status_code, headers = api_instance.delete_prompt_with_http_info(project_id, id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <PromptDeleteResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling PromptsApi->delete_prompt_with_http_info: #{e}"
 end
@@ -283,7 +284,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**PromptDeleteResponse**](PromptDeleteResponse.md)
 
 ### Authorization
 
@@ -629,7 +630,7 @@ end
 
 ## list_query_fan_outs
 
-> list_query_fan_outs(project_id, opts)
+> <QueryFanOutsResponse> list_query_fan_outs(project_id, opts)
 
 List query fan-out
 
@@ -670,7 +671,8 @@ opts = {
 
 begin
   # List query fan-out
-  api_instance.list_query_fan_outs(project_id, opts)
+  result = api_instance.list_query_fan_outs(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling PromptsApi->list_query_fan_outs: #{e}"
 end
@@ -678,9 +680,9 @@ end
 
 #### Using the list_query_fan_outs_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_query_fan_outs_with_http_info(project_id, opts)
+> <Array(<QueryFanOutsResponse>, Integer, Hash)> list_query_fan_outs_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -688,7 +690,7 @@ begin
   data, status_code, headers = api_instance.list_query_fan_outs_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <QueryFanOutsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling PromptsApi->list_query_fan_outs_with_http_info: #{e}"
 end
@@ -719,7 +721,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**QueryFanOutsResponse**](QueryFanOutsResponse.md)
 
 ### Authorization
 

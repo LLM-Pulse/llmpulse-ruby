@@ -81,7 +81,7 @@ end
 
 ## delete_annotation
 
-> delete_annotation(project_id, id)
+> <AnnotationDeleteResponse> delete_annotation(project_id, id)
 
 Delete a timeline annotation
 
@@ -104,7 +104,8 @@ id = 56 # Integer |
 
 begin
   # Delete a timeline annotation
-  api_instance.delete_annotation(project_id, id)
+  result = api_instance.delete_annotation(project_id, id)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnnotationsApi->delete_annotation: #{e}"
 end
@@ -112,9 +113,9 @@ end
 
 #### Using the delete_annotation_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> delete_annotation_with_http_info(project_id, id)
+> <Array(<AnnotationDeleteResponse>, Integer, Hash)> delete_annotation_with_http_info(project_id, id)
 
 ```ruby
 begin
@@ -122,7 +123,7 @@ begin
   data, status_code, headers = api_instance.delete_annotation_with_http_info(project_id, id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AnnotationDeleteResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnnotationsApi->delete_annotation_with_http_info: #{e}"
 end
@@ -137,7 +138,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AnnotationDeleteResponse**](AnnotationDeleteResponse.md)
 
 ### Authorization
 
@@ -151,7 +152,7 @@ nil (empty response body)
 
 ## list_annotations
 
-> list_annotations(project_id, opts)
+> <AnnotationsResponse> list_annotations(project_id, opts)
 
 List timeline annotations
 
@@ -180,7 +181,8 @@ opts = {
 
 begin
   # List timeline annotations
-  api_instance.list_annotations(project_id, opts)
+  result = api_instance.list_annotations(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnnotationsApi->list_annotations: #{e}"
 end
@@ -188,9 +190,9 @@ end
 
 #### Using the list_annotations_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_annotations_with_http_info(project_id, opts)
+> <Array(<AnnotationsResponse>, Integer, Hash)> list_annotations_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -198,7 +200,7 @@ begin
   data, status_code, headers = api_instance.list_annotations_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AnnotationsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnnotationsApi->list_annotations_with_http_info: #{e}"
 end
@@ -217,7 +219,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AnnotationsResponse**](AnnotationsResponse.md)
 
 ### Authorization
 
@@ -231,7 +233,7 @@ nil (empty response body)
 
 ## update_annotation
 
-> update_annotation(id, update_annotation_request)
+> <AnnotationUpdateResponse> update_annotation(id, update_annotation_request)
 
 Update a timeline annotation
 
@@ -254,7 +256,8 @@ update_annotation_request = LLMPulse::UpdateAnnotationRequest.new({project_id: 3
 
 begin
   # Update a timeline annotation
-  api_instance.update_annotation(id, update_annotation_request)
+  result = api_instance.update_annotation(id, update_annotation_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnnotationsApi->update_annotation: #{e}"
 end
@@ -262,9 +265,9 @@ end
 
 #### Using the update_annotation_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> update_annotation_with_http_info(id, update_annotation_request)
+> <Array(<AnnotationUpdateResponse>, Integer, Hash)> update_annotation_with_http_info(id, update_annotation_request)
 
 ```ruby
 begin
@@ -272,7 +275,7 @@ begin
   data, status_code, headers = api_instance.update_annotation_with_http_info(id, update_annotation_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AnnotationUpdateResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnnotationsApi->update_annotation_with_http_info: #{e}"
 end
@@ -287,7 +290,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AnnotationUpdateResponse**](AnnotationUpdateResponse.md)
 
 ### Authorization
 

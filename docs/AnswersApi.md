@@ -85,7 +85,7 @@ end
 
 ## list_answers
 
-> list_answers(project_id, opts)
+> <AnswersResponse> list_answers(project_id, opts)
 
 List AI responses
 
@@ -125,7 +125,8 @@ opts = {
 
 begin
   # List AI responses
-  api_instance.list_answers(project_id, opts)
+  result = api_instance.list_answers(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnswersApi->list_answers: #{e}"
 end
@@ -133,9 +134,9 @@ end
 
 #### Using the list_answers_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_answers_with_http_info(project_id, opts)
+> <Array(<AnswersResponse>, Integer, Hash)> list_answers_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -143,7 +144,7 @@ begin
   data, status_code, headers = api_instance.list_answers_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AnswersResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling AnswersApi->list_answers_with_http_info: #{e}"
 end
@@ -173,7 +174,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AnswersResponse**](AnswersResponse.md)
 
 ### Authorization
 

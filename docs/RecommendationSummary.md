@@ -14,7 +14,7 @@
 | **updated_at** | **Time** |  |  |
 | **total_recommendations** | **Integer** |  |  |
 | **high_priority_count** | **Integer** |  |  |
-| **summary** | [**RecommendationSummarySummary**](RecommendationSummarySummary.md) |  |  |
+| **summary** | [**RecommendationDetailResponseSummary**](RecommendationDetailResponseSummary.md) |  |  |
 | **context** | **Object** | Generation context and run diagnostics as stored; empty until the generation completes. Its keys are not a stable contract |  |
 
 ## Example

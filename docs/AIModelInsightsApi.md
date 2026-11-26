@@ -103,7 +103,7 @@ end
 
 ## get_ai_model_position_distribution
 
-> get_ai_model_position_distribution(project_id, opts)
+> <AiModelPositionDistributionResponse> get_ai_model_position_distribution(project_id, opts)
 
 Position distribution comparison
 
@@ -137,7 +137,8 @@ opts = {
 
 begin
   # Position distribution comparison
-  api_instance.get_ai_model_position_distribution(project_id, opts)
+  result = api_instance.get_ai_model_position_distribution(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling AIModelInsightsApi->get_ai_model_position_distribution: #{e}"
 end
@@ -145,9 +146,9 @@ end
 
 #### Using the get_ai_model_position_distribution_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_ai_model_position_distribution_with_http_info(project_id, opts)
+> <Array(<AiModelPositionDistributionResponse>, Integer, Hash)> get_ai_model_position_distribution_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -155,7 +156,7 @@ begin
   data, status_code, headers = api_instance.get_ai_model_position_distribution_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AiModelPositionDistributionResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling AIModelInsightsApi->get_ai_model_position_distribution_with_http_info: #{e}"
 end
@@ -181,7 +182,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AiModelPositionDistributionResponse**](AiModelPositionDistributionResponse.md)
 
 ### Authorization
 
@@ -190,12 +191,12 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## get_ai_overview_results
 
-> get_ai_overview_results(project_id, opts)
+> <AiOverviewResultsResponse> get_ai_overview_results(project_id, opts)
 
 Google AI Overview result availability
 
@@ -228,7 +229,8 @@ opts = {
 
 begin
   # Google AI Overview result availability
-  api_instance.get_ai_overview_results(project_id, opts)
+  result = api_instance.get_ai_overview_results(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling AIModelInsightsApi->get_ai_overview_results: #{e}"
 end
@@ -236,9 +238,9 @@ end
 
 #### Using the get_ai_overview_results_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_ai_overview_results_with_http_info(project_id, opts)
+> <Array(<AiOverviewResultsResponse>, Integer, Hash)> get_ai_overview_results_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -246,7 +248,7 @@ begin
   data, status_code, headers = api_instance.get_ai_overview_results_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AiOverviewResultsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling AIModelInsightsApi->get_ai_overview_results_with_http_info: #{e}"
 end
@@ -271,7 +273,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AiOverviewResultsResponse**](AiOverviewResultsResponse.md)
 
 ### Authorization
 
@@ -280,7 +282,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## get_declined_answers

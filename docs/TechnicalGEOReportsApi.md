@@ -13,7 +13,7 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 
 ## create_technical_geo_reports
 
-> create_technical_geo_reports(create_technical_geo_reports_request)
+> <TechnicalGeoReportsCreateResponse> create_technical_geo_reports(create_technical_geo_reports_request)
 
 Run technical GEO analysis
 
@@ -35,7 +35,8 @@ create_technical_geo_reports_request = LLMPulse::CreateTechnicalGeoReportsReques
 
 begin
   # Run technical GEO analysis
-  api_instance.create_technical_geo_reports(create_technical_geo_reports_request)
+  result = api_instance.create_technical_geo_reports(create_technical_geo_reports_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling TechnicalGEOReportsApi->create_technical_geo_reports: #{e}"
 end
@@ -43,9 +44,9 @@ end
 
 #### Using the create_technical_geo_reports_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> create_technical_geo_reports_with_http_info(create_technical_geo_reports_request)
+> <Array(<TechnicalGeoReportsCreateResponse>, Integer, Hash)> create_technical_geo_reports_with_http_info(create_technical_geo_reports_request)
 
 ```ruby
 begin
@@ -53,7 +54,7 @@ begin
   data, status_code, headers = api_instance.create_technical_geo_reports_with_http_info(create_technical_geo_reports_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <TechnicalGeoReportsCreateResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling TechnicalGEOReportsApi->create_technical_geo_reports_with_http_info: #{e}"
 end
@@ -67,7 +68,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**TechnicalGeoReportsCreateResponse**](TechnicalGeoReportsCreateResponse.md)
 
 ### Authorization
 
@@ -81,7 +82,7 @@ nil (empty response body)
 
 ## get_technical_geo_report
 
-> get_technical_geo_report(project_id, report_type, id)
+> <TechnicalGeoReportResponse> get_technical_geo_report(project_id, report_type, id)
 
 Get a technical GEO report
 
@@ -105,7 +106,8 @@ id = 56 # Integer | Report id returned by POST /technical_geo_reports or GET /te
 
 begin
   # Get a technical GEO report
-  api_instance.get_technical_geo_report(project_id, report_type, id)
+  result = api_instance.get_technical_geo_report(project_id, report_type, id)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling TechnicalGEOReportsApi->get_technical_geo_report: #{e}"
 end
@@ -113,9 +115,9 @@ end
 
 #### Using the get_technical_geo_report_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_technical_geo_report_with_http_info(project_id, report_type, id)
+> <Array(<TechnicalGeoReportResponse>, Integer, Hash)> get_technical_geo_report_with_http_info(project_id, report_type, id)
 
 ```ruby
 begin
@@ -123,7 +125,7 @@ begin
   data, status_code, headers = api_instance.get_technical_geo_report_with_http_info(project_id, report_type, id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <TechnicalGeoReportResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling TechnicalGEOReportsApi->get_technical_geo_report_with_http_info: #{e}"
 end
@@ -139,7 +141,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**TechnicalGeoReportResponse**](TechnicalGeoReportResponse.md)
 
 ### Authorization
 
@@ -153,7 +155,7 @@ nil (empty response body)
 
 ## list_technical_geo_reports
 
-> list_technical_geo_reports(project_id, report_type, opts)
+> <TechnicalGeoReportsResponse> list_technical_geo_reports(project_id, report_type, opts)
 
 List technical GEO reports
 
@@ -182,7 +184,8 @@ opts = {
 
 begin
   # List technical GEO reports
-  api_instance.list_technical_geo_reports(project_id, report_type, opts)
+  result = api_instance.list_technical_geo_reports(project_id, report_type, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling TechnicalGEOReportsApi->list_technical_geo_reports: #{e}"
 end
@@ -190,9 +193,9 @@ end
 
 #### Using the list_technical_geo_reports_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_technical_geo_reports_with_http_info(project_id, report_type, opts)
+> <Array(<TechnicalGeoReportsResponse>, Integer, Hash)> list_technical_geo_reports_with_http_info(project_id, report_type, opts)
 
 ```ruby
 begin
@@ -200,7 +203,7 @@ begin
   data, status_code, headers = api_instance.list_technical_geo_reports_with_http_info(project_id, report_type, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <TechnicalGeoReportsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling TechnicalGEOReportsApi->list_technical_geo_reports_with_http_info: #{e}"
 end
@@ -219,7 +222,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**TechnicalGeoReportsResponse**](TechnicalGeoReportsResponse.md)
 
 ### Authorization
 

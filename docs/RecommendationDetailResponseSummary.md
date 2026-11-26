@@ -1,4 +1,4 @@
-# LLMPulse::RecommendationSummarySummary
+# LLMPulse::RecommendationDetailResponseSummary
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'llmpulse'
 
-instance = LLMPulse::RecommendationSummarySummary.new(
+instance = LLMPulse::RecommendationDetailResponseSummary.new(
   total_recommendations: null,
   high_priority_count: null,
   categories: null

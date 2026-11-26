@@ -88,7 +88,7 @@ end
 
 ## create_project_draft
 
-> create_project_draft(create_project_draft_request)
+> <ProjectDraftResponse> create_project_draft(create_project_draft_request)
 
 Start a project draft (wizard step 1)
 
@@ -110,7 +110,8 @@ create_project_draft_request = LLMPulse::CreateProjectDraftRequest.new({website_
 
 begin
   # Start a project draft (wizard step 1)
-  api_instance.create_project_draft(create_project_draft_request)
+  result = api_instance.create_project_draft(create_project_draft_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->create_project_draft: #{e}"
 end
@@ -118,9 +119,9 @@ end
 
 #### Using the create_project_draft_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> create_project_draft_with_http_info(create_project_draft_request)
+> <Array(<ProjectDraftResponse>, Integer, Hash)> create_project_draft_with_http_info(create_project_draft_request)
 
 ```ruby
 begin
@@ -128,7 +129,7 @@ begin
   data, status_code, headers = api_instance.create_project_draft_with_http_info(create_project_draft_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ProjectDraftResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->create_project_draft_with_http_info: #{e}"
 end
@@ -142,7 +143,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ProjectDraftResponse**](ProjectDraftResponse.md)
 
 ### Authorization
 
@@ -366,7 +367,7 @@ end
 
 ## get_project_draft
 
-> get_project_draft(id, opts)
+> <ProjectDraftResponse> get_project_draft(id, opts)
 
 Read a project draft
 
@@ -389,7 +390,8 @@ opts = {
 
 begin
   # Read a project draft
-  api_instance.get_project_draft(id, opts)
+  result = api_instance.get_project_draft(id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->get_project_draft: #{e}"
 end
@@ -397,9 +399,9 @@ end
 
 #### Using the get_project_draft_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_project_draft_with_http_info(id, opts)
+> <Array(<ProjectDraftResponse>, Integer, Hash)> get_project_draft_with_http_info(id, opts)
 
 ```ruby
 begin
@@ -407,7 +409,7 @@ begin
   data, status_code, headers = api_instance.get_project_draft_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ProjectDraftResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->get_project_draft_with_http_info: #{e}"
 end
@@ -422,7 +424,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ProjectDraftResponse**](ProjectDraftResponse.md)
 
 ### Authorization
 
@@ -714,7 +716,7 @@ end
 
 ## update_project_draft
 
-> update_project_draft(id, update_project_draft_request)
+> <ProjectDraftResponse> update_project_draft(id, update_project_draft_request)
 
 Submit a wizard step
 
@@ -737,7 +739,8 @@ update_project_draft_request = LLMPulse::UpdateProjectDraftRequest.new({step: 'd
 
 begin
   # Submit a wizard step
-  api_instance.update_project_draft(id, update_project_draft_request)
+  result = api_instance.update_project_draft(id, update_project_draft_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->update_project_draft: #{e}"
 end
@@ -745,9 +748,9 @@ end
 
 #### Using the update_project_draft_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> update_project_draft_with_http_info(id, update_project_draft_request)
+> <Array(<ProjectDraftResponse>, Integer, Hash)> update_project_draft_with_http_info(id, update_project_draft_request)
 
 ```ruby
 begin
@@ -755,7 +758,7 @@ begin
   data, status_code, headers = api_instance.update_project_draft_with_http_info(id, update_project_draft_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ProjectDraftResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ProjectsApi->update_project_draft_with_http_info: #{e}"
 end
@@ -770,7 +773,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ProjectDraftResponse**](ProjectDraftResponse.md)
 
 ### Authorization
 

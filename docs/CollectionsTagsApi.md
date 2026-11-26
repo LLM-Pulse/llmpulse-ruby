@@ -153,7 +153,7 @@ end
 
 ## delete_collection
 
-> delete_collection(project_id, id)
+> <CollectionDeleteResponse> delete_collection(project_id, id)
 
 Delete a tag
 
@@ -176,7 +176,8 @@ id = 56 # Integer |
 
 begin
   # Delete a tag
-  api_instance.delete_collection(project_id, id)
+  result = api_instance.delete_collection(project_id, id)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->delete_collection: #{e}"
 end
@@ -184,9 +185,9 @@ end
 
 #### Using the delete_collection_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> delete_collection_with_http_info(project_id, id)
+> <Array(<CollectionDeleteResponse>, Integer, Hash)> delete_collection_with_http_info(project_id, id)
 
 ```ruby
 begin
@@ -194,7 +195,7 @@ begin
   data, status_code, headers = api_instance.delete_collection_with_http_info(project_id, id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CollectionDeleteResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->delete_collection_with_http_info: #{e}"
 end
@@ -209,7 +210,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CollectionDeleteResponse**](CollectionDeleteResponse.md)
 
 ### Authorization
 
@@ -434,7 +435,7 @@ end
 
 ## update_collection
 
-> update_collection(id, update_collection_request)
+> <CollectionUpdateResponse> update_collection(id, update_collection_request)
 
 Update a tag
 
@@ -457,7 +458,8 @@ update_collection_request = LLMPulse::UpdateCollectionRequest.new({project_id: 3
 
 begin
   # Update a tag
-  api_instance.update_collection(id, update_collection_request)
+  result = api_instance.update_collection(id, update_collection_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->update_collection: #{e}"
 end
@@ -465,9 +467,9 @@ end
 
 #### Using the update_collection_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> update_collection_with_http_info(id, update_collection_request)
+> <Array(<CollectionUpdateResponse>, Integer, Hash)> update_collection_with_http_info(id, update_collection_request)
 
 ```ruby
 begin
@@ -475,7 +477,7 @@ begin
   data, status_code, headers = api_instance.update_collection_with_http_info(id, update_collection_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CollectionUpdateResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling CollectionsTagsApi->update_collection_with_http_info: #{e}"
 end
@@ -490,7 +492,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CollectionUpdateResponse**](CollectionUpdateResponse.md)
 
 ### Authorization
 

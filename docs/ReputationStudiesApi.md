@@ -83,7 +83,7 @@ end
 
 ## get_reputation_report
 
-> get_reputation_report(id, project_id, opts)
+> <ReputationReportScoresResponse> get_reputation_report(id, project_id, opts)
 
 Get reputation report scores
 
@@ -114,7 +114,8 @@ opts = {
 
 begin
   # Get reputation report scores
-  api_instance.get_reputation_report(id, project_id, opts)
+  result = api_instance.get_reputation_report(id, project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->get_reputation_report: #{e}"
 end
@@ -122,9 +123,9 @@ end
 
 #### Using the get_reputation_report_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_reputation_report_with_http_info(id, project_id, opts)
+> <Array(<ReputationReportScoresResponse>, Integer, Hash)> get_reputation_report_with_http_info(id, project_id, opts)
 
 ```ruby
 begin
@@ -132,7 +133,7 @@ begin
   data, status_code, headers = api_instance.get_reputation_report_with_http_info(id, project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ReputationReportScoresResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->get_reputation_report_with_http_info: #{e}"
 end
@@ -153,7 +154,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ReputationReportScoresResponse**](ReputationReportScoresResponse.md)
 
 ### Authorization
 
@@ -167,7 +168,7 @@ nil (empty response body)
 
 ## get_study
 
-> get_study(id)
+> <StudyResponse> get_study(id)
 
 Get a custom AI study
 
@@ -189,7 +190,8 @@ id = 56 # Integer |
 
 begin
   # Get a custom AI study
-  api_instance.get_study(id)
+  result = api_instance.get_study(id)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->get_study: #{e}"
 end
@@ -197,9 +199,9 @@ end
 
 #### Using the get_study_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_study_with_http_info(id)
+> <Array(<StudyResponse>, Integer, Hash)> get_study_with_http_info(id)
 
 ```ruby
 begin
@@ -207,7 +209,7 @@ begin
   data, status_code, headers = api_instance.get_study_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <StudyResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->get_study_with_http_info: #{e}"
 end
@@ -221,7 +223,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**StudyResponse**](StudyResponse.md)
 
 ### Authorization
 
@@ -235,7 +237,7 @@ nil (empty response body)
 
 ## get_study_report
 
-> get_study_report(id, report_id, opts)
+> <StudyReportScoresResponse> get_study_report(id, report_id, opts)
 
 Get custom study report scores
 
@@ -266,7 +268,8 @@ opts = {
 
 begin
   # Get custom study report scores
-  api_instance.get_study_report(id, report_id, opts)
+  result = api_instance.get_study_report(id, report_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->get_study_report: #{e}"
 end
@@ -274,9 +277,9 @@ end
 
 #### Using the get_study_report_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_study_report_with_http_info(id, report_id, opts)
+> <Array(<StudyReportScoresResponse>, Integer, Hash)> get_study_report_with_http_info(id, report_id, opts)
 
 ```ruby
 begin
@@ -284,7 +287,7 @@ begin
   data, status_code, headers = api_instance.get_study_report_with_http_info(id, report_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <StudyReportScoresResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->get_study_report_with_http_info: #{e}"
 end
@@ -305,7 +308,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**StudyReportScoresResponse**](StudyReportScoresResponse.md)
 
 ### Authorization
 
@@ -319,7 +322,7 @@ nil (empty response body)
 
 ## list_reputation_reports
 
-> list_reputation_reports(project_id, opts)
+> <ReputationReportsResponse> list_reputation_reports(project_id, opts)
 
 List reputation reports
 
@@ -346,7 +349,8 @@ opts = {
 
 begin
   # List reputation reports
-  api_instance.list_reputation_reports(project_id, opts)
+  result = api_instance.list_reputation_reports(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->list_reputation_reports: #{e}"
 end
@@ -354,9 +358,9 @@ end
 
 #### Using the list_reputation_reports_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_reputation_reports_with_http_info(project_id, opts)
+> <Array(<ReputationReportsResponse>, Integer, Hash)> list_reputation_reports_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -364,7 +368,7 @@ begin
   data, status_code, headers = api_instance.list_reputation_reports_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ReputationReportsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->list_reputation_reports_with_http_info: #{e}"
 end
@@ -381,7 +385,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ReputationReportsResponse**](ReputationReportsResponse.md)
 
 ### Authorization
 
@@ -390,12 +394,12 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## list_studies
 
-> list_studies(opts)
+> <StudiesResponse> list_studies(opts)
 
 List custom AI studies
 
@@ -423,7 +427,8 @@ opts = {
 
 begin
   # List custom AI studies
-  api_instance.list_studies(opts)
+  result = api_instance.list_studies(opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->list_studies: #{e}"
 end
@@ -431,9 +436,9 @@ end
 
 #### Using the list_studies_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_studies_with_http_info(opts)
+> <Array(<StudiesResponse>, Integer, Hash)> list_studies_with_http_info(opts)
 
 ```ruby
 begin
@@ -441,7 +446,7 @@ begin
   data, status_code, headers = api_instance.list_studies_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <StudiesResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ReputationStudiesApi->list_studies_with_http_info: #{e}"
 end
@@ -459,7 +464,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**StudiesResponse**](StudiesResponse.md)
 
 ### Authorization
 
@@ -468,5 +473,5 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 

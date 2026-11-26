@@ -98,7 +98,7 @@ end
 
 ## get_ai_traffic
 
-> get_ai_traffic(project_id, opts)
+> <AiTrafficResponse> get_ai_traffic(project_id, opts)
 
 AI referral traffic (Scale plan or above)
 
@@ -127,7 +127,8 @@ opts = {
 
 begin
   # AI referral traffic (Scale plan or above)
-  api_instance.get_ai_traffic(project_id, opts)
+  result = api_instance.get_ai_traffic(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling AIAgentTrafficApi->get_ai_traffic: #{e}"
 end
@@ -135,9 +136,9 @@ end
 
 #### Using the get_ai_traffic_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_ai_traffic_with_http_info(project_id, opts)
+> <Array(<AiTrafficResponse>, Integer, Hash)> get_ai_traffic_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -145,7 +146,7 @@ begin
   data, status_code, headers = api_instance.get_ai_traffic_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AiTrafficResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling AIAgentTrafficApi->get_ai_traffic_with_http_info: #{e}"
 end
@@ -164,7 +165,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AiTrafficResponse**](AiTrafficResponse.md)
 
 ### Authorization
 

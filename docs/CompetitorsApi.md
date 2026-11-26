@@ -83,7 +83,7 @@ end
 
 ## delete_competitor
 
-> delete_competitor(project_id, id)
+> <CompetitorDeleteResponse> delete_competitor(project_id, id)
 
 Delete a competitor
 
@@ -106,7 +106,8 @@ id = 56 # Integer |
 
 begin
   # Delete a competitor
-  api_instance.delete_competitor(project_id, id)
+  result = api_instance.delete_competitor(project_id, id)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling CompetitorsApi->delete_competitor: #{e}"
 end
@@ -114,9 +115,9 @@ end
 
 #### Using the delete_competitor_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> delete_competitor_with_http_info(project_id, id)
+> <Array(<CompetitorDeleteResponse>, Integer, Hash)> delete_competitor_with_http_info(project_id, id)
 
 ```ruby
 begin
@@ -124,7 +125,7 @@ begin
   data, status_code, headers = api_instance.delete_competitor_with_http_info(project_id, id)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CompetitorDeleteResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling CompetitorsApi->delete_competitor_with_http_info: #{e}"
 end
@@ -139,7 +140,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CompetitorDeleteResponse**](CompetitorDeleteResponse.md)
 
 ### Authorization
 
@@ -376,7 +377,7 @@ end
 
 ## update_competitor
 
-> update_competitor(id, update_competitor_request)
+> <CompetitorUpdateResponse> update_competitor(id, update_competitor_request)
 
 Update a competitor
 
@@ -399,7 +400,8 @@ update_competitor_request = LLMPulse::UpdateCompetitorRequest.new({project_id: 3
 
 begin
   # Update a competitor
-  api_instance.update_competitor(id, update_competitor_request)
+  result = api_instance.update_competitor(id, update_competitor_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling CompetitorsApi->update_competitor: #{e}"
 end
@@ -407,9 +409,9 @@ end
 
 #### Using the update_competitor_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> update_competitor_with_http_info(id, update_competitor_request)
+> <Array(<CompetitorUpdateResponse>, Integer, Hash)> update_competitor_with_http_info(id, update_competitor_request)
 
 ```ruby
 begin
@@ -417,7 +419,7 @@ begin
   data, status_code, headers = api_instance.update_competitor_with_http_info(id, update_competitor_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <CompetitorUpdateResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling CompetitorsApi->update_competitor_with_http_info: #{e}"
 end
@@ -432,7 +434,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**CompetitorUpdateResponse**](CompetitorUpdateResponse.md)
 
 ### Authorization
 

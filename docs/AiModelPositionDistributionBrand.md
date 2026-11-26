@@ -1,0 +1,30 @@
+# LLMPulse::AiModelPositionDistributionBrand
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** | project or competitor |  |
+| **id** | **Integer** | Project id, or competitor id |  |
+| **competitor_id** | **Integer** | Null for the project, the competitor id otherwise |  |
+| **name** | **String** |  |  |
+| **domain** | **String** | Bare (scheme-less) domain. Null for the project when it has no URL. |  |
+| **buckets** | [**Array&lt;AiModelPositionDistributionBrandBucketsInner&gt;**](AiModelPositionDistributionBrandBucketsInner.md) | One per position bucket, in order: position_1, position_2_3, position_4_7 and position_8_plus |  |
+| **max_stacked_value** | **Integer** | The brand&#39;s largest mentions count of one period, its buckets added up |  |
+
+## Example
+
+```ruby
+require 'llmpulse'
+
+instance = LLMPulse::AiModelPositionDistributionBrand.new(
+  type: null,
+  id: null,
+  competitor_id: null,
+  name: null,
+  domain: null,
+  buckets: null,
+  max_stacked_value: null
+)
+```
+

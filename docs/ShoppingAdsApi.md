@@ -11,7 +11,7 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 
 ## list_ads
 
-> list_ads(project_id, opts)
+> <AdsResponse> list_ads(project_id, opts)
 
 List AI ad placements
 
@@ -53,7 +53,8 @@ opts = {
 
 begin
   # List AI ad placements
-  api_instance.list_ads(project_id, opts)
+  result = api_instance.list_ads(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ShoppingAdsApi->list_ads: #{e}"
 end
@@ -61,9 +62,9 @@ end
 
 #### Using the list_ads_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_ads_with_http_info(project_id, opts)
+> <Array(<AdsResponse>, Integer, Hash)> list_ads_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -71,7 +72,7 @@ begin
   data, status_code, headers = api_instance.list_ads_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <AdsResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ShoppingAdsApi->list_ads_with_http_info: #{e}"
 end
@@ -103,7 +104,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**AdsResponse**](AdsResponse.md)
 
 ### Authorization
 
@@ -222,7 +223,7 @@ end
 
 ## list_shopping
 
-> list_shopping(project_id, opts)
+> <ShoppingResponse> list_shopping(project_id, opts)
 
 List shopping results
 
@@ -264,7 +265,8 @@ opts = {
 
 begin
   # List shopping results
-  api_instance.list_shopping(project_id, opts)
+  result = api_instance.list_shopping(project_id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling ShoppingAdsApi->list_shopping: #{e}"
 end
@@ -272,9 +274,9 @@ end
 
 #### Using the list_shopping_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> list_shopping_with_http_info(project_id, opts)
+> <Array(<ShoppingResponse>, Integer, Hash)> list_shopping_with_http_info(project_id, opts)
 
 ```ruby
 begin
@@ -282,7 +284,7 @@ begin
   data, status_code, headers = api_instance.list_shopping_with_http_info(project_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <ShoppingResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling ShoppingAdsApi->list_shopping_with_http_info: #{e}"
 end
@@ -314,7 +316,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**ShoppingResponse**](ShoppingResponse.md)
 
 ### Authorization
 

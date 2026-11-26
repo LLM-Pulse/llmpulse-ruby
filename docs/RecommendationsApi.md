@@ -12,7 +12,7 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 
 ## get_recommendation
 
-> get_recommendation(project_id, id, opts)
+> <RecommendationDetailResponse> get_recommendation(project_id, id, opts)
 
 Get recommendation run with items
 
@@ -37,7 +37,8 @@ opts = {
 
 begin
   # Get recommendation run with items
-  api_instance.get_recommendation(project_id, id, opts)
+  result = api_instance.get_recommendation(project_id, id, opts)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling RecommendationsApi->get_recommendation: #{e}"
 end
@@ -45,9 +46,9 @@ end
 
 #### Using the get_recommendation_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> get_recommendation_with_http_info(project_id, id, opts)
+> <Array(<RecommendationDetailResponse>, Integer, Hash)> get_recommendation_with_http_info(project_id, id, opts)
 
 ```ruby
 begin
@@ -55,7 +56,7 @@ begin
   data, status_code, headers = api_instance.get_recommendation_with_http_info(project_id, id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <RecommendationDetailResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling RecommendationsApi->get_recommendation_with_http_info: #{e}"
 end
@@ -72,7 +73,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**RecommendationDetailResponse**](RecommendationDetailResponse.md)
 
 ### Authorization
 
@@ -86,7 +87,7 @@ nil (empty response body)
 
 ## launch_recommendations
 
-> launch_recommendations(launch_recommendations_request)
+> <RecommendationLaunchResponse> launch_recommendations(launch_recommendations_request)
 
 Launch a recommendations generation
 
@@ -108,7 +109,8 @@ launch_recommendations_request = LLMPulse::LaunchRecommendationsRequest.new({pro
 
 begin
   # Launch a recommendations generation
-  api_instance.launch_recommendations(launch_recommendations_request)
+  result = api_instance.launch_recommendations(launch_recommendations_request)
+  p result
 rescue LLMPulse::ApiError => e
   puts "Error when calling RecommendationsApi->launch_recommendations: #{e}"
 end
@@ -116,9 +118,9 @@ end
 
 #### Using the launch_recommendations_with_http_info variant
 
-This returns an Array which contains the response data (`nil` in this case), status code and headers.
+This returns an Array which contains the response data, status code and headers.
 
-> <Array(nil, Integer, Hash)> launch_recommendations_with_http_info(launch_recommendations_request)
+> <Array(<RecommendationLaunchResponse>, Integer, Hash)> launch_recommendations_with_http_info(launch_recommendations_request)
 
 ```ruby
 begin
@@ -126,7 +128,7 @@ begin
   data, status_code, headers = api_instance.launch_recommendations_with_http_info(launch_recommendations_request)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => nil
+  p data # => <RecommendationLaunchResponse>
 rescue LLMPulse::ApiError => e
   puts "Error when calling RecommendationsApi->launch_recommendations_with_http_info: #{e}"
 end
@@ -140,7 +142,7 @@ end
 
 ### Return type
 
-nil (empty response body)
+[**RecommendationLaunchResponse**](RecommendationLaunchResponse.md)
 
 ### Authorization
 
