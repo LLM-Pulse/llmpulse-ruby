@@ -273,7 +273,6 @@ docs/OwnedMediaSummaryResponse.md
 docs/OwnedMediaSummaryResponsePrevious.md
 docs/OwnedMediaWeek.md
 docs/PaginatedEnvelope.md
-docs/PeecExportImportResponse.md
 docs/Ping200Response.md
 docs/Project.md
 docs/ProjectCreateRequest.md
@@ -772,7 +771,6 @@ lib/llmpulse/models/owned_media_summary_response.rb
 lib/llmpulse/models/owned_media_summary_response_previous.rb
 lib/llmpulse/models/owned_media_week.rb
 lib/llmpulse/models/paginated_envelope.rb
-lib/llmpulse/models/peec_export_import_response.rb
 lib/llmpulse/models/ping200_response.rb
 lib/llmpulse/models/project.rb
 lib/llmpulse/models/project_create_request.rb

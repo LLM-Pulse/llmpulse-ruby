@@ -9,7 +9,6 @@ All URIs are relative to *https://api.llmpulse.ai/api/v1*
 | [**create_prompts**](PromptsApi.md#create_prompts) | **POST** /prompts | Bulk-create prompts |
 | [**delete_prompt**](PromptsApi.md#delete_prompt) | **DELETE** /prompts/{id} | Delete a prompt |
 | [**get_prompt_generation**](PromptsApi.md#get_prompt_generation) | **GET** /prompt_generations/{id} | Get a prompt generation run |
-| [**import_peec_export**](PromptsApi.md#import_peec_export) | **POST** /prompts/import_peec_export | Import a Peec AI export |
 | [**import_prompts**](PromptsApi.md#import_prompts) | **POST** /prompts/import | Import prompts |
 | [**import_prompts_file**](PromptsApi.md#import_prompts_file) | **POST** /prompts/import_file | Import prompts from a file |
 | [**list_prompt_executions**](PromptsApi.md#list_prompt_executions) | **GET** /dimensions/prompt_executions | List prompt executions |
@@ -366,77 +365,6 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## import_peec_export
-
-> <PeecExportImportResponse> import_peec_export(project_id, file)
-
-Import a Peec AI export
-
-Not available yet: until file imports are enabled, the call returns ERR_INTEGRATION_UNAVAILABLE (403). Imports the answers export of Peec AI, sent as a multipart/form-data body with project_id and the file as a part named file: a CSV of up to 8 MB and 20,000 answers with Peec AI's column names (user, assistant, model, created, and optionally country and mentions). Every prompt of the file becomes a tracked prompt of the project, and each answer from an AI model the account tracks is filed as that week's answer for its model and analysed for mentions, sources and sentiment like a tracked one; answers from other models are skipped and listed in skipped_models. Competitors are not created: detected_brands lists the names the export mentions, to add with POST /competitors. The file is checked whole before anything is written: a file that cannot be read returns ERR_INVALID_PARAM with error.meta.reason file_missing, file_empty, file_too_large, columns_missing, models_not_tracked, nothing_to_import or too_large (more than 20,000 weekly answers: prompts x AI models x weeks), dates_out_of_range (an answer dated before 2022-11-30 or after today), answer_too_long (an answer over 50,000 characters) or prompt_too_long (a prompt over 2,000 bytes), or a message naming the problem. The prompt limits count only the prompts the project does not hold yet, together with those of the account's imports still finishing: when they would exceed the project or the plan, the call returns ERR_LIMIT_REACHED and imports nothing, so a full account can still add answers to the prompts it holds. The analysis is paid on-demand work, so an account that is not active gets ERR_ACCOUNT_INACTIVE. The import is planned in the request and finishes in the background, usually within minutes: 202 means it started, and app_url opens the project's prompts. The MCP tool import_peec_export takes the same file through the MCP files extension. Requires a `read_write` scope API key and, for team members, create access to Prompts.
-
-### Examples
-
-```ruby
-require 'time'
-require 'llmpulse'
-# setup authorization
-LLMPulse.configure do |config|
-  # Configure Bearer authorization: BearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = LLMPulse::PromptsApi.new
-project_id = 56 # Integer | 
-file = File.new('/path/to/some/file') # File | The answers export of Peec AI, a CSV of up to 8 MB and 20,000 answers
-
-begin
-  # Import a Peec AI export
-  result = api_instance.import_peec_export(project_id, file)
-  p result
-rescue LLMPulse::ApiError => e
-  puts "Error when calling PromptsApi->import_peec_export: #{e}"
-end
-```
-
-#### Using the import_peec_export_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<PeecExportImportResponse>, Integer, Hash)> import_peec_export_with_http_info(project_id, file)
-
-```ruby
-begin
-  # Import a Peec AI export
-  data, status_code, headers = api_instance.import_peec_export_with_http_info(project_id, file)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <PeecExportImportResponse>
-rescue LLMPulse::ApiError => e
-  puts "Error when calling PromptsApi->import_peec_export_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **project_id** | **Integer** |  |  |
-| **file** | **File** | The answers export of Peec AI, a CSV of up to 8 MB and 20,000 answers |  |
-
-### Return type
-
-[**PeecExportImportResponse**](PeecExportImportResponse.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 
